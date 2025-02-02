@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c3lfyn8ocj30e"
+path="res://.godot/imported/Mushroom.obj-c99bbaa4460c555c513b1c14b96dbdeb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Mushroom.obj-c99bbaa4460c555c513b1c14b96dbdeb.mesh"]
+
+source_file="res://Source Meshes/Meshes/PC Computer - Overcooked - Mushroom/Mushroom.obj"
+dest_files=["res://.godot/imported/Mushroom.obj-c99bbaa4460c555c513b1c14b96dbdeb.mesh", "res://.godot/imported/Mushroom.obj-c99bbaa4460c555c513b1c14b96dbdeb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

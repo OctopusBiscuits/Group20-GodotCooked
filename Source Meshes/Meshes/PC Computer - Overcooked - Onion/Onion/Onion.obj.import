@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://83t4af4a1ecg"
+path="res://.godot/imported/Onion.obj-5f2642a6c6c207ee772fbafab1072e45.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Onion.obj-5f2642a6c6c207ee772fbafab1072e45.mesh"]
+
+source_file="res://Source Meshes/Meshes/PC Computer - Overcooked - Onion/Onion/Onion.obj"
+dest_files=["res://.godot/imported/Onion.obj-5f2642a6c6c207ee772fbafab1072e45.mesh", "res://.godot/imported/Onion.obj-5f2642a6c6c207ee772fbafab1072e45.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
