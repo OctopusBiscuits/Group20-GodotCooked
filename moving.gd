@@ -39,8 +39,8 @@ func _physics_process(delta):
 	
 	if direction:
 		last_direction = direction
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		velocity.x = direction.x * speed * -1
+		velocity.z = direction.z * speed * -1
 		
 	
 	
