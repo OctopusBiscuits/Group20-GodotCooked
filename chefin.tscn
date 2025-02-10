@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://dgj2bbfi5p3wr"]
+[gd_scene load_steps=16 format=4 uid="uid://dgj2bbfi5p3wr"]
 
-[ext_resource type="PackedScene" uid="uid://cp2xodqlgui3a" path="res://Undercooked/chef/chef/ChefTest1.FBX" id="1_t3oat"]
+[ext_resource type="PackedScene" uid="uid://cp2xodqlgui3a" path="res://chef/chef/ChefTest1.FBX" id="1_t3oat"]
 [ext_resource type="Script" path="res://character_body_3d.gd" id="2_80p06"]
-[ext_resource type="PackedScene" uid="uid://dvivnflb5ctpb" path="res://the kit/dungeon scenery/floor_dirt_large.gltf" id="3_1rcg3"]
 [ext_resource type="Material" uid="uid://bvlech52wu7p2" path="res://Undercooked/chef/chef/M_ChefHat.tres" id="4_pxuil"]
 [ext_resource type="Material" uid="uid://dlhhs7oql4wxm" path="res://Undercooked/chef/chef/M_ChefHead.tres" id="5_y7q8x"]
 [ext_resource type="Material" uid="uid://b7ptdivynlm33" path="res://Undercooked/chef/chef/M_ChefFaceHair.tres" id="6_ggujf"]
@@ -173,10 +172,7 @@ libraries = {
 "moving": SubResource("AnimationLibrary_wjqkq")
 }
 
-[node name="floor_dirt_large2" parent="." index="2" instance=ExtResource("3_1rcg3")]
-transform = Transform3D(12.5538, 0, 0, 0, 1, 0, 0, 0, 5.17022, -0.016456, 0, 0.269858)
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="3"]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="2"]
 transform = Transform3D(-0.999173, 0, -0.0406721, 0, 1, 0, 0.0406721, 0, -0.999173, 0, 0, 0)
 script = ExtResource("2_80p06")
 
@@ -191,11 +187,8 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 mesh = SubResource("ArrayMesh_nu8ym")
 skeleton = NodePath("")
 
-[node name="Marker3D" type="Marker3D" parent="." index="4"]
+[node name="Marker3D" type="Marker3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 0.873772, 0.486335, 0, -0.486335, 0.873772, 0.582506, 3.8015, 8.20425)
 
 [node name="Camera3D" type="Camera3D" parent="Marker3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 0.908275, 0.418374, 0, -0.418374, 0.908275, 0.302797, 3.71941, 6.83757)
