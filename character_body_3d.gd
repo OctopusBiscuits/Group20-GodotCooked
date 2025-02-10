@@ -26,11 +26,11 @@ func inpuut(event):
 				$dash_window.start()
 func _physics_process(delta):
 	var directional_input = Input.get_vector("left", "right", "forward", "back",)
-	#if !$dash_window.is_stopped():
-	#	speed=20
-	#else:
-	#	speed =10
-	speed = 10
+	if !$dash_window.is_stopped():
+		speed=20
+	else:
+		speed =10
+	
 	direction = (transform.basis * Vector3(directional_input.x, 0, directional_input.y)).normalized()
 	
 	if direction:
