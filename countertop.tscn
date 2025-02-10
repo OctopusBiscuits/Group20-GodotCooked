@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bupvmbk3r352o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ce8re"]
+albedo_color = Color(1, 0.470588, 0.109804, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4q0tw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wx6d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bs7h2"]
+albedo_color = Color(1, 0.741176, 0.109804, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h1x6f"]
+material = SubResource("StandardMaterial3D_bs7h2")
+
+[node name="Countertop" type="Node3D"]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+gravity_scale = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+material_override = SubResource("StandardMaterial3D_ce8re")
+mesh = SubResource("BoxMesh_4q0tw")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_5wx6d")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0.50451, 0)
+mesh = SubResource("PlaneMesh_h1x6f")

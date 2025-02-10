@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://csq1um27id5rc"]
 
-[ext_resource type="PackedScene" uid="uid://cp2xodqlgui3a" path="res://chef/chef/ChefTest1.FBX" id="1_5bf04"]
+[ext_resource type="PackedScene" uid="uid://cp2xodqlgui3a" path="res://Undercooked/chef/chef/ChefTest1.FBX" id="1_5bf04"]
 [ext_resource type="PackedScene" uid="uid://dvivnflb5ctpb" path="res://the kit/dungeon scenery/floor_dirt_large.gltf" id="2_ml77q"]
 
 [sub_resource type="Animation" id="Animation_n3e2q"]
