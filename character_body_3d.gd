@@ -12,7 +12,8 @@ var direction=Vector3.ZERO
 
 
 
-
+func _ready():
+	add_to_group("player")
 
 func inpuut(event):
 	if !$AnimationTree.get("parameters/conditions/roll"):

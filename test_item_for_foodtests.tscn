@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4fsw3u01d2a"]
+
+[ext_resource type="Script" path="res://test_item_for_foodtests.gd" id="1_rmc8w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_atm1e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kaa4x"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("1_rmc8w")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+gravity_scale = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_atm1e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_kaa4x")

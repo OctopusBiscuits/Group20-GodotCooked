@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cieafi3xrydiu"]
+[gd_scene load_steps=6 format=3 uid="uid://cieafi3xrydiu"]
 
 [ext_resource type="PackedScene" uid="uid://dvivnflb5ctpb" path="res://the kit/dungeon scenery/floor_dirt_large.gltf" id="1_8uyu4"]
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_sjslj"]
 [ext_resource type="PackedScene" uid="uid://vlariurktc12" path="res://the kit/dungeon scenery/wall.gltf" id="2_75wtd"]
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="3_bswhx"]
+[ext_resource type="PackedScene" uid="uid://d4fsw3u01d2a" path="res://test_item_for_foodtests.tscn" id="5_314ii"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -159,3 +160,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91735, 0.236856, -4.87964)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.767165, 0.64145, 0, -0.64145, 0.767165, -9.41196, 4.37214, -1.25272)
+
+[node name="Node3D" parent="." instance=ExtResource("5_314ii")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -4.56432, 0.767672, -5.19991)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -5.86577, 2.77797, 0.136968)
