@@ -8,8 +8,8 @@ var target_color = Color(1, 0, 0)
 
 func _ready() -> void:
 	# Connect the signal for when the player enters the area
-	connect("body_entered", "Callable", "_on_body_entered")
-
+	#connect("body_entered", "Callable", "_on_body_entered")
+	pass;
 # Function that will run when the player enters the area
 func _on_body_entered(body):
 	if body.is_in_group("player"):  # Make sure the body is the player
