@@ -1,17 +1,18 @@
+class_name BaseCharacter
 extends CharacterBody3D
-
 # How fast the player moves in meters per second.
-@export var speed =5
+@export var speed = 2
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
 @export var rotation_speed = 10
-
 var last_direction = Vector3.FORWARD
 var target_velocity = Vector3.ZERO
-var dash_speed = 20
+var dash_speed = 10
 var direction=Vector3.ZERO
-@onready var anim_tree = $AnimationPlayer/AnimationTree
-@onready var anim_state = $AnimationPlayer/AnimationTree.get("parameters/playback")
+
+
+
+
 
 func inpuut(event):
 	if !$AnimationTree.get("parameters/conditions/roll"):
@@ -23,25 +24,19 @@ func inpuut(event):
 				$AnimationTree.set("parameters/conditions/roll", true)
 				
 				$dash_window.start()
-
-
-
-
-
-
 func _physics_process(delta):
 	var directional_input = Input.get_vector("left", "right", "forward", "back",)
 	if !$dash_window.is_stopped():
 		speed=20
 	else:
-		speed =5
+		speed =10
 	
 	direction = (transform.basis * Vector3(directional_input.x, 0, directional_input.y)).normalized()
 	
 	if direction:
 		last_direction = direction
-		velocity.x = direction.x * speed * -1
-		velocity.z = direction.z * speed * -1
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
 		
 	
 	
@@ -51,8 +46,8 @@ func _physics_process(delta):
 	
 	
 	
-	$Rig.rotation.y = lerp_angle($Rig.rotation.y, atan2(-last_direction.x, -last_direction.z), delta * rotation_speed)
-	anim_tree.set("parameters/moving/blend_position", Vector2(velocity.x,velocity.z)/ speed)
+	$ChefTest1.rotation.y = lerp_angle($ChefTest1.rotation.y, atan2(-last_direction.x, -last_direction.z), delta * rotation_speed)
+	
 	#dash that doesnt work it registers the input but just tposes
 	#if Input.is_action_pressed("dash"):
 		#anim_state.travel("parameters/moving/roll/blend_position")
@@ -69,7 +64,7 @@ func _physics_process(delta):
 		if !$dash_window.is_stopped():
 			velocity=direction*dash_speed
 			$dash_window.stop()
-			anim_tree.set("playback/moving/roll/active", true)
+			
 
 
 
@@ -83,5 +78,4 @@ func _physics_process(delta):
 
 	# Moving the Character
 	velocity = target_velocity
-
 	move_and_slide()
