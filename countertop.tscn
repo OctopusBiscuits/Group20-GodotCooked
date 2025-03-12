@@ -1,19 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bupvmbk3r352o"]
+[gd_scene load_steps=6 format=3 uid="uid://bupvmbk3r352o"]
 
 [ext_resource type="Script" path="res://testScriptOne.gd" id="1_g40jj"]
+[ext_resource type="PackedScene" uid="uid://0qoubuffgca8" path="res://Godot game/Counters/Counter 1.blend" id="2_3v8sl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ce8re"]
 albedo_color = Color(1, 0.470588, 0.109804, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4q0tw"]
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_n41gk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wx6d"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bs7h2"]
-albedo_color = Color(1, 0.741176, 0.109804, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_h1x6f"]
-material = SubResource("StandardMaterial3D_bs7h2")
 
 [node name="Countertop" type="Node3D"]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -22,14 +17,14 @@ transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 gravity_scale = 0.0
 script = ExtResource("1_g40jj")
 
+[node name="Counter 1" parent="RigidBody3D" instance=ExtResource("2_3v8sl")]
+transform = Transform3D(0.49, 0, 0, 0, 0.49, 0, 0, 0, 0.49, 0, 0.47893, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0335877, 0)
 material_override = SubResource("StandardMaterial3D_ce8re")
-mesh = SubResource("BoxMesh_4q0tw")
+mesh = SubResource("PlaceholderMesh_n41gk")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_5wx6d")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0.50451, 0)
-mesh = SubResource("PlaneMesh_h1x6f")
