@@ -33,7 +33,7 @@ func _physics_process(delta):
 		speed =10
 	
 	direction = (transform.basis * Vector3(directional_input.x, 0, directional_input.y)).normalized()
-	
+	velocity.y = 0
 	if direction:
 		last_direction = direction
 		velocity.x = direction.x * speed
@@ -80,3 +80,19 @@ func _physics_process(delta):
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
+func _on_area_3d_body_entered(body):
+	print("Debug 12345")
+	if (getPickups(body)):
+		print("Its in there")
+	print(body.name)
+
+func getPickups(body):
+	var groupMembers = get_tree().get_nodes_in_group("PickUps")
+	for a in groupMembers:
+		if a == body:
+			print("Found it")
+			return true;
+	print("Didn't find it")
+	return false;
+		
+		

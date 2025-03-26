@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dgj2bbfi5p3wr"]
+[gd_scene load_steps=18 format=4 uid="uid://dgj2bbfi5p3wr"]
 
 [ext_resource type="PackedScene" uid="uid://cp2xodqlgui3a" path="res://Undercooked/chef/chef/ChefTest1.FBX" id="1_t3oat"]
 [ext_resource type="Script" uid="uid://cx3jfwraxe0vx" path="res://character_body_3d.gd" id="2_80p06"]
@@ -160,6 +160,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_skuy3")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xjgxh"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_680k4"]
+
 [node name="chef" instance=ExtResource("1_t3oat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.236856, 0)
 
@@ -175,6 +180,7 @@ libraries = {
 [node name="Little Fella" type="CharacterBody3D" parent="." index="2"]
 transform = Transform3D(-0.999173, 0, -0.0406721, 0, 1, 0, 0.0406721, 0, -0.999173, 0, 0, 0)
 script = ExtResource("2_80p06")
+fall_acceleration = 5
 
 [node name="pivot" type="CollisionShape3D" parent="Little Fella" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.758898, 0)
@@ -187,5 +193,20 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 mesh = SubResource("ArrayMesh_nu8ym")
 skeleton = NodePath("")
 
+[node name="Area3D" type="Area3D" parent="Little Fella" index="3"]
+transform = Transform3D(1.4, 0, -7.45058e-09, 0, 1.4, 0, 7.45058e-09, 0, 1.4, -0.00137876, -0.391106, 0.0338714)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Little Fella/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816073, 0)
+shape = SubResource("BoxShape3D_xjgxh")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Little Fella" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Little Fella/RigidBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_680k4")
+
 [node name="Marker3D" type="Marker3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 0.873772, 0.486335, 0, -0.486335, 0.873772, 0.582506, 3.8015, 8.20425)
+
+[connection signal="body_entered" from="Little Fella/Area3D" to="Little Fella" method="_on_area_3d_body_entered"]
