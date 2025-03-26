@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=4 uid="uid://0pxd3sw37if1"]
 
-[ext_resource type="Script" path="res://character_body_3d.gd" id="1_opelj"]
+[ext_resource type="Script" uid="uid://cx3jfwraxe0vx" path="res://character_body_3d.gd" id="1_opelj"]
 [ext_resource type="Material" uid="uid://bvlech52wu7p2" path="res://Undercooked/chef/chef/M_ChefHat.tres" id="2_ab84m"]
 [ext_resource type="Material" uid="uid://dlhhs7oql4wxm" path="res://Undercooked/chef/chef/M_ChefHead.tres" id="3_bbkok"]
 [ext_resource type="Material" uid="uid://b7ptdivynlm33" path="res://Undercooked/chef/chef/M_ChefFaceHair.tres" id="4_uy0qs"]
@@ -15,7 +15,7 @@ length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_klivg"]
 _data = {
-"Unreal Take": SubResource("Animation_n3e2q")
+&"Unreal Take": SubResource("Animation_n3e2q")
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hws38"]

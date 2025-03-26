@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d4fsw3u01d2a"]
 
-[ext_resource type="Script" path="res://test_item_for_foodtests.gd" id="1_rmc8w"]
+[ext_resource type="Script" uid="uid://b3v7ibcikhuoh" path="res://test_item_for_foodtests.gd" id="1_rmc8w"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_atm1e"]
 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://id4cmgy0jk3j"]
+
+[ext_resource type="PackedScene" uid="uid://dw3cbpjb8ssd0" path="res://NEW ASSETS/Assorted/oven.fbx" id="1_srymx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uqd8t"]
+size = Vector3(1.05957, 0.989502, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1.98155, 0, 0, 0, 2.02224, 0, 0, 0, 2.00185, 0.0534608, 0.0116768, -0.00459957)
+shape = SubResource("BoxShape3D_uqd8t")
+
+[node name="oven" parent="StaticBody3D" instance=ExtResource("1_srymx")]

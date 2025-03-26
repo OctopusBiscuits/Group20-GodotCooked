@@ -9,7 +9,7 @@ length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_klivg"]
 _data = {
-"Unreal Take": SubResource("Animation_n3e2q")
+&"Unreal Take": SubResource("Animation_n3e2q")
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hws38"]

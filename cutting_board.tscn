@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://83eq6sj608f"]
 
-[ext_resource type="Script" path="res://cutting_board.gd" id="1_hspea"]
+[ext_resource type="Script" uid="uid://doadd2pylmgce" path="res://cutting_board.gd" id="1_hspea"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xv4wb"]
 
