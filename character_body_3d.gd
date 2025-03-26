@@ -8,9 +8,8 @@ var last_direction = Vector3.FORWARD
 var target_velocity = Vector3.ZERO
 var dash_speed = 20
 var direction=Vector3.ZERO
-
-
-
+var objectPickedUp = false
+var objectInHand = null 
 
 func _ready():
 	add_to_group("player")
@@ -80,6 +79,10 @@ func _physics_process(delta):
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
+	
+func pick_up_object(object: Node):
+	objectInHand = object
+"""
 func _on_area_3d_body_entered(body):
 	print("Debug 12345")
 	if (getPickups(body)):
@@ -95,4 +98,5 @@ func getPickups(body):
 	print("Didn't find it")
 	return false;
 		
-		
+
+"""

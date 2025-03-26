@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcjox8lj278cd"
-path.s3tc="res://.godot/imported/barbarian_texture.png-623b42d767890b33809aea213786e3c6.s3tc.ctex"
+uid="uid://ee3bvieltmj8"
+path="res://.godot/imported/dungeon_texture.png-3420d3bf6b84a4b80ab0418b6cad31d8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://the kit/assets/barbarian_texture.png"
-dest_files=["res://.godot/imported/barbarian_texture.png-623b42d767890b33809aea213786e3c6.s3tc.ctex"]
+source_file="res://the kit/dungeon scenery/dungeon_texture.png"
+dest_files=["res://.godot/imported/dungeon_texture.png-3420d3bf6b84a4b80ab0418b6cad31d8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

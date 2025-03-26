@@ -3,6 +3,7 @@ extends Node3D
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Little Fella":
-		#print("Test")
-		pass
+		if body.objectInHand != null:
+			print("This could work")
+		
 		

@@ -165,18 +165,16 @@ transform = Transform3D(1, 0, 0, 0, 0.767165, 0.64145, 0, -0.64145, 0.767165, -9
 [node name="Cutting_Board" parent="." instance=ExtResource("5_r48my")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91823, 0.805739, -14.6807)
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, -8.893, -1.11917, -4.896)
+[node name="The Floor" type="Node3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, -8.893, -0.0243194, -4.896)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="The Floor"]
 mesh = SubResource("BoxMesh_c3yrm")
 
-[node name="floor" type="RigidBody3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000165403, 0.0994234, -3.51258e-05)
-gravity_scale = 0.0
+[node name="StaticBody3D" type="StaticBody3D" parent="The Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/floor"]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="The Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000165403, -0.14874, -3.5122e-05)
 shape = SubResource("BoxShape3D_nydfx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -184,3 +182,6 @@ transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 
 
 [node name="Node3D2" parent="." instance=ExtResource("5_iv57s")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -12.0454, -0.251076, -4.88729)
+
+[node name="Node3D3" parent="." instance=ExtResource("5_iv57s")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -9.42476, -0.251076, -10.4724)

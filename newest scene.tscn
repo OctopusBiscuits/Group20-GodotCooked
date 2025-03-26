@@ -18,8 +18,8 @@ _data = {
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_klivg"),
-"idle": SubResource("AnimationLibrary_hws38")
+&"": SubResource("AnimationLibrary_klivg"),
+&"idle": SubResource("AnimationLibrary_hws38")
 }
 
 [node name="floor_dirt_large6" parent="." index="2" instance=ExtResource("2_ml77q")]
