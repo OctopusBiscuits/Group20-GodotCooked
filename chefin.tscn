@@ -177,7 +177,7 @@ libraries = {
 &"moving": SubResource("AnimationLibrary_wjqkq")
 }
 
-[node name="Little Fella" type="CharacterBody3D" parent="." index="2"]
+[node name="Little Fella" type="CharacterBody3D" parent="." index="2" groups=["Player1"]]
 transform = Transform3D(-0.999173, 0, -0.0406721, 0, 1, 0, 0.0406721, 0, -0.999173, 0, 0, 0)
 script = ExtResource("2_80p06")
 fall_acceleration = 5

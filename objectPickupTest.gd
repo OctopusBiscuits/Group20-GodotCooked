@@ -3,7 +3,10 @@ var picked_up = false
 var player : Node
 var in_range = false
 func _ready():
-	player = get_tree().find_object_in_group("Player1")
+	var players = get_tree().get_nodes_in_group("Player1")
+	if players.size() > 0:
+		player = players[0]  # Assuming you want the first player in the group
+
 
 func _on_area_3d_body_entered(body):
 	
@@ -29,9 +32,12 @@ func _physics_process(delta):
 			if player != null:  # Ensure player is valid before accessing its properties
 				if player.currentCounterTop != null:
 					print("Placeholder")
-					reparent(player.currentCounterTop)
+					
 					picked_up = false
-					self.position = player.currentCounterTop.position
+					self.global_position = player.currentCounterTop.global_position
+					reparent(player.currentCounterTop)
+					print(self.position)
+					print(player.currentCounterTop.position)
 				else:
 					print("Error: currentCounterTop is null")
 			else:
