@@ -156,7 +156,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.211887, -0.0517972, 1.5936
 [node name="wall3" parent="." instance=ExtResource("2_75wtd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135155, -0.0938553, -1.89702)
 
-[node name="chef" parent="." instance=ExtResource("3_bswhx")]
+[node name="chef" parent="." groups=["Player", "Player1"] instance=ExtResource("3_bswhx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91735, 1.71135, -4.87964)
 
 [node name="Camera3D" type="Camera3D" parent="."]

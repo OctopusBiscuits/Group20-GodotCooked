@@ -10,7 +10,9 @@ var dash_speed = 20
 var direction=Vector3.ZERO
 var objectPickedUp = false
 var objectInHand = null 
-
+var counterTopsTouching = 0
+var currentCounterTop: Node = null 
+var counterTopPosition = null
 func _ready():
 	add_to_group("player")
 
@@ -30,7 +32,10 @@ func _physics_process(delta):
 		speed=20
 	else:
 		speed =10
-	
+	#print(currentCounterTop)
+	if (currentCounterTop):
+		
+		counterTopPosition = currentCounterTop.position 
 	direction = (transform.basis * Vector3(directional_input.x, 0, directional_input.y)).normalized()
 	velocity.y = 0
 	if direction:
