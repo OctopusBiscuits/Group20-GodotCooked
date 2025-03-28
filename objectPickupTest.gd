@@ -2,6 +2,7 @@ extends RigidBody3D
 var picked_up = false
 var player : Node
 var in_range = false
+var onCounterTop = false
 func _ready():
 	var players = get_tree().get_nodes_in_group("Player1")
 	if players.size() > 0:
@@ -34,16 +35,20 @@ func _physics_process(delta):
 					print("Placeholder")
 					
 					picked_up = false
+					var temp = player.currentCounterTop as Countertop
 					self.global_position = player.currentCounterTop.global_position
+					temp._changeItemOnCounterTop()
+					temp._setItemOnCounterTop(self)
 					reparent(player.currentCounterTop)
 					print(self.position)
 					print(player.currentCounterTop.position)
+					onCounterTop = true
 				else:
 					print("Error: currentCounterTop is null")
 			else:
 				print("Player is null")
 			
-			
+		#Drop item
 		elif Input.is_action_just_pressed("Toggle Pickup"):
 			picked_up = false
 			player.objectPickedUp = false
@@ -51,7 +56,8 @@ func _physics_process(delta):
 			reparent(get_tree().current_scene)
 			player = null
 		#print("Player")
-	elif in_range and player.objectPickedUp == false:
+	#This is for when item is on floor (not on countertop) - pick it up
+	elif in_range and player.objectPickedUp == false and onCounterTop == false:
 		if Input.is_action_just_pressed("Toggle Pickup"):
 			player.objectPickedUp = true
 			picked_up = true
@@ -60,7 +66,13 @@ func _physics_process(delta):
 			#freeze = true
 			reparent(player)
 			print("Picked up??????")
-
+	elif player!= null:
+		if (player.currentCounterTop != null) and onCounterTop == true:
+			if (Input.is_action_just_pressed("Toggle Pickup")):
+				player.objectPickedUp = true
+				picked_up = true
+				player.objectInHand = self
+				reparent(player)
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.name == "Little Fella":

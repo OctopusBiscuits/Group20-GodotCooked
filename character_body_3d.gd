@@ -11,7 +11,7 @@ var direction=Vector3.ZERO
 var objectPickedUp = false
 var objectInHand = null 
 var counterTopsTouching = 0
-var currentCounterTop: Node = null 
+var currentCounterTop: Node3D = null 
 var counterTopPosition = null
 func _ready():
 	add_to_group("player")
