@@ -3,6 +3,10 @@ var picked_up = false
 var player : Node
 var in_range = false
 var onCounterTop = false
+@export var itemName : String
+@export var cuttable : bool
+
+
 func _ready():
 	var players = get_tree().get_nodes_in_group("Player1")
 	if players.size() > 0:

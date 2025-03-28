@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cieafi3xrydiu"]
+[gd_scene load_steps=9 format=3 uid="uid://cieafi3xrydiu"]
 
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_sjslj"]
 [ext_resource type="PackedScene" uid="uid://vlariurktc12" path="res://the kit/dungeon scenery/wall.gltf" id="2_75wtd"]
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="3_bswhx"]
 [ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="5_iv57s"]
 [ext_resource type="PackedScene" uid="uid://83eq6sj608f" path="res://cutting_board.tscn" id="5_r48my"]
+[ext_resource type="PackedScene" uid="uid://cqmq1wn75vq7s" path="res://uncut_onion.tscn" id="6_0ptwd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c3yrm"]
 
@@ -185,3 +186,6 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -12.0454, -0.251076, -4
 
 [node name="Node3D3" parent="." instance=ExtResource("5_iv57s")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -9.42476, -0.251076, -10.4724)
+
+[node name="Uncut Onion" parent="." instance=ExtResource("6_0ptwd")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -10.1309, 0.471891, -4.58897)

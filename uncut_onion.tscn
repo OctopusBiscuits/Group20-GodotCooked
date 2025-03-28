@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqmq1wn75vq7s"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_1u07q"]
+[ext_resource type="ArrayMesh" uid="uid://83t4af4a1ecg" path="res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Onion/Onion/Onion.obj" id="2_lta46"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_130vy"]
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_mttu6"]
+
+[node name="Uncut Onion" instance=ExtResource("1_1u07q")]
+
+[node name="test" parent="." index="0"]
+itemName = "Uncut Onion"
+
+[node name="CollisionShape3D" parent="test/PickUpArea3D" index="0"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.51761, 0)
+shape = SubResource("BoxShape3D_130vy")
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+mesh = SubResource("PlaceholderMesh_mttu6")
+
+[node name="Onion" type="MeshInstance3D" parent="test/PickUpArea3D" index="2"]
+mesh = ExtResource("2_lta46")
