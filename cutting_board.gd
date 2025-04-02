@@ -16,7 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"): #Left click is called attack
 		count = count - 1
-		print(count)
+		#print(count)
 	if count == 0:
 		handle_object(uncut_onion)
 func handle_object(input_object: Node) -> Node:

@@ -3,6 +3,7 @@ var picked_up = false
 var player : Node
 var in_range = false
 var onCounterTop = false
+@export var cutsNeeded = 0
 @export var itemName : String
 @export var cuttable : bool
 
@@ -44,6 +45,7 @@ func _physics_process(delta):
 					temp._changeItemOnCounterTop()
 					temp._setItemOnCounterTop(self)
 					reparent(player.currentCounterTop)
+					self.position.y += 0.5
 					print(self.position)
 					print(player.currentCounterTop.position)
 					onCounterTop = true

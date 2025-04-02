@@ -36,14 +36,13 @@ func _physics_process(delta):
 	if (currentCounterTop):
 		
 		counterTopPosition = currentCounterTop.position 
+		
 	direction = (transform.basis * Vector3(directional_input.x, 0, directional_input.y)).normalized()
 	velocity.y = 0
 	if direction:
 		last_direction = direction
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-		
-	
 	
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
