@@ -10,6 +10,12 @@
 script = ExtResource("1_hspea")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]

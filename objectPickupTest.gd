@@ -3,6 +3,7 @@ var picked_up = false
 var player : Node
 var in_range = false
 var onCounterTop = false
+var direction
 @export var cutsNeeded = 0
 @export var itemName : String
 @export var cuttable : bool
@@ -11,6 +12,7 @@ var onCounterTop = false
 func _ready():
 	var players = get_tree().get_nodes_in_group("Player1")
 	if players.size() > 0:
+		print("hi")
 		player = players[0]  # Assuming you want the first player in the group
 
 
@@ -68,6 +70,15 @@ func _physics_process(delta):
 			
 			reparent(get_tree().current_scene)
 			player = null
+	if Input.is_action_just_pressed("throw") and player != null and picked_up == true:
+		print("throw")
+		picked_up = false
+		if (self.is_inside_tree()):
+			var main = get_tree().current_scene
+			reparent(main)
+			player.objectPickedUp = false
+			direction = player.transform.basis.z
+			self.linear_velocity = direction * 10
 		#print("Player")
 	#This is for when item is on floor (not on countertop) - pick it up
 	elif in_range and player.objectPickedUp == false and onCounterTop == false:

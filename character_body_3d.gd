@@ -40,7 +40,7 @@ func _physics_process(delta):
 		#print(currentCounterTop.itemHeldOnCountertop)
 		
 	direction = (transform.basis * Vector3(directional_input.x, 0, directional_input.y)).normalized()
-	velocity.y = 0
+	position.y = 0
 	if direction:
 		last_direction = direction
 		velocity.x = direction.x * speed
@@ -79,8 +79,8 @@ func _physics_process(delta):
 	target_velocity.z = direction.z * speed
 
 	# Vertical Velocity
-	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
-		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
+	#if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
+		#target_velocity.y = target_velocity.y - (fall_acceleration * delta)
 
 	# Moving the Character
 	velocity = target_velocity

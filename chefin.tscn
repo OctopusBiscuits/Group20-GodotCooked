@@ -178,7 +178,8 @@ libraries = {
 }
 
 [node name="Little Fella" type="CharacterBody3D" parent="." index="2" groups=["Player1"]]
-transform = Transform3D(-0.999173, 0, -0.0406721, 0, 1, 0, 0.0406721, 0, -0.999173, 0, 0, 0)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.000596046, 0, -0.00403571)
+safe_margin = 0.15
 script = ExtResource("2_80p06")
 fall_acceleration = 5
 
@@ -207,6 +208,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_680k4")
 
 [node name="Marker3D" type="Marker3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.873772, 0.486335, 0, -0.486335, 0.873772, 0.582506, 3.8015, 8.20425)
+transform = Transform3D(1, 0, 0, 0, 0.873772, 0.486335, 0, -0.486335, 0.873772, 0, 0.487695, 0)
 
 [connection signal="body_entered" from="Little Fella/Area3D" to="Little Fella" method="_on_area_3d_body_entered"]
