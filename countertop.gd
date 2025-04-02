@@ -4,10 +4,12 @@ var itemOnCounterTop : bool = false
 var itemHeldOnCounterTop : Node
 
 @export var cut_onion : PackedScene
+#To cut more objects - make their scenes and add them here. Make an inherited scene from pickUpObject and add the relevenat blender file. Then name the scene
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Little Fella":
 		if body.counterTopsTouching == 0:
 			print("This could work")
+			print(itemHeldOnCounterTop)
 			body.currentCounterTop = self
 		body.counterTopsTouching += 1
 func _changeItemOnCounterTop() -> void:
@@ -22,17 +24,27 @@ func _physics_process(delta):
 	if itemHeldOnCounterTop != null:
 		#print("Something is on me")
 		#print(itemHeldOnCounterTop.cuttable)
-		if itemHeldOnCounterTop.cuttable and Input.is_action_just_pressed("attack"):
+		#print(itemHeldOnCounterTop.name)
+		if Input.is_action_just_pressed("attack"):
 			#print(itemHeldOnCounterTop.cutsNeeded)
-			if itemHeldOnCounterTop.cutsNeeded > 0 :
+			if itemHeldOnCounterTop.cutsNeeded > 0 and itemHeldOnCounterTop.cuttable :
 				itemHeldOnCounterTop.cutsNeeded -= 1
 				if itemHeldOnCounterTop.cutsNeeded == 0:
-					if itemHeldOnCounterTop.itemName == "Uncut Onion":
-						print("Test")
+					if itemHeldOnCounterTop.itemName == "Uncut Onion": #Copy this for other objects
+						#print("Test")
 						var itemPos = itemHeldOnCounterTop.global_position
 						itemHeldOnCounterTop.queue_free()
 						var newItem = cut_onion.instantiate()
-						newItem.position = itemPos
+						add_child(newItem)
+						newItem.global_position = itemPos
+						#newItem.global_position.y += 1
+						print(newItem.position)
+						#print(newItem)
+						newItem.reparent(self)
+						itemHeldOnCounterTop = newItem.get_child(0)
+						itemHeldOnCounterTop.onCounterTop = true
+						print("switch happened")
+						
 						
 		pass
 

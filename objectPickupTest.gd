@@ -26,6 +26,7 @@ func _on_area_3d_body_entered(body):
 		print("Picked up??????")
 	"""
 	if body.name == "Little Fella":
+		print("in range to be picked up")
 		in_range = true
 		#player = body
 func _physics_process(delta):
@@ -49,8 +50,14 @@ func _physics_process(delta):
 					print(self.position)
 					print(player.currentCounterTop.position)
 					onCounterTop = true
-				else:
+				else: #place it on the floor
 					print("Error: currentCounterTop is null")
+					picked_up = false
+					if (self.is_inside_tree()):
+						var main = get_tree().current_scene
+						reparent(main)
+						player.objectPickedUp = false
+						
 			else:
 				print("Player is null")
 			
@@ -72,6 +79,7 @@ func _physics_process(delta):
 			#freeze = true
 			reparent(player)
 			print("Picked up??????")
+	#This is for when item is on countertop and you try to pick it up
 	elif player!= null:
 		if (player.currentCounterTop != null) and onCounterTop == true:
 			if (Input.is_action_just_pressed("Toggle Pickup")):
