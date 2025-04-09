@@ -35,7 +35,7 @@ func _physics_process(delta):
 	if picked_up:
 		#global_transform.origin = player.global_transform.origin + Vector3(0, 1, 0)
 		
-		#This is if player is next to a countertop and is holding an item (Place it on counter top)
+		#This is if player is holding an object 
 		if Input.is_action_just_pressed("Toggle Pickup") and player != null:
 			if player != null:  # Ensure player is valid before accessing its properties
 				if player.currentCounterTop != null and player.currentCounterTop._getItemOnCounterTop() == false:
@@ -57,7 +57,7 @@ func _physics_process(delta):
 					onCounterTop = true
 					player.objectPickedUp = false
 				else: #place it on the floor
-					print("Error: currentCounterTop is null")
+					
 					picked_up = false
 					if (self.is_inside_tree()):
 						var main = get_tree().current_scene
