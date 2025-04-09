@@ -6,8 +6,9 @@ var onCounterTop = false
 @export var cutsNeeded = 0
 @export var itemName : String
 @export var cuttable : bool
-
-
+@export var canHoldAnObject : bool #This will be false for food and true for pans/plates etc
+@export var holdingAnObject : bool
+@export var objectBeingHeld : PackedScene
 func _ready():
 	var players = get_tree().get_nodes_in_group("Player1")
 	if players.size() > 0:
@@ -37,9 +38,13 @@ func _physics_process(delta):
 		#This is if player is next to a countertop and is holding an item (Place it on counter top)
 		if Input.is_action_just_pressed("Toggle Pickup") and player != null:
 			if player != null:  # Ensure player is valid before accessing its properties
-				if player.currentCounterTop != null:
-					print("Placeholder")
+				if player.currentCounterTop != null and player.currentCounterTop._getItemOnCounterTop() == false:
 					
+					if player.currentCounterTop.itemName == "trash can": #delete the object if its a trash can
+						player.objectPickedUp = false
+						print("Object placed in trash can - deleting it")
+						queue_free()
+						
 					picked_up = false
 					var temp = player.currentCounterTop as Countertop
 					self.global_position = player.currentCounterTop.global_position
@@ -50,6 +55,7 @@ func _physics_process(delta):
 					print(self.position)
 					print(player.currentCounterTop.position)
 					onCounterTop = true
+					player.objectPickedUp = false
 				else: #place it on the floor
 					print("Error: currentCounterTop is null")
 					picked_up = false
@@ -79,14 +85,17 @@ func _physics_process(delta):
 			#freeze = true
 			reparent(player)
 			print("Picked up??????")
-	#This is for when item is on countertop and you try to pick it up
+	#This is for when item is on countertop - deals with picking up + putting other objects in 
 	elif player!= null:
+		#Pick item up off counter top
+		
 		if (player.currentCounterTop != null) and onCounterTop == true:
 			if (Input.is_action_just_pressed("Toggle Pickup")):
 				player.objectPickedUp = true
 				picked_up = true
 				player.objectInHand = self
 				reparent(player)
+		
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.name == "Little Fella":

@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cieafi3xrydiu"]
+[gd_scene load_steps=10 format=3 uid="uid://cieafi3xrydiu"]
 
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_sjslj"]
 [ext_resource type="PackedScene" uid="uid://vlariurktc12" path="res://the kit/dungeon scenery/wall.gltf" id="2_75wtd"]
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="3_bswhx"]
-[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="5_iv57s"]
+[ext_resource type="PackedScene" uid="uid://bltrgefklygjn" path="res://pan.tscn" id="5_flfhx"]
 [ext_resource type="PackedScene" uid="uid://83eq6sj608f" path="res://cutting_board.tscn" id="5_r48my"]
 [ext_resource type="PackedScene" uid="uid://cqmq1wn75vq7s" path="res://uncut_onion.tscn" id="6_0ptwd"]
+[ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="7_flfhx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c3yrm"]
 
@@ -178,14 +179,14 @@ mesh = SubResource("BoxMesh_c3yrm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000165403, -0.14874, -3.5122e-05)
 shape = SubResource("BoxShape3D_nydfx")
 
+[node name="pan" parent="The Floor" instance=ExtResource("5_flfhx")]
+transform = Transform3D(0.01, 0, 0, 0, 10, 0, 0, 0, 0.01, 0.0182628, 0.634953, 0.00150782)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -5.86577, 2.77797, 0.136968)
 
-[node name="Node3D2" parent="." instance=ExtResource("5_iv57s")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -12.0454, -0.251076, -4.88729)
-
-[node name="Node3D3" parent="." instance=ExtResource("5_iv57s")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -9.42476, -0.251076, -10.4724)
-
 [node name="Uncut Onion" parent="." instance=ExtResource("6_0ptwd")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -10.1309, 0.471891, -4.58897)
+
+[node name="TrashCan" parent="." instance=ExtResource("7_flfhx")]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -15.0308, 0.410756, -4.82208)
