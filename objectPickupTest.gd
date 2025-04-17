@@ -3,6 +3,7 @@ var picked_up = false
 var player : Node
 var in_range = false
 var onCounterTop = false
+var countertopThisIsCurrentlyOn : Node
 @export var cutsNeeded = 0
 @export var itemName : String
 @export var cuttable : bool
@@ -53,6 +54,7 @@ func _physics_process(delta):
 					reparent(player.currentCounterTop)
 					self.position.y += 0.5
 					print(self.position)
+					countertopThisIsCurrentlyOn = player.currentCounterTop
 					print(player.currentCounterTop.position)
 					onCounterTop = true
 					player.objectPickedUp = false
@@ -89,7 +91,7 @@ func _physics_process(delta):
 	elif player!= null:
 		#Pick item up off counter top
 		
-		if (player.currentCounterTop != null) and onCounterTop == true:
+		if (player.currentCounterTop == countertopThisIsCurrentlyOn and onCounterTop == true):
 			if (Input.is_action_just_pressed("Toggle Pickup")):
 				player.objectPickedUp = true
 				picked_up = true

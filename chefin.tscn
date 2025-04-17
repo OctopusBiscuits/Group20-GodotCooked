@@ -203,7 +203,7 @@ shape = SubResource("BoxShape3D_xjgxh")
 [node name="RigidBody3D" type="RigidBody3D" parent="Little Fella" index="4"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Little Fella/RigidBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.705172, 0)
 shape = SubResource("SphereShape3D_680k4")
 
 [node name="Marker3D" type="Marker3D" parent="." index="3"]

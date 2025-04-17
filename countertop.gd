@@ -4,8 +4,14 @@ var itemOnCounterTop : bool = false
 var itemHeldOnCounterTop : Node
 @export var itemName : StringName #This is for the object where items can be placed - eg countertop, sink or trash can
 @export var cut_onion : PackedScene
+var player : Node
 var canPlaceInObject : bool = false
 #To cut more objects - make their scenes and add them here. Make an inherited scene from pickUpObject and add the relevenat blender file. Then name the scene
+func _ready() -> void:
+	var players = get_tree().get_nodes_in_group("Player1")
+	if players.size() > 0:
+		player = players[0]
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Little Fella":
 		if body.counterTopsTouching == 0:
@@ -31,7 +37,7 @@ func _physics_process(delta):
 		#print("Something is on me")
 		#print(itemHeldOnCounterTop.cuttable)
 		#print(itemHeldOnCounterTop.name)
-		if Input.is_action_just_pressed("attack"):
+		if Input.is_action_just_pressed("attack") and player.currentCounterTop == self:
 			#print(itemHeldOnCounterTop.cutsNeeded)
 			if itemHeldOnCounterTop.cutsNeeded > 0 and itemHeldOnCounterTop.cuttable :
 				itemHeldOnCounterTop.cutsNeeded -= 1

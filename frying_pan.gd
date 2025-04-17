@@ -8,7 +8,8 @@ var onCounterTop = false
 @export var cuttable : bool
 @export var canHoldAnObject : bool #This will be false for food and true for pans/plates etc
 @export var holdingAnObject : bool
-@export var objectBeingHeld : PackedScene
+@export var objectBeingHeld : Node
+var countertopThisIsCurrentlyOn : Node
 func _ready():
 	var players = get_tree().get_nodes_in_group("Player1")
 	if players.size() > 0:
@@ -31,7 +32,7 @@ func _on_area_3d_body_entered(body):
 		in_range = true
 		#player = body
 func _physics_process(delta):
-	
+	#print(picked_up)
 	if picked_up:
 		#global_transform.origin = player.global_transform.origin + Vector3(0, 1, 0)
 		
@@ -52,7 +53,9 @@ func _physics_process(delta):
 					temp._setItemOnCounterTop(self)
 					reparent(player.currentCounterTop)
 					self.position.y += 0.5
+					player.objectPickedUp = false
 					print(self.position)
+					countertopThisIsCurrentlyOn = player.currentCounterTop
 					print(player.currentCounterTop.position)
 					onCounterTop = true
 				else: #place it on the floor
@@ -83,18 +86,31 @@ func _physics_process(delta):
 			
 			#freeze = true
 			reparent(player)
-			print("Picked up??????")
+			print("Picked up off the floor")
 	#This is for when item is on countertop - deals with picking up + putting other objects in 
 	elif player!= null:
+		#print("got past elif")
 		#Pick item up off counter top
-		
-		if (player.currentCounterTop != null) and onCounterTop == true:
+		if (countertopThisIsCurrentlyOn == player.currentCounterTop) and onCounterTop == true:
 			if (Input.is_action_just_pressed("Toggle Pickup")):
 				player.objectPickedUp = true
 				picked_up = true
 				player.objectInHand = self
 				reparent(player)
-		
+		#Put an item in this frying pan
+			if (Input.is_action_just_pressed("putInFryingPan")):
+				
+				if (player.objectPickedUp == true and player.objectInHand != self):
+					print ("It is in the frying pan")
+					player.objectPickedUp = false
+					player.objectInHand.global_position = self.global_position
+					player.objectInHand.get_parent().remove_child(player.objectInHand)
+					add_child(player.objectInHand)
+					player.objectInHand = null
+					objectBeingHeld = player.objectInHand
+					#objectBeingHeld.global_position = self.global_position
+					holdingAnObject = true
+					
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.name == "Little Fella":
