@@ -4,6 +4,7 @@ var player : Node
 var in_range = false
 var onCounterTop = false
 var countertopThisIsCurrentlyOn : Node
+var inAnObject = false
 @export var cutsNeeded = 0
 @export var itemName : String
 @export var cuttable : bool
@@ -32,7 +33,7 @@ func _on_area_3d_body_entered(body):
 		in_range = true
 		#player = body
 func _physics_process(delta):
-	
+	print(inAnObject)
 	if picked_up:
 		#global_transform.origin = player.global_transform.origin + Vector3(0, 1, 0)
 		
@@ -40,66 +41,67 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("Toggle Pickup") and player != null:
 			if player != null:  # Ensure player is valid before accessing its properties
 				if player.currentCounterTop != null and player.currentCounterTop._getItemOnCounterTop() == false:
-					
-					if player.currentCounterTop.itemName == "trash can": #delete the object if its a trash can
-						player.objectPickedUp = false
-						print("Object placed in trash can - deleting it")
-						queue_free()
-						
-					picked_up = false
-					var temp = player.currentCounterTop as Countertop
-					self.global_position = player.currentCounterTop.global_position
-					temp._changeItemOnCounterTop()
-					temp._setItemOnCounterTop(self)
-					reparent(player.currentCounterTop)
-					self.position.y += 0.5
-					print(self.position)
-					countertopThisIsCurrentlyOn = player.currentCounterTop
-					print(player.currentCounterTop.position)
-					onCounterTop = true
-					player.objectPickedUp = false
+					_putItemOnCounterTop()					
 				else: #place it on the floor
-					
-					picked_up = false
-					if (self.is_inside_tree()):
-						var main = get_tree().current_scene
-						reparent(main)
-						player.objectPickedUp = false
-						
-			else:
-				print("Player is null")
-			
-		#Drop item
-		elif Input.is_action_just_pressed("Toggle Pickup"):
-			picked_up = false
-			player.objectPickedUp = false
-			
-			reparent(get_tree().current_scene)
-			player = null
-		#print("Player")
+					_putItemOnFloor()			
+		
 	#This is for when item is on floor (not on countertop) - pick it up
 	elif in_range and player.objectPickedUp == false and onCounterTop == false:
 		if Input.is_action_just_pressed("Toggle Pickup"):
-			player.objectPickedUp = true
-			picked_up = true
-			player.objectInHand = self
-			
-			#freeze = true
-			reparent(player)
-			print("Picked up??????")
+			_pickupItemOffFloor()
 	#This is for when item is on countertop - deals with picking up + putting other objects in 
 	elif player!= null:
 		#Pick item up off counter top
 		
 		if (player.currentCounterTop == countertopThisIsCurrentlyOn and onCounterTop == true):
 			if (Input.is_action_just_pressed("Toggle Pickup")):
-				player.objectPickedUp = true
-				picked_up = true
-				player.objectInHand = self
-				reparent(player)
+				_pickupItemOffCountertop()
 		
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.name == "Little Fella":
 		#player = null 
 		in_range = false
+
+func _putItemOnCounterTop() -> void:
+	print("Putting on countertop")
+	if player.currentCounterTop.itemName == "trash can": #delete the object if its a trash can
+		player.objectPickedUp = false
+		print("Object placed in trash can - deleting it")
+		queue_free()
+						
+	picked_up = false
+	var temp = player.currentCounterTop as Countertop
+	self.global_position = player.currentCounterTop.global_position
+	temp._changeItemOnCounterTop()
+	temp._setItemOnCounterTop(self)
+	reparent(player.currentCounterTop)
+	self.position.y += 0.5
+	print(self.position)
+	countertopThisIsCurrentlyOn = player.currentCounterTop
+	print(player.currentCounterTop.position)
+	onCounterTop = true
+	player.objectPickedUp = false
+func _putItemOnFloor()->void:
+	print("Putting on floor")
+	picked_up = false
+	if (self.is_inside_tree()):
+		var main = get_tree().current_scene
+		reparent(main)
+		player.objectPickedUp = false
+						
+func _pickupItemOffFloor()->void:
+	print("Picking up off the floor")
+	player.objectPickedUp = true
+	picked_up = true
+	player.objectInHand = self
+			
+			#freeze = true
+	reparent(player)
+	#print("Picked up??????")
+func _pickupItemOffCountertop()->void:
+	print("Picking up off countertop")
+	player.objectPickedUp = true
+	picked_up = true
+	player.objectInHand = self
+	reparent(player)
