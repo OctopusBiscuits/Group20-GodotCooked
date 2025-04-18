@@ -1,0 +1,22 @@
+# Blender 4.3.2 MTL File: 'brick wall.blend'
+# www.blender.org
+
+newmtl brick_red_non-metalic_(rough)
+Ns 0.006711
+Ka 1.000000 1.000000 1.000000
+Kd 0.244501 0.028931 0.028931
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl mushroom_brown_non-metalic_(rough)
+Ns 7.308926
+Ka 1.000000 1.000000 1.000000
+Kd 0.131981 0.120649 0.072768
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2

@@ -162,7 +162,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135155, -0.0938553, -1.897
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91735, 1.71135, -4.87964)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.767165, 0.64145, 0, -0.64145, 0.767165, -9.41196, 4.37214, -1.25272)
+transform = Transform3D(1, 0, 0, 0, 0.767165, 0.64145, 0, -0.64145, 0.767165, -9.41196, 6.66885, 1.5176)
+fov = 87.2525
 
 [node name="Cutting_Board" parent="." instance=ExtResource("5_r48my")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91823, 0.805739, -14.6807)

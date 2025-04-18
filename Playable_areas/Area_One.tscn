@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://wakc5js5sl28"]
+
+[ext_resource type="Texture2D" uid="uid://djuknffyax3oa" path="res://Flooring Checker.png" id="1_3axvw"]
+[ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="2_nas62"]
+[ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="3_q54t8"]
+[ext_resource type="PackedScene" uid="uid://ogkorr5ewbs1" path="res://Godot game/Counters/Counter corner 2.blend" id="4_nas62"]
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="5_sldos"]
+[ext_resource type="PackedScene" uid="uid://vlariurktc12" path="res://the kit/dungeon scenery/wall.gltf" id="6_xrplw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pgl1f"]
+sky_top_color = Color(0.760023, 0.482173, 0.423311, 1)
+sky_horizon_color = Color(0.91927, 0.84696, 0.836468, 1)
+ground_bottom_color = Color(0.266116, 0.254727, 0.271619, 1)
+ground_horizon_color = Color(0.91927, 0.84696, 0.836468, 1)
+energy_multiplier = 1.05
+
+[sub_resource type="Sky" id="Sky_w4yug"]
+sky_material = SubResource("ProceduralSkyMaterial_pgl1f")
+
+[sub_resource type="Environment" id="Environment_7udxi"]
+background_mode = 2
+sky = SubResource("Sky_w4yug")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7udxi"]
+albedo_texture = ExtResource("1_3axvw")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ynix"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kok17"]
+size = Vector3(1.95317, 0.1, 1.94141)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7udxi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.901833, 0.216043, -0.374197, 0, 0.866025, 0.5, 0.432086, -0.450916, 0.78101, 0, 9.52086, 0)
+light_color = Color(0.938976, 0.922869, 0.904914, 1)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.434634, 0.900607, 0, -0.900607, 0.434634, -0.106711, 6.42433, 5.07663)
+fov = 86.7254
+
+[node name="Flooring" type="Node3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 5.143, 0, 0, 0, 5.143, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flooring"]
+material_override = SubResource("StandardMaterial3D_7udxi")
+mesh = SubResource("PlaneMesh_8ynix")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Flooring"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43867, 1.2049)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flooring/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011465, -1.49692, -1.18774)
+shape = SubResource("BoxShape3D_kok17")
+
+[node name="chef" parent="." instance=ExtResource("2_nas62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84074, 0.066937, 1.26018)
+
+[node name="TrashCan" parent="." instance=ExtResource("3_q54t8")]
+transform = Transform3D(0.0684661, 0, 0.870805, 0, 0.875, 0, -0.696644, 0, 0.0855826, -1.27241, 0.328857, -1.31426)
+
+[node name="Counter corner 2" parent="." instance=ExtResource("4_nas62")]
+transform = Transform3D(-2.14186e-08, 0, -0.49, 0, 0.49, 0, 0.49, 0, -2.14186e-08, -3.63717, 0.5, -3.507)
+
+[node name="Countertop" parent="Counter corner 2" instance=ExtResource("5_sldos")]
+transform = Transform3D(2.04023, 0, -0.0613033, 0, 2.55102, 0, 0.0490426, 0, 2.55028, 0.0194507, -1.26253, -1.97645)
+
+[node name="wall2" parent="." instance=ExtResource("6_xrplw")]
+transform = Transform3D(0.765596, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.896319, -0.0517972, -4.35503)
+
+[node name="wall2" parent="wall2" instance=ExtResource("6_xrplw")]
+transform = Transform3D(0.994067, 0, 0, 0, 0.990386, 0, 0, 0, 0.964422, 3.94817, 0.0309205, 0.0080595)

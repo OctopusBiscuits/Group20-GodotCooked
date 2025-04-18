@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bvrdqc4gpne0n"
+path="res://.godot/imported/chopping board.obj-a91393224e49bd26c4c10f86a65e1503.mesh"
+
+[deps]
+
+files=["res://.godot/imported/chopping board.obj-a91393224e49bd26c4c10f86a65e1503.mesh"]
+
+source_file="res://Godot game Assets-20250418T095406Z-001/Godot game Assets/pots and pans/chopping board.obj"
+dest_files=["res://.godot/imported/chopping board.obj-a91393224e49bd26c4c10f86a65e1503.mesh", "res://.godot/imported/chopping board.obj-a91393224e49bd26c4c10f86a65e1503.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

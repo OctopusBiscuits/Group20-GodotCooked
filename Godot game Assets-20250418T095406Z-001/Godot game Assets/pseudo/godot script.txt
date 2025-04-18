@@ -1,0 +1,35 @@
+
+
+script 1# // placed on object that can be picked up
+
+vector3 UpperReach
+vector3 LowerReach
+vector3 Reach
+public String Name
+
+every frame:
+	get Player.Location(x,y,z)
+	get Self.Location (x,y,z)
+	UpperReach = Player.Location + Reach
+	LowerReach = Player.Location - Reach
+	if Self.Location > LowerReach and Self.Location < UpperReach:
+		Script.Pickups.append(Self)
+	 	print(Name)
+	
+
+script 2# // placed on character
+
+array Pickups []
+GameObject CurrentObject
+bool Holding
+
+every frame:
+	if KeyPressed == "e" and Pickups != Null:
+		CurrentObject = Pickups[0]
+		Holding = True
+		Destroy Pickups[0]	
+	if KeyPressed == "LeftMouseButton" and Holding == True:
+		Instantiate CurrentObject(Self.Location)(normal.Self.Rotation)(velocity == 10)
+		Holding = False
+	
+		
