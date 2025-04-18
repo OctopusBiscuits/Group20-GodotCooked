@@ -8,11 +8,13 @@ var last_direction = Vector3.FORWARD
 var target_velocity = Vector3.ZERO
 var dash_speed = 20
 var direction=Vector3.ZERO
-
-
-
-
-
+var objectPickedUp = false
+var objectInHand = null 
+var counterTopsTouching = 0
+var currentCounterTop: Node3D = null 
+var counterTopPosition = null
+func _ready():
+	add_to_group("player")
 
 func inpuut(event):
 	if !$AnimationTree.get("parameters/conditions/roll"):
@@ -26,19 +28,24 @@ func inpuut(event):
 				$dash_window.start()
 func _physics_process(delta):
 	var directional_input = Input.get_vector("left", "right", "forward", "back",)
+	#print(objectPickedUp)
 	if !$dash_window.is_stopped():
 		speed=20
 	else:
 		speed =10
-	
+	#print(currentCounterTop)
+	if (currentCounterTop):
+		
+		counterTopPosition = currentCounterTop.position 
+		#print(currentCounterTop)
+		#print(currentCounterTop.itemHeldOnCountertop)
+		
 	direction = (transform.basis * Vector3(directional_input.x, 0, directional_input.y)).normalized()
-	
+	velocity.y = 0
 	if direction:
 		last_direction = direction
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-		
-	
 	
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
@@ -79,3 +86,24 @@ func _physics_process(delta):
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
+	
+func pick_up_object(object: Node):
+	objectInHand = object
+"""
+func _on_area_3d_body_entered(body):
+	print("Debug 12345")
+	if (getPickups(body)):
+		print("Its in there")
+	print(body.name)
+
+func getPickups(body):
+	var groupMembers = get_tree().get_nodes_in_group("PickUps")
+	for a in groupMembers:
+		if a == body:
+			print("Found it")
+			return true;
+	print("Didn't find it")
+	return false;
+		
+
+"""

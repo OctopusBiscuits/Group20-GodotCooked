@@ -1,152 +1,156 @@
-[gd_scene load_steps=5 format=3 uid="uid://cieafi3xrydiu"]
+[gd_scene load_steps=10 format=3 uid="uid://cieafi3xrydiu"]
 
-[ext_resource type="PackedScene" uid="uid://dvivnflb5ctpb" path="res://the kit/dungeon scenery/floor_dirt_large.gltf" id="1_8uyu4"]
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_sjslj"]
 [ext_resource type="PackedScene" uid="uid://vlariurktc12" path="res://the kit/dungeon scenery/wall.gltf" id="2_75wtd"]
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="3_bswhx"]
+[ext_resource type="PackedScene" uid="uid://bltrgefklygjn" path="res://pan.tscn" id="5_flfhx"]
+[ext_resource type="PackedScene" uid="uid://83eq6sj608f" path="res://cutting_board.tscn" id="5_r48my"]
+[ext_resource type="PackedScene" uid="uid://cqmq1wn75vq7s" path="res://uncut_onion.tscn" id="6_0ptwd"]
+[ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="7_flfhx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c3yrm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nydfx"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Countertop5" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.252, 0.492, -6.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.252, 0, -6.544)
 
 [node name="Countertop2" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.252, 0.492, -6.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.252, 0, -6.544)
 
 [node name="Countertop3" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25182, 0.491768, -6.54443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25182, 0, -6.54443)
 
 [node name="Countertop4" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.252, 0.492, -6.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.252, 0, -6.544)
 
 [node name="Countertop6" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.252, 0.492, -6.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.252, 0, -6.544)
 
 [node name="Countertop7" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.252, 0.492, -6.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.252, 0, -6.544)
 
 [node name="Countertop8" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.252, 0.492, -6.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.252, 0, -6.544)
 
 [node name="Countertop9" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.252, 0.492, -6.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.252, 0, -6.544)
 
 [node name="Countertop15" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25185, 0.491768, -6.54443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25185, 0, -6.54443)
 
 [node name="Countertop17" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.252, 0.492, -10.5213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.252, 0, -10.5213)
 
 [node name="Countertop18" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.252, 0.492, -10.5213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.252, 0, -10.5213)
 
 [node name="Countertop19" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25182, 0.491768, -10.5217)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25182, 0, -10.5217)
 
 [node name="Countertop20" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.252, 0.492, -10.5213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.252, 0, -10.5213)
 
 [node name="Countertop21" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.252, 0.492, -10.5213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.252, 0, -10.5213)
 
 [node name="Countertop22" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.252, 0.492, -10.5213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.252, 0, -10.5213)
 
 [node name="Countertop23" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.252, 0.492, -10.5213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.252, 0, -10.5213)
 
 [node name="Countertop24" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.252, 0.492, -10.5213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.252, 0, -10.5213)
 
 [node name="Countertop25" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25185, 0.491768, -10.5217)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25185, 0, -10.5217)
 
 [node name="Countertop26" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.252, 0.492, -10.522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.252, 0, -10.522)
 
 [node name="Countertop27" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.252, 0.492, -10.522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.252, 0, -10.522)
 
 [node name="Countertop28" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0.492, -10.522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0, -10.522)
 
 [node name="Countertop10" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252, 0.492, -6.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252, 0, -6.544)
 
 [node name="Countertop11" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252, 0.492, -7.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252, 0, -7.544)
 
 [node name="Countertop12" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252, 0.492, -8.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252, 0, -8.544)
 
 [node name="Countertop13" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252, 0.492, -9.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252, 0, -9.544)
 
 [node name="Countertop14" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252, 0.492, -10.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252, 0, -10.544)
 
 [node name="Countertop29" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.252, 0.492, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.252, 0, -2.544)
 
 [node name="Countertop30" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.252, 0.492, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.252, 0, -2.544)
 
 [node name="Countertop31" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25182, 0.491768, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25182, 0, -2.544)
 
 [node name="Countertop32" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.252, 0.492, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.252, 0, -2.544)
 
 [node name="Countertop33" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.252, 0.492, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.252, 0, -2.544)
 
 [node name="Countertop34" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.252, 0.492, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.252, 0, -2.544)
 
 [node name="Countertop35" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.252, 0.492, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.252, 0, -2.544)
 
 [node name="Countertop36" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.252, 0.492, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.252, 0, -2.544)
 
 [node name="Countertop37" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25185, 0.491768, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25185, 0, -2.544)
 
 [node name="Countertop38" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.252, 0.492, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.252, 0, -2.544)
 
 [node name="Countertop39" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.252, 0.492, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.252, 0, -2.544)
 
 [node name="Countertop40" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0.492, -2.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0, -2.544)
 
 [node name="Countertop42" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0.492, -3.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0, -3.544)
 
 [node name="Countertop43" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0.492, -4.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0, -4.544)
 
 [node name="Countertop44" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0.492, -5.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0, -5.544)
 
 [node name="Countertop45" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0.492, -6.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0, -6.544)
 
 [node name="Countertop46" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0.492, -7.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0, -7.544)
 
 [node name="Countertop47" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0.492, -8.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0, -8.544)
 
 [node name="Countertop48" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0.492, -9.544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0, -9.544)
 
-[node name="Countertop41" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.252, 0.492, -2.544)
-
-[node name="floor_dirt_large2" parent="." instance=ExtResource("1_8uyu4")]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, -0.20877, 0, -0.197146)
+[node name="Countertop41" parent="." groups=["PickUps"] instance=ExtResource("1_sjslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3212, -0.00926018, -2.5216)
 
 [node name="wall2" parent="." instance=ExtResource("2_75wtd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.211887, -0.0517972, 1.59362)
@@ -155,7 +159,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.211887, -0.0517972, 1.5936
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135155, -0.0938553, -1.89702)
 
 [node name="chef" parent="." instance=ExtResource("3_bswhx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91735, 0.236856, -4.87964)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91735, 1.71135, -4.87964)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.767165, 0.64145, 0, -0.64145, 0.767165, -9.41196, 4.37214, -1.25272)
+
+[node name="Cutting_Board" parent="." instance=ExtResource("5_r48my")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91823, 0.805739, -14.6807)
+
+[node name="The Floor" type="Node3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, -8.893, -0.0243194, -4.896)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="The Floor"]
+mesh = SubResource("BoxMesh_c3yrm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="The Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="The Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000165403, -0.14874, -3.5122e-05)
+shape = SubResource("BoxShape3D_nydfx")
+
+[node name="pan" parent="The Floor" instance=ExtResource("5_flfhx")]
+transform = Transform3D(0.01, 0, 0, 0, 10, 0, 0, 0, 0.01, 0.0182628, 0.634953, 0.00150782)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -5.86577, 2.77797, 0.136968)
+
+[node name="Uncut Onion" parent="." instance=ExtResource("6_0ptwd")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -10.1309, 0.471891, -4.58897)
+
+[node name="TrashCan" parent="." instance=ExtResource("7_flfhx")]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -15.0308, 0.410756, -4.82208)
