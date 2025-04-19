@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://wakc5js5sl28"]
 
-[ext_resource type="Texture2D" uid="uid://djuknffyax3oa" path="res://Flooring Checker.png" id="1_3axvw"]
+[ext_resource type="Texture2D" uid="uid://djuknffyax3oa" path="res://Undercooked/Flooring Checker.png" id="1_3axvw"]
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="2_nas62"]
-[ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="3_q54t8"]
-[ext_resource type="PackedScene" uid="uid://ogkorr5ewbs1" path="res://Godot game/Counters/Counter corner 2.blend" id="4_nas62"]
-[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="5_sldos"]
-[ext_resource type="PackedScene" uid="uid://vlariurktc12" path="res://the kit/dungeon scenery/wall.gltf" id="6_xrplw"]
+[ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://KitchenObjects_Scenes/trash_can.tscn" id="3_q54t8"]
+[ext_resource type="PackedScene" uid="uid://bxgje2e4eqcdk" path="res://KitchenObjects_Scenes/brick_wall.tscn" id="4_nas62"]
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://KitchenObjects_Scenes/countertop.tscn" id="5_sldos"]
+[ext_resource type="PackedScene" uid="uid://b0ekbq6mpm8ya" path="res://KitchenObjects_Scenes/basic_cabinet_plate_warmer.tscn" id="6_sldos"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pgl1f"]
 sky_top_color = Color(0.760023, 0.482173, 0.423311, 1)
@@ -23,13 +23,14 @@ sky = SubResource("Sky_w4yug")
 tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7udxi"]
+albedo_color = Color(0.910582, 0.919253, 0.986566, 1)
 albedo_texture = ExtResource("1_3axvw")
-uv1_scale = Vector3(10, 10, 10)
+uv1_scale = Vector3(16, 15, 15)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8ynix"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kok17"]
-size = Vector3(1.95317, 0.1, 1.94141)
+size = Vector3(1.62995, 0.0973633, 1.50787)
 
 [node name="Node3D" type="Node3D"]
 
@@ -37,18 +38,22 @@ size = Vector3(1.95317, 0.1, 1.94141)
 environment = SubResource("Environment_7udxi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.901833, 0.216043, -0.374197, 0, 0.866025, 0.5, 0.432086, -0.450916, 0.78101, 0, 9.52086, 0)
-light_color = Color(0.938976, 0.922869, 0.904914, 1)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 14.3362, 0)
+light_color = Color(0.970374, 0.9566, 0.958968, 1)
+light_energy = 0.778
+light_indirect_energy = 0.515
+light_volumetric_fog_energy = 1.162
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.434634, 0.900607, 0, -0.900607, 0.434634, -0.106711, 6.42433, 5.07663)
-fov = 86.7254
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, -0.828766, 6.96312, 2.59202)
+fov = 73.0584
 
 [node name="Flooring" type="Node3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 5.143, 0, 0, 0, 5.143, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Flooring"]
+transform = Transform3D(0.752123, 0, 0, 0, 1.00617, 0, 0, 0, 0.717681, -0.095251, 0, 0)
 material_override = SubResource("StandardMaterial3D_7udxi")
 mesh = SubResource("PlaneMesh_8ynix")
 skeleton = NodePath("../..")
@@ -57,23 +62,92 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43867, 1.2049)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flooring/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011465, -1.49692, -1.18774)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0900449, -1.49824, -1.22866)
 shape = SubResource("BoxShape3D_kok17")
 
 [node name="chef" parent="." instance=ExtResource("2_nas62")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84074, 0.066937, 1.26018)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -3.02782, 0.066937, -2.00747)
 
 [node name="TrashCan" parent="." instance=ExtResource("3_q54t8")]
-transform = Transform3D(0.0684661, 0, 0.870805, 0, 0.875, 0, -0.696644, 0, 0.0855826, -1.27241, 0.328857, -1.31426)
+transform = Transform3D(-1.62921e-07, 0, 1, 0, 0.8, 0, -1, 0, -1.62921e-07, -1.62629, 0.328981, -3.13037)
 
-[node name="Counter corner 2" parent="." instance=ExtResource("4_nas62")]
-transform = Transform3D(-2.14186e-08, 0, -0.49, 0, 0.49, 0, 0.49, 0, -2.14186e-08, -3.63717, 0.5, -3.507)
+[node name="brick wall" parent="." instance=ExtResource("4_nas62")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.724553, -4.74551, -0.0608041, 0.124537)
 
-[node name="Countertop" parent="Counter corner 2" instance=ExtResource("5_sldos")]
-transform = Transform3D(2.04023, 0, -0.0613033, 0, 2.55102, 0, 0.0490426, 0, 2.55028, 0.0194507, -1.26253, -1.97645)
+[node name="brick wall2" parent="brick wall" instance=ExtResource("4_nas62")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1.10413, 0, -4.8263e-08, -0.0321531, 0, -5.33026)
 
-[node name="wall2" parent="." instance=ExtResource("6_xrplw")]
-transform = Transform3D(0.765596, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.896319, -0.0517972, -4.35503)
+[node name="brick wall3" parent="brick wall/brick wall2" instance=ExtResource("4_nas62")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, -1.06581e-14, 0, 1, -9.53674e-07, 0, -5.09604)
 
-[node name="wall2" parent="wall2" instance=ExtResource("6_xrplw")]
-transform = Transform3D(0.994067, 0, 0, 0, 0.990386, 0, 0, 0, 0.964422, 3.94817, 0.0309205, 0.0080595)
+[node name="brick wall5" parent="brick wall" instance=ExtResource("4_nas62")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 9.6526e-08, 0, -1.10413, 10.4236, 0, -1.5005)
+
+[node name="brick wall4" parent="brick wall/brick wall5" instance=ExtResource("4_nas62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, 0, 3.92886)
+
+[node name="brick wall4" parent="brick wall" instance=ExtResource("4_nas62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.347286, 0, 0, 4.7508)
+
+[node name="brick wall3" parent="brick wall" instance=ExtResource("4_nas62")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1.10413, 0, -4.8263e-08, -0.485035, 0, 4.91933)
+
+[node name="brick wall3" parent="brick wall/brick wall3" instance=ExtResource("4_nas62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, 0, -5.5468)
+
+[node name="Countertop" parent="." instance=ExtResource("5_sldos")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.93053, 0, -3.07204)
+
+[node name="Countertop2" parent="Countertop" instance=ExtResource("5_sldos")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 2.32902)
+
+[node name="Countertop7" parent="Countertop" instance=ExtResource("5_sldos")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 4.66776)
+
+[node name="Countertop8" parent="Countertop" instance=ExtResource("5_sldos")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 7.0118)
+
+[node name="Countertop4" parent="Countertop" instance=ExtResource("5_sldos")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.89117, 0, 4.65206)
+
+[node name="Countertop5" parent="Countertop" instance=ExtResource("5_sldos")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 11.6459)
+
+[node name="Countertop6" parent="Countertop" instance=ExtResource("5_sldos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.31684)
+
+[node name="Countertop3" parent="Countertop" instance=ExtResource("5_sldos")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -4.93261, 0, 6.98107)
+
+[node name="Countertop2" parent="." instance=ExtResource("5_sldos")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 1.75446, 0, -3.07204)
+
+[node name="Countertop2" parent="Countertop2" instance=ExtResource("5_sldos")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 2.32902)
+
+[node name="Countertop4" parent="Countertop2" instance=ExtResource("5_sldos")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.76837e-07, 0, 4.65206)
+
+[node name="Countertop5" parent="Countertop2" instance=ExtResource("5_sldos")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 11.6459)
+
+[node name="Countertop4" parent="." instance=ExtResource("5_sldos")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 1.75446, 0, 2.72571)
+
+[node name="Countertop2" parent="Countertop4" instance=ExtResource("5_sldos")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 2.32902)
+
+[node name="Countertop4" parent="Countertop4" instance=ExtResource("5_sldos")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.76837e-07, 0, 4.65206)
+
+[node name="Countertop3" parent="Countertop4" instance=ExtResource("5_sldos")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -4.76837e-07, 0, 6.98107)
+
+[node name="Countertop3" parent="." instance=ExtResource("5_sldos")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -4.06772, 0, -1.90878)
+
+[node name="Countertop5" parent="." instance=ExtResource("5_sldos")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -4.06772, 0, -0.73693)
+
+[node name="Basic_Cabinet_PlateWarmer" parent="." instance=ExtResource("6_sldos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16647, -0.0559935, 2.75946)

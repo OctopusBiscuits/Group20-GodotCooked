@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cieafi3xrydiu"]
+[gd_scene load_steps=9 format=3 uid="uid://cieafi3xrydiu"]
 
-[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_sjslj"]
-[ext_resource type="PackedScene" uid="uid://vlariurktc12" path="res://the kit/dungeon scenery/wall.gltf" id="2_75wtd"]
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://KitchenObjects_Scenes/countertop.tscn" id="1_sjslj"]
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="3_bswhx"]
-[ext_resource type="PackedScene" uid="uid://bltrgefklygjn" path="res://pan.tscn" id="5_flfhx"]
+[ext_resource type="PackedScene" uid="uid://bltrgefklygjn" path="res://KitchenObjects_Scenes/pan.tscn" id="5_flfhx"]
 [ext_resource type="PackedScene" uid="uid://83eq6sj608f" path="res://cutting_board.tscn" id="5_r48my"]
 [ext_resource type="PackedScene" uid="uid://cqmq1wn75vq7s" path="res://uncut_onion.tscn" id="6_0ptwd"]
-[ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="7_flfhx"]
+[ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://KitchenObjects_Scenes/trash_can.tscn" id="7_flfhx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c3yrm"]
 
@@ -151,12 +150,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.252, 0, -9.544)
 
 [node name="Countertop41" parent="." groups=["PickUps"] instance=ExtResource("1_sjslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3212, -0.00926018, -2.5216)
-
-[node name="wall2" parent="." instance=ExtResource("2_75wtd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.211887, -0.0517972, 1.59362)
-
-[node name="wall3" parent="." instance=ExtResource("2_75wtd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135155, -0.0938553, -1.89702)
 
 [node name="chef" parent="." instance=ExtResource("3_bswhx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91735, 1.71135, -4.87964)

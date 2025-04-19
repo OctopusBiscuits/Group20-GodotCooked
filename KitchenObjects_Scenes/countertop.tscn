@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bupvmbk3r352o"]
+
+[ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://KitchenObjects_Scenes/countertop.gd" id="1_7a77d"]
+[ext_resource type="PackedScene" uid="uid://0qoubuffgca8" path="res://Godot game/Counters/Counter 1.blend" id="2_3v8sl"]
+[ext_resource type="PackedScene" uid="uid://tri5xbdxd4dh" path="res://cut_onion.tscn" id="2_oldlg"]
+[ext_resource type="Script" uid="uid://cxv7lb6lp4u6p" path="res://player_colission_test.gd" id="3_7a77d"]
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_n41gk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wx6d"]
+size = Vector3(0.457123, 0.554626, 0.451294)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7a77d"]
+size = Vector3(0.502495, 0.430511, 0.493652)
+
+[node name="Countertop" type="Node3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+script = ExtResource("1_7a77d")
+itemName = &"Countertop"
+cut_onion = ExtResource("2_oldlg")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_7a77d")
+
+[node name="Counter 1" parent="Area3D" instance=ExtResource("2_3v8sl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 3.96433, 0.372447, 0.959914, 0)
+mesh = SubResource("PlaceholderMesh_n41gk")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.555993, 0)
+shape = SubResource("BoxShape3D_5wx6d")
+script = ExtResource("3_7a77d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4631, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, -0.000663225, 0, 0.000663225, 2, 0, 0.291821, 0)
+shape = SubResource("BoxShape3D_7a77d")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
