@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1g3rls0xexn3"]
+
+[ext_resource type="PackedScene" uid="uid://cis3to4ho566m" path="res://Undercooked/Source Meshes/Meshes/Basic_Cabinet_No_Handle.fbx" id="1_elxiv"]
+[ext_resource type="Texture2D" uid="uid://db1hma2nmsn7k" path="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/Boat_CounterTop_Wood.png" id="2_gfqrt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vo400"]
+albedo_color = Color(0.714239, 0.586962, 0.576287, 1)
+albedo_texture = ExtResource("2_gfqrt")
+uv1_scale = Vector3(0.4, 0.4, 0.6)
+uv1_offset = Vector3(0.04, 0.56, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oeoel"]
+albedo_color = Color(0.599742, 0.459519, 0.431013, 1)
+albedo_texture = ExtResource("2_gfqrt")
+uv1_scale = Vector3(0.5, 1, 0.2)
+uv2_scale = Vector3(2, 2, 2)
+uv2_offset = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qfs5s"]
+
+[node name="Basic_Cabinet_No_Handle" instance=ExtResource("1_elxiv")]
+transform = Transform3D(115, 0, 0, 0, 115, 0, 0, 0, 115, 0, 0, 0)
+
+[node name="uv_unitize1" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vo400")
+surface_material_override/1 = SubResource("StandardMaterial3D_oeoel")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(0.0024, 0, 0, 0, 0.2, 0, 0, 0, 0.0024, 4.07541e-05, 0.00503669, -4.45235e-05)
+mesh = SubResource("PlaneMesh_qfs5s")

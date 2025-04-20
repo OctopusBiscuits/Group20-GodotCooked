@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://dd5w8n2rnlb54"]
+
+[ext_resource type="Script" uid="uid://c26gdgmxubcus" path="res://UTF-8assets/assets/materials/conveyor_belt.gd" id="1_47dwv"]
+[ext_resource type="ArrayMesh" uid="uid://by161a172fgwi" path="res://UTF-8assets/assets/models/conveyor belt.obj" id="1_xeses"]
+[ext_resource type="Material" uid="uid://csknefhpusta" path="res://UTF-8assets/assets/materials/gear.tres" id="2_nlvyl"]
+[ext_resource type="Material" uid="uid://bw1k54n2kr4rg" path="res://UTF-8assets/assets/materials/black.tres" id="3_smcu7"]
+[ext_resource type="Material" uid="uid://2y4ha2ggljj7" path="res://UTF-8assets/assets/materials/conveyor.tres" id="4_77sql"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47dwv"]
+size = Vector3(4.36224, 2.74701, 5.95435)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="ConveyorBelt" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455289, 0, -1.02922)
+mesh = ExtResource("1_xeses")
+surface_material_override/0 = ExtResource("2_nlvyl")
+surface_material_override/1 = ExtResource("3_smcu7")
+surface_material_override/2 = ExtResource("4_77sql")
+script = ExtResource("1_47dwv")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="ConveyorBelt"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBelt/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.117795, -0.205009, -0.0692908)
+shape = SubResource("BoxShape3D_47dwv")

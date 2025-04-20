@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://clhxy51xamj8o"]
+
+[ext_resource type="PackedScene" uid="uid://cv5w07dhepfmx" path="res://Godot game Assets-20250418T095406Z-001/Godot game Assets/Counters/Counter 2 sink.fbx" id="1_iv0pi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_33r7u"]
+size = Vector3(2.25914, 1.5835, 2.23853)
+
+[node name="Counter 2 sink" instance=ExtResource("1_iv0pi")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00936127, -0.291748, 0.0560303)
+shape = SubResource("BoxShape3D_33r7u")

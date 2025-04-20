@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmw3jcrpdtobl"
-path.s3tc="res://.godot/imported/Knife.png-76275e739153c10f84b7f5a2d012d753.s3tc.ctex"
+uid="uid://6yvcyaanskex"
+path.s3tc="res://.godot/imported/poster.png-a311a4aebe5bdbb79428d8b69f580c7a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/Knife.png"
-dest_files=["res://.godot/imported/Knife.png-76275e739153c10f84b7f5a2d012d753.s3tc.ctex"]
+source_file="res://Undercooked/poster.png"
+dest_files=["res://.godot/imported/poster.png-a311a4aebe5bdbb79428d8b69f580c7a.s3tc.ctex"]
 
 [params]
 
