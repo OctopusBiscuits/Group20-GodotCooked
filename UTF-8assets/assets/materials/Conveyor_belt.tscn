@@ -19,8 +19,9 @@ surface_material_override/1 = ExtResource("3_smcu7")
 surface_material_override/2 = ExtResource("4_77sql")
 script = ExtResource("1_47dwv")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="ConveyorBelt"]
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455289, 0, -1.02922)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorBelt/RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.117795, -0.205009, -0.0692908)
 shape = SubResource("BoxShape3D_47dwv")
