@@ -12,8 +12,7 @@ var player : Node = null
 @export var itemName : String
 @export var cuttable : bool
 @export var canHoldAnObject : bool
-@export var holdingAnObject : bool
-@export var objectBeingHeld : Node
+@export var heldObjects : Array[Node] = []
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player1").front()
@@ -23,8 +22,8 @@ func _physics_process(delta):
 		return
 	if (on_countertop):
 		global_position = countertop.global_position + Vector3(0,0.6,0)
-	if (holdingAnObject):
-		objectBeingHeld.global_position = global_position + Vector3(0,0.1,0)
+	for item in heldObjects:
+		item.global_position = global_position + Vector3(0,0.1,0)
 	
 	if picked_up:
 		_handle_while_held()
@@ -116,25 +115,23 @@ func _place_in_container():
 	held_item.get_parent().remove_child(held_item)
 	add_child(held_item)
 
-	objectBeingHeld = held_item
-	holdingAnObject = true
+	heldObjects.append(held_item)
 
 	player.objectPickedUp = false
 	player.objectInHand = null
 
+
 func _take_out_of_container():
-	if not objectBeingHeld:
+	if heldObjects.is_empty():
 		return
 
-	objectBeingHeld.inAnObject = false
-	objectBeingHeld.get_parent().remove_child(objectBeingHeld)
-	get_tree().current_scene.add_child(objectBeingHeld)
+	var lastObject = heldObjects.pop_back()
+	lastObject.inAnObject = false
+	lastObject.get_parent().remove_child(lastObject)
+	get_tree().current_scene.add_child(lastObject)
 
 	player.objectPickedUp = true
-	player.objectInHand = objectBeingHeld
-
-	objectBeingHeld = null
-	holdingAnObject = false
+	player.objectInHand = lastObject
 
 # === Signals ===
 

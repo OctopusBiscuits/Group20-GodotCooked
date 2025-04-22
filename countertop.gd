@@ -26,18 +26,31 @@ func _on_area_3d_body_exited(body):
 		if body.currentCounterTop == self:
 			body.currentCounterTop = null
 
-func _physics_process(_delta):
+func _physics_process(_delta: float):
 	if itemName == "trash can":
 		itemOnCountertop = false
-
-	if held_item:
+	if itemName == "Hob" and held_item :
+		can_place_in_object = held_item.canHoldAnObject and not held_item.holdingAnObject
+		_handle_hob(_delta)
+	elif held_item:
 		_handle_cutting()
 		can_place_in_object = held_item.canHoldAnObject and not held_item.holdingAnObject
+		
 func _changeItemOnCounterTop() -> void:
 	if itemOnCountertop == true:
 		itemOnCountertop = false
 	else:
 		itemOnCountertop = true
+func _handle_hob(_delta: float) -> void:
+	print("I am hobbing so hard rn")
+	if held_item.itemName != "Frying Pan" or held_item.holdingAnObject != true:
+		return
+
+	print (held_item.objectBeingHeld.timeNeededOnStove)
+	held_item.objectBeingHeld.timeNeededOnStove -= _delta
+	if held_item.objectBeingHeld.timeNeededOnStove <= 0:
+		held_item.holdingAnObject = false
+		held_item.objectBeingHeld.queue_free()
 func _handle_cutting():
 	if Input.is_action_just_pressed("attack") and player.currentCounterTop == self:
 		if held_item.cuttable and held_item.cutsNeeded > 0:

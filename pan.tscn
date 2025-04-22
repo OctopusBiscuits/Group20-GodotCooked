@@ -13,6 +13,7 @@ size = Vector3(1, 0.27002, 1.13477)
 
 [node name="test" parent="." index="0"]
 script = ExtResource("2_v8qao")
+itemName = "Frying Pan"
 
 [node name="CollisionShape3D" parent="test/PickUpArea3D" index="0"]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, -0.0283691, -0.0943359)

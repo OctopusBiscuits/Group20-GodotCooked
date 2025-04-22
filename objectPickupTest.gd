@@ -5,6 +5,8 @@ var in_range = false
 var onCounterTop = false
 var countertopThisIsCurrentlyOn : Node
 var inAnObject = false
+@export var canUseStove : bool
+@export var timeNeededOnStove : float
 @export var cutsNeeded = 0
 @export var itemName : String
 @export var cuttable : bool
@@ -25,6 +27,8 @@ func _on_area_3d_body_exited(body):
 func _physics_process(_delta):
 	if not player:
 		return
+	
+		
 	#print(countertopThisIsCurrentlyOn)
 	if Input.is_action_just_pressed("Toggle Pickup"):
 		print("E pressed")
@@ -51,7 +55,7 @@ func pickup_from_countertop():
 	reparent(player)
 
 func _handle_put_down():
-	if player.currentCounterTop and not player.currentCounterTop._getItemOnCounterTop():
+	if player.currentCounterTop and not player.currentCounterTop._getItemOnCounterTop() and player.currentCounterTop.itemName != "Hob":
 		_put_on_countertop()
 	else:
 		_put_on_floor()

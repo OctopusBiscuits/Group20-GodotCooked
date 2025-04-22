@@ -10,6 +10,7 @@
 [node name="Uncut Onion" instance=ExtResource("1_1u07q")]
 
 [node name="test" parent="." index="0"]
+timeNeededOnStove = 5.0
 cutsNeeded = 5
 itemName = "Uncut Onion"
 cuttable = true
