@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://4wv2lpjnm66n" path="res://Godot game/assorted/bin.blend" id="2_alpy1"]
 
 [node name="TrashCan" instance=ExtResource("1_bgvmr")]
-itemName = &"trash can"
+itemName = ""
 
 [node name="bin" parent="Area3D" index="0" instance=ExtResource("2_alpy1")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

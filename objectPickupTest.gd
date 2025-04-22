@@ -12,96 +12,69 @@ var inAnObject = false
 @export var holdingAnObject : bool
 @export var objectBeingHeld : PackedScene
 func _ready():
-	var players = get_tree().get_nodes_in_group("Player1")
-	if players.size() > 0:
-		player = players[0]  # Assuming you want the first player in the group
-
+	player = get_tree().get_nodes_in_group("Player1")[0]
 
 func _on_area_3d_body_entered(body):
-	
-	#print(body.name)
-	"""
 	if body.name == "Little Fella":
-		player = body
-		picked_up = true
-		#freeze = true
-		reparent(player)
-		print("Picked up??????")
-	"""
-	if body.name == "Little Fella":
-		print("in range to be picked up")
 		in_range = true
-		#player = body
-func _physics_process(delta):
-	print(inAnObject)
-	if picked_up:
-		#global_transform.origin = player.global_transform.origin + Vector3(0, 1, 0)
-		
-		#This is if player is holding an object 
-		if Input.is_action_just_pressed("Toggle Pickup") and player != null:
-			if player != null:  # Ensure player is valid before accessing its properties
-				if player.currentCounterTop != null and player.currentCounterTop._getItemOnCounterTop() == false:
-					_putItemOnCounterTop()					
-				else: #place it on the floor
-					_putItemOnFloor()			
-		
-	#This is for when item is on floor (not on countertop) - pick it up
-	elif in_range and player.objectPickedUp == false and onCounterTop == false:
-		if Input.is_action_just_pressed("Toggle Pickup"):
-			_pickupItemOffFloor()
-	#This is for when item is on countertop - deals with picking up + putting other objects in 
-	elif player!= null:
-		#Pick item up off counter top
-		
-		if (player.currentCounterTop == countertopThisIsCurrentlyOn and onCounterTop == true):
-			if (Input.is_action_just_pressed("Toggle Pickup")):
-				_pickupItemOffCountertop()
-		
 
-func _on_area_3d_body_exited(body: Node3D) -> void:
+func _on_area_3d_body_exited(body):
 	if body.name == "Little Fella":
-		#player = null 
 		in_range = false
 
-func _putItemOnCounterTop() -> void:
-	print("Putting on countertop")
-	if player.currentCounterTop.itemName == "trash can": #delete the object if its a trash can
-		player.objectPickedUp = false
-		print("Object placed in trash can - deleting it")
-		queue_free()
-						
+func _physics_process(_delta):
+	if not player:
+		return
+	#print(countertopThisIsCurrentlyOn)
+	if Input.is_action_just_pressed("Toggle Pickup"):
+		print("E pressed")
+		if picked_up:
+			print("put down")
+			_handle_put_down()
+		elif in_range and not picked_up and not player.objectPickedUp and not onCounterTop:
+			# Pick up off floor
+			print("floor pickup")
+			_pick_up()
+		elif onCounterTop and (player.currentCounterTop == countertopThisIsCurrentlyOn) and (!player.objectPickedUp):
+			# Pick up off countertop
+			print("from coutnertop")
+			pickup_from_countertop()
+
+func pickup_from_countertop():
+	print("Picking up from countertop")
+	print(player.currentCounterTop)
+	player.currentCounterTop._remove_item()
+	player.objectPickedUp = true
+	player.objectInHand = self
+	picked_up = true
+	onCounterTop = false
+	reparent(player)
+
+func _handle_put_down():
+	if player.currentCounterTop and not player.currentCounterTop._getItemOnCounterTop():
+		_put_on_countertop()
+	else:
+		_put_on_floor()
+
+func _pick_up():
+	picked_up = true
+	onCounterTop = false
+	player.objectPickedUp = true
+	player.objectInHand = self
+	reparent(player)
+
+func _put_on_floor():
 	picked_up = false
-	var temp = player.currentCounterTop as Countertop
-	self.global_position = player.currentCounterTop.global_position
-	temp._changeItemOnCounterTop()
-	temp._setItemOnCounterTop(self)
-	reparent(player.currentCounterTop)
-	self.position.y += 0.5
-	print(self.position)
-	countertopThisIsCurrentlyOn = player.currentCounterTop
-	print(player.currentCounterTop.position)
-	onCounterTop = true
+	reparent(get_tree().current_scene)
 	player.objectPickedUp = false
-func _putItemOnFloor()->void:
-	print("Putting on floor")
+
+func _put_on_countertop():
+	var counter = player.currentCounterTop as Countertop
+	reparent(counter)
+	global_position = counter.global_position + Vector3(0, 0.5, 0)
+	counter._place_item(self)
+	onCounterTop = true
+	player.currentCounterTop = counter
 	picked_up = false
-	if (self.is_inside_tree()):
-		var main = get_tree().current_scene
-		reparent(main)
-		player.objectPickedUp = false
-						
-func _pickupItemOffFloor()->void:
-	print("Picking up off the floor")
-	player.objectPickedUp = true
-	picked_up = true
-	player.objectInHand = self
-			
-			#freeze = true
-	reparent(player)
-	#print("Picked up??????")
-func _pickupItemOffCountertop()->void:
-	print("Picking up off countertop")
-	player.objectPickedUp = true
-	picked_up = true
-	player.objectInHand = self
-	reparent(player)
+	player.objectPickedUp = false
+	countertopThisIsCurrentlyOn = counter

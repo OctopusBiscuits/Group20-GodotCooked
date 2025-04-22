@@ -1,140 +1,140 @@
 extends RigidBody3D
+
+# === State ===
 var picked_up = false
-var player : Node
 var in_range = false
-var onCounterTop = false
+var on_countertop = false
+var countertop : Node = null
+var player : Node = null
+
+# === Item Properties ===
 @export var cutsNeeded = 0
 @export var itemName : String
 @export var cuttable : bool
-@export var canHoldAnObject : bool #This will be false for food and true for pans/plates etc
+@export var canHoldAnObject : bool
 @export var holdingAnObject : bool
 @export var objectBeingHeld : Node
-var countertopThisIsCurrentlyOn : Node
+
 func _ready():
-	var players = get_tree().get_nodes_in_group("Player1")
-	if players.size() > 0:
-		player = players[0]  # Assuming you want the first player in the group
+	player = get_tree().get_nodes_in_group("Player1").front()
 
-
-func _on_area_3d_body_entered(body):
-	
-	#print(body.name)
-	"""
-	if body.name == "Little Fella":
-		player = body
-		picked_up = true
-		#freeze = true
-		reparent(player)
-		print("Picked up??????")
-	"""
-	if body.name == "Little Fella":
-		print("in range to be picked up")
-		in_range = true
-		#player = body
 func _physics_process(delta):
-	print(objectBeingHeld)
+	if player == null:
+		return
+	
 	if picked_up:
-		#global_transform.origin = player.global_transform.origin + Vector3(0, 1, 0)
-		
-		#This is if player is next to a countertop and is holding an item (Place it on counter top)
-		if Input.is_action_just_pressed("Toggle Pickup") and player != null:
-			if player != null:  # Ensure player is valid before accessing its properties
-				if player.currentCounterTop != null:
-					
-					_putItemOnCounterTop()
-				else: #place it on the floor
-					_putItemOnFloor()
-						
-			else:
-				print("Player is null")
-			
-		#Drop item
-		
-		#print("Player")
-	#This is for when item is on floor (not on countertop) - pick it up
-	elif in_range and player.objectPickedUp == false and onCounterTop == false:
-		if Input.is_action_just_pressed("Toggle Pickup"):
-			_pickupItemOffFloor()
-	#This is for when item is on countertop - deals with picking up + putting other objects in 
-	elif player!= null:
-		#print("got past elif")
-		#Pick item up off counter top
-		if (countertopThisIsCurrentlyOn == player.currentCounterTop) and onCounterTop == true:
-			if (Input.is_action_just_pressed("Toggle Pickup")):
-				_pickupItemOffCountertop()
-				
-		#Put an item in this frying pan
-	if (Input.is_action_just_pressed("putInFryingPan") and (countertopThisIsCurrentlyOn == player.currentCounterTop) and onCounterTop == true):
-				
-		if (player.objectPickedUp == true and player.objectInHand != self):
-			_placeInFryingPan()
-		elif (player.objectPickedUp == false and holdingAnObject):
-			_takeoutOfFryingPan()
-func _takeoutOfFryingPan()->void:
-	objectBeingHeld.get_parent().remove_child(objectBeingHeld)
-	var main = get_tree().current_scene
+		_handle_while_held()
+	elif _can_pick_up_from_floor():
+		_try_pick_up_off_floor()
+	elif _can_pick_up_from_countertop():
+		_try_pick_up_off_countertop()
+
+	if _can_interact_with_held_object():
+		if player.objectPickedUp:
+			_place_in_container()
+		else:
+			_take_out_of_container()
+
+# === Interaction Conditions ===
+
+func _can_pick_up_from_floor() -> bool:
+	return in_range and not picked_up and not on_countertop and not player.objectPickedUp
+
+func _can_pick_up_from_countertop() -> bool:
+	return player.currentCounterTop == countertop and on_countertop and not picked_up
+
+func _can_interact_with_held_object() -> bool:
+	return Input.is_action_just_pressed("putInFryingPan") and countertop == player.currentCounterTop and on_countertop
+
+# === Player Interaction Actions ===
+
+func _handle_while_held():
+	if not Input.is_action_just_pressed("Toggle Pickup"):
+		return
+
+	if player.currentCounterTop:
+		_put_item_on_countertop()
+	else:
+		_put_item_on_floor()
+
+func _try_pick_up_off_floor():
+	if Input.is_action_just_pressed("Toggle Pickup"):
+		_pick_up(player)
+
+func _try_pick_up_off_countertop():
+	if Input.is_action_just_pressed("Toggle Pickup"):
+		_pick_up(player)
+		on_countertop = false
+		countertop = null
+
+# === Core Actions ===
+
+func _pick_up(holder: Node):
+	picked_up = true
+	holder.objectPickedUp = true
+	holder.objectInHand = self
+	reparent(holder)
+
+func _put_item_on_countertop():
+	if player.currentCounterTop.itemName == "trash can":
+		player.objectPickedUp = false
+		queue_free()
+		return
+
+	var counter = player.currentCounterTop as Countertop
+	countertop = counter
+	reparent(counter)
+
+	global_position = counter.global_position
+	position.y += 0.5
+	counter._setItemOnCounterTop(self)
+	counter._changeItemOnCounterTop()
+
+	picked_up = false
+	on_countertop = true
+	player.objectPickedUp = false
+
+func _put_item_on_floor():
+	reparent(get_tree().current_scene)
+	picked_up = false
+	player.objectPickedUp = false
+
+func _place_in_container():
+	var held_item = player.objectInHand
+	if not held_item:
+		return
+	
+	held_item.global_position = global_position
+	held_item.inAnObject = true
+	held_item.get_parent().remove_child(held_item)
+	add_child(held_item)
+
+	objectBeingHeld = held_item
+	holdingAnObject = true
+
+	player.objectPickedUp = false
+	player.objectInHand = null
+
+func _take_out_of_container():
+	if not objectBeingHeld:
+		return
+
 	objectBeingHeld.inAnObject = false
-	objectBeingHeld.reparent(main)
+	objectBeingHeld.get_parent().remove_child(objectBeingHeld)
+	get_tree().current_scene.add_child(objectBeingHeld)
+
 	player.objectPickedUp = true
 	player.objectInHand = objectBeingHeld
+
 	objectBeingHeld = null
 	holdingAnObject = false
-	
-func _placeInFryingPan()->void:
-	print ("It is in the frying pan")
-	player.objectPickedUp = false
-	player.objectInHand.global_position = self.global_position
-	player.objectInHand.inAnObject = true
-	player.objectInHand.get_parent().remove_child(player.objectInHand)
-	add_child(player.objectInHand)
-	objectBeingHeld = player.objectInHand
-	player.objectInHand = null
-	
-	#objectBeingHeld.global_position = self.global_position
-	holdingAnObject = true
-func _on_area_3d_body_exited(body: Node3D) -> void:
+
+# === Signals ===
+
+func _on_area_3d_body_entered(body):
 	if body.name == "Little Fella":
-		#player = null 
+		in_range = true
+
+func _on_area_3d_body_exited(body):
+	if body.name == "Little Fella":
 		in_range = false
-func _putItemOnCounterTop() -> void:
-	print("Putting on countertop")
-	if player.currentCounterTop.itemName == "trash can": #delete the object if its a trash can
-		player.objectPickedUp = false
-		print("Object placed in trash can - deleting it")
-		queue_free()
-						
-	picked_up = false
-	var temp = player.currentCounterTop as Countertop
-	self.global_position = player.currentCounterTop.global_position
-	temp._changeItemOnCounterTop()
-	temp._setItemOnCounterTop(self)
-	reparent(player.currentCounterTop)
-	self.position.y += 0.5
-	print(self.position)
-	countertopThisIsCurrentlyOn = player.currentCounterTop
-	print(player.currentCounterTop.position)
-	onCounterTop = true
-	player.objectPickedUp = false
-func _putItemOnFloor()->void:
-	print("Putting on floor")
-	picked_up = false
-	if (self.is_inside_tree()):
-		var main = get_tree().current_scene
-		reparent(main)
-		player.objectPickedUp = false
-						
-func _pickupItemOffFloor()->void:
-	print("Picking up off the floor")
-	player.objectPickedUp = true
-	picked_up = true
-	player.objectInHand = self
-			
-			#freeze = true
-	reparent(player)
-	#print("Picked up??????")
-func _pickupItemOffCountertop()->void:
-	print("Picking up off countertop")
-	player.objectPickedUp = true
-	picked_up = true
-	player.objectInHand = self
-	reparent(player)
