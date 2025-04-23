@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cieafi3xrydiu"]
+[gd_scene load_steps=16 format=3 uid="uid://cieafi3xrydiu"]
 
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_sjslj"]
 [ext_resource type="PackedScene" uid="uid://vlariurktc12" path="res://the kit/dungeon scenery/wall.gltf" id="2_75wtd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="7_flfhx"]
 [ext_resource type="PackedScene" uid="uid://b35qig32bc6j5" path="res://sink.tscn" id="7_l41ks"]
 [ext_resource type="PackedScene" uid="uid://bt0gg3rj7y1m1" path="res://hob.tscn" id="8_dbcws"]
+[ext_resource type="PackedScene" uid="uid://id4cmgy0jk3j" path="res://oven.tscn" id="9_4a2m6"]
 [ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="9_cwh3r"]
 [ext_resource type="PackedScene" uid="uid://dd5w8n2rnlb54" path="res://assetsFromSamH/materials/node_3d.tscn" id="10_5edhw"]
 
@@ -179,6 +180,10 @@ transform = Transform3D(0.01, 0, 0, 0, 10, 0, 0, 0, 0.01, -0.0470679, 0.999963, 
 transform = Transform3D(-3.49691e-10, 0, -0.01, 0, 10, 0, 0.008, 0, -4.37114e-10, -0.0168703, 0.53774, -0.0553241)
 clean_plate = ExtResource("9_cwh3r")
 
+[node name="Countertop2" parent="The Floor" instance=ExtResource("9_4a2m6")]
+transform = Transform3D(-3.49691e-10, 0, -0.01, 0, 10, 0, 0.008, 0, -4.37114e-10, -0.00295286, 5.35126, -0.0408409)
+itemName = "Oven"
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -5.86577, 2.77797, 0.136968)
 
@@ -190,7 +195,7 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -11.0171, 0.471891, -4.
 
 [node name="TrashCan" parent="." instance=ExtResource("7_flfhx")]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -15.0308, 0.410756, -4.82208)
-itemName = ""
+itemName = "trash can"
 clean_plate = null
 
 [node name="Hob" parent="." instance=ExtResource("8_dbcws")]

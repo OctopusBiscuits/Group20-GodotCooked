@@ -31,6 +31,8 @@ func _physics_process(_delta: float):
 		
 	if itemName == "trash can":
 		itemOnCountertop = false
+		if (held_item):
+			held_item.queue_free()
 	if itemName == "Hob" and held_item :
 		can_place_in_object = held_item.canHoldAnObject and not held_item.holdingAnObject
 		#print("GOt here for hob")
@@ -39,7 +41,10 @@ func _physics_process(_delta: float):
 		print("Got here")
 		if held_item.itemName == "DirtyPlate":
 			_handle_washing(_delta)
-	elif held_item:
+	if itemName == "Oven" and held_item:
+		if held_item.canGoInOven:
+			_handle_oven(_delta)
+	elif held_item: #normal countertop
 		#print("Item is held")
 		_handle_cutting()
 		can_place_in_object = held_item.canHoldAnObject and not held_item.holdingAnObject
@@ -50,7 +55,7 @@ func _changeItemOnCounterTop() -> void:
 	else:
 		itemOnCountertop = true
 func _handle_hob(_delta: float) -> void:
-	print("I am hobbing so hard rn")
+	#print("I am hobbing so hard rn")
 	if held_item.itemName != "Frying Pan" or held_item.holdingAnObject != true:
 		return
 
@@ -63,35 +68,20 @@ func _handle_cutting():
 	if Input.is_action_just_pressed("attack") and player.currentCounterTop == self and itemName == "Countertop":
 		if held_item.cuttable and held_item.cutsNeeded > 0:
 			held_item.cutsNeeded -= 1
-			if held_item.cutsNeeded == 0 and held_item.itemName == "Uncut Onion":
-				var item_pos = held_item.global_position
-				held_item.queue_free()
-				var new_item = cut_onion.instantiate()
-				add_child(new_item)
-				new_item.global_position = item_pos
-				new_item.reparent(self)
-				held_item = new_item.get_child(0)
-				held_item.onCounterTop = true
-				held_item.picked_up = false
-				_place_item(held_item)
+			if held_item.cutsNeeded == 0:
+				_getNewItemOnCounterTop()
 func _handle_washing(_delta : float):
 	print ("washing a dirty plate")
 	held_item.timeToClean -= _delta
 	if (held_item.timeToClean < 0):
-		var item_pos = held_item.global_position
+		_getNewItemOnCounterTop()
+		
+func _handle_oven(_delta: float):
+	print("Ovening")
+	held_item.timeToCook -= _delta
+	if (held_item.timeToCook <= 0):
+		print("COOKED")
 		held_item.queue_free()
-		var cleanPlate = clean_plate.instantiate()
-		_remove_item()
-		add_child(cleanPlate)
-		cleanPlate.global_position = item_pos
-		cleanPlate.reparent(self)
-		
-		held_item = cleanPlate.get_child(0)
-		held_item.on_countertop = true
-		held_item.picked_up = false
-		held_item.countertop = self
-		_place_item(held_item)
-		
 func _place_item(item: Node):
 	held_item = item
 	itemOnCountertop = true
@@ -105,3 +95,22 @@ func _getItemOnCounterTop() -> bool:
 func _setItemOnCounterTop(item: Node) -> void:
 	held_item = item
 	itemOnCountertop = true
+func _getNewItemOnCounterTop() -> Node: #Function to swap object on countertop eg uncut onion to cut onion
+	var new_item : Node
+	if (held_item.itemName == "Uncut Onion"):
+		new_item = cut_onion.instantiate()
+	elif (held_item.itemName == "DirtyPlate"):
+		new_item = clean_plate.instantiate()
+	var item_pos = held_item.global_position
+	held_item.queue_free()
+	#var new_item = cut_onion.instantiate()
+	
+	add_child(new_item)
+	new_item.global_position = item_pos
+	new_item.reparent(self)
+	held_item = new_item.get_child(0)
+	held_item.onCounterTop = true
+	held_item.picked_up = false
+	held_item.countertop = self
+	_place_item(held_item)
+	return null

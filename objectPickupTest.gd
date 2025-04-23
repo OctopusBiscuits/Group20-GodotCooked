@@ -3,7 +3,7 @@ var picked_up = false
 var player : Node
 var in_range = false
 var onCounterTop = false
-var countertopThisIsCurrentlyOn : Node
+var countertop : Node
 var inAnObject = false
 @export var canUseStove : bool
 @export var timeNeededOnStove : float
@@ -13,6 +13,8 @@ var inAnObject = false
 @export var canHoldAnObject : bool #This will be false for food and true for pans/plates etc
 @export var holdingAnObject : bool
 @export var objectBeingHeld : PackedScene
+@export var canGoInOven : bool
+@export var timeToCook : float 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player1")[0]
 
@@ -39,7 +41,7 @@ func _physics_process(_delta):
 			# Pick up off floor
 			print("floor pickup")
 			_pick_up()
-		elif onCounterTop and (player.currentCounterTop == countertopThisIsCurrentlyOn) and (!player.objectPickedUp):
+		elif onCounterTop and (player.currentCounterTop == countertop) and (!player.objectPickedUp):
 			# Pick up off countertop
 			print("from coutnertop")
 			pickup_from_countertop()
@@ -81,4 +83,4 @@ func _put_on_countertop():
 	player.currentCounterTop = counter
 	picked_up = false
 	player.objectPickedUp = false
-	countertopThisIsCurrentlyOn = counter
+	countertop = counter

@@ -3,7 +3,7 @@ extends RigidBody3D
 # === State ===
 var picked_up = false
 var in_range = false
-var on_countertop = false
+var onCounterTop = false
 var countertop : Node = null
 var player : Node = null
 
@@ -21,7 +21,7 @@ func _ready():
 func _physics_process(delta):
 	if player == null:
 		return
-	if (on_countertop):
+	if (onCounterTop):
 		global_position = countertop.global_position + Vector3(0,0.6,0)
 	for item in heldObjects:
 		item.global_position = global_position + Vector3(0,0.1,0)
@@ -44,13 +44,13 @@ func _physics_process(delta):
 # === Interaction Conditions ===
 
 func _can_pick_up_from_floor() -> bool:
-	return in_range and not picked_up and not on_countertop and not player.objectPickedUp
+	return in_range and not picked_up and not onCounterTop and not player.objectPickedUp
 
 func _can_pick_up_from_countertop() -> bool:
-	return player.currentCounterTop == countertop and on_countertop and not picked_up
+	return player.currentCounterTop == countertop and onCounterTop and not picked_up
 
 func _can_interact_with_held_object() -> bool:
-	return Input.is_action_just_pressed("putInFryingPan") and countertop == player.currentCounterTop and on_countertop
+	return Input.is_action_just_pressed("putInFryingPan") and countertop == player.currentCounterTop and onCounterTop
 
 # === Player Interaction Actions ===
 
@@ -73,7 +73,7 @@ func _try_pick_up_off_countertop():
 		player.objectPickedUp = true
 		player.objectInHand = self
 		picked_up = true
-		on_countertop = false
+		onCounterTop = false
 		reparent(player)
 
 # === Core Actions ===
@@ -100,7 +100,7 @@ func _put_item_on_countertop():
 	counter._changeItemOnCounterTop()
 
 	picked_up = false
-	on_countertop = true
+	onCounterTop = true
 	player.objectPickedUp = false
 
 func _put_item_on_floor():
