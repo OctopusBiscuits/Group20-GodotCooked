@@ -3,7 +3,7 @@ class_name Countertop
 
 @export var itemName: String
 @export var cut_onion: PackedScene
-
+@export var clean_plate: PackedScene
 var itemOnCountertop := false
 var held_item: Node = null
 var can_place_in_object := false
@@ -27,12 +27,20 @@ func _on_area_3d_body_exited(body):
 			body.currentCounterTop = null
 
 func _physics_process(_delta: float):
+	
+		
 	if itemName == "trash can":
 		itemOnCountertop = false
 	if itemName == "Hob" and held_item :
 		can_place_in_object = held_item.canHoldAnObject and not held_item.holdingAnObject
+		#print("GOt here for hob")
 		_handle_hob(_delta)
+	if itemName == "Sink" and held_item:
+		print("Got here")
+		if held_item.itemName == "DirtyPlate":
+			_handle_washing(_delta)
 	elif held_item:
+		#print("Item is held")
 		_handle_cutting()
 		can_place_in_object = held_item.canHoldAnObject and not held_item.holdingAnObject
 		
@@ -52,7 +60,7 @@ func _handle_hob(_delta: float) -> void:
 		held_item.holdingAnObject = false
 		held_item.objectBeingHeld.queue_free()
 func _handle_cutting():
-	if Input.is_action_just_pressed("attack") and player.currentCounterTop == self:
+	if Input.is_action_just_pressed("attack") and player.currentCounterTop == self and itemName == "Countertop":
 		if held_item.cuttable and held_item.cutsNeeded > 0:
 			held_item.cutsNeeded -= 1
 			if held_item.cutsNeeded == 0 and held_item.itemName == "Uncut Onion":
@@ -65,7 +73,25 @@ func _handle_cutting():
 				held_item = new_item.get_child(0)
 				held_item.onCounterTop = true
 				held_item.picked_up = false
-
+				_place_item(held_item)
+func _handle_washing(_delta : float):
+	print ("washing a dirty plate")
+	held_item.timeToClean -= _delta
+	if (held_item.timeToClean < 0):
+		var item_pos = held_item.global_position
+		held_item.queue_free()
+		var cleanPlate = clean_plate.instantiate()
+		_remove_item()
+		add_child(cleanPlate)
+		cleanPlate.global_position = item_pos
+		cleanPlate.reparent(self)
+		
+		held_item = cleanPlate.get_child(0)
+		held_item.on_countertop = true
+		held_item.picked_up = false
+		held_item.countertop = self
+		_place_item(held_item)
+		
 func _place_item(item: Node):
 	held_item = item
 	itemOnCountertop = true

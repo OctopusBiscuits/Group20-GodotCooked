@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cdgkeyokk8vsu" path="res://frying_pan.gd" id="2_v8qao"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v8qao"]
-size = Vector3(1, 0.27002, 1.13477)
+size = Vector3(1, 0.27002, 0.948244)
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_aekj7"]
 

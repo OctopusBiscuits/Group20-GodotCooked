@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm0mq13r8qmk6"]
+
+[ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="1_p3fnk"]
+[ext_resource type="PackedScene" uid="uid://ydy7cewta2ew" path="res://assetsFromSamH/dirty plate.blend" id="2_vim84"]
+
+[node name="Plate" instance=ExtResource("1_p3fnk")]
+
+[node name="test" parent="." index="0"]
+itemName = "DirtyPlate"
+timeToClean = 1.4
+
+[node name="dirty plate" parent="test/PickUpArea3D" index="3" instance=ExtResource("2_vim84")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="china plate" parent="test" index="2"]
+visible = false

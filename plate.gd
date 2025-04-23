@@ -13,6 +13,7 @@ var player : Node = null
 @export var cuttable : bool
 @export var canHoldAnObject : bool
 @export var heldObjects : Array[Node] = []
+@export var timeToClean : float
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player1").front()
@@ -24,7 +25,9 @@ func _physics_process(delta):
 		global_position = countertop.global_position + Vector3(0,0.6,0)
 	for item in heldObjects:
 		item.global_position = global_position + Vector3(0,0.1,0)
-	
+	if (itemName == "DirtyPlate"):
+		canHoldAnObject = false
+		#print("DIRTY FUCKER")
 	if picked_up:
 		_handle_while_held()
 	elif _can_pick_up_from_floor():
