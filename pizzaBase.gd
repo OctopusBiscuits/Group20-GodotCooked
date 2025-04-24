@@ -6,7 +6,7 @@ var in_range = false #is it in range to be picked up
 var onCounterTop = false #bool to say if on a countertop or not
 var countertop : Node = null #countertop this item is currently on (if not on countertop it is null)
 var player : Node = null #player
-
+var inAnObject = false
 # === Item Properties ===
 @export var cutsNeeded = 0
 @export var itemName : String #For pizza bases this should be pizza base + toppings

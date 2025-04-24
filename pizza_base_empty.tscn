@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="1_bxoqc"]
 [ext_resource type="Script" uid="uid://du22syrpg00us" path="res://pizzaBase.gd" id="2_bfvj5"]
-[ext_resource type="PackedScene" uid="uid://56uvj8nolb0l" path="res://Godot game/pots and pans/china plate.blend" id="3_r5fvp"]
+[ext_resource type="PackedScene" uid="uid://b0c88dr07i83i" path="res://food/pizza base.blend" id="3_bxoqc"]
 
 [node name="Pizza Base" instance=ExtResource("1_bxoqc")]
 
@@ -10,8 +10,7 @@
 script = ExtResource("2_bfvj5")
 itemName = "Pizza Base"
 
-[node name="TEMPORARY" parent="test" index="1" instance=ExtResource("3_r5fvp")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="pizza base" parent="test/PickUpArea3D" index="3" instance=ExtResource("3_bxoqc")]
 
-[node name="china plate" parent="test" index="3"]
+[node name="china plate" parent="test" index="2"]
 visible = false

@@ -5,6 +5,8 @@ class_name Countertop
 @export var cut_onion: PackedScene
 @export var clean_plate: PackedScene
 @export var pizza_base_cheese: PackedScene
+@export var foodSentList : Node
+@export var itemsInStove : Array[String] = []
 var itemOnCountertop := false
 var held_item: Node = null
 var can_place_in_object := false
@@ -12,7 +14,8 @@ var player: Node = null
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player1")[0]
-
+	foodSentList = get_tree().get_nodes_in_group("FoodSentPrefab")[0]
+	#print(foodSentList)
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Little Fella":
 		if body.counterTopsTouching == 0:
@@ -34,17 +37,23 @@ func _physics_process(_delta: float):
 		itemOnCountertop = false
 		if (held_item):
 			held_item.queue_free()
-	if itemName == "Hob" and held_item :
+	elif itemName == "Hob" and held_item :
 		can_place_in_object = held_item.canHoldAnObject and not held_item.holdingAnObject
 		#print("GOt here for hob")
 		_handle_hob(_delta)
-	if itemName == "Sink" and held_item:
+	elif itemName == "Sink" and held_item:
 		print("Got here")
 		if held_item.itemName == "DirtyPlate":
 			_handle_washing(_delta)
-	if itemName == "Oven" and held_item:
+	elif itemName == "Oven" and held_item:
 		if held_item.canGoInOven:
 			_handle_oven(_delta)
+	elif itemName == "Converybelt" and held_item:
+		if (held_item.itemName == "Plate"):
+			foodSentList._addMeal(held_item)
+			held_item.queue_free()
+	elif itemName == "Stove" and held_item:
+		_handle_stove(_delta)
 	elif held_item: #normal countertop
 		#print("Item is held")
 		_handle_cutting()
@@ -86,7 +95,14 @@ func _handle_oven(_delta: float):
 func _place_item(item: Node):
 	held_item = item
 	itemOnCountertop = true
-
+func _handle_stove(_delta: float): 
+	#print("Stoving")
+	itemsInStove.append(held_item.itemName)
+	held_item.queue_free()
+	_remove_item()
+	
+	print(itemsInStove)
+	
 func _remove_item():
 	held_item = null
 	itemOnCountertop = false
