@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://du3jj40l064k8"]
+
+[ext_resource type="PackedScene" uid="uid://cqmq1wn75vq7s" path="res://uncut_onion.tscn" id="1_wn8m4"]
+[ext_resource type="PackedScene" uid="uid://4upb8ol8edsy" path="res://food/Cheese half.blend" id="2_xxt8x"]
+
+[node name="Cut Cheese" instance=ExtResource("1_wn8m4")]
+
+[node name="test" parent="." index="0"]
+itemName = "Cut Cheese"
+cuttable = false
+canGoInOven = false
+
+[node name="Onion" parent="test/PickUpArea3D" index="2"]
+visible = false
+
+[node name="Cheese half" parent="test/PickUpArea3D" index="3" instance=ExtResource("2_xxt8x")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)

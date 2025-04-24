@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cieafi3xrydiu"]
+[gd_scene load_steps=18 format=3 uid="uid://cieafi3xrydiu"]
 
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_sjslj"]
 [ext_resource type="PackedScene" uid="uid://vlariurktc12" path="res://the kit/dungeon scenery/wall.gltf" id="2_75wtd"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bt0gg3rj7y1m1" path="res://hob.tscn" id="8_dbcws"]
 [ext_resource type="PackedScene" uid="uid://id4cmgy0jk3j" path="res://oven.tscn" id="9_4a2m6"]
 [ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="9_cwh3r"]
+[ext_resource type="PackedScene" uid="uid://de28xllgl6gns" path="res://pizza_base_empty.tscn" id="10_1vkkk"]
 [ext_resource type="PackedScene" uid="uid://dd5w8n2rnlb54" path="res://assetsFromSamH/materials/node_3d.tscn" id="10_5edhw"]
+[ext_resource type="PackedScene" uid="uid://du3jj40l064k8" path="res://cut_cheese.tscn" id="15_34xsy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c3yrm"]
 
@@ -179,10 +181,15 @@ transform = Transform3D(0.01, 0, 0, 0, 10, 0, 0, 0, 0.01, -0.0470679, 0.999963, 
 [node name="Countertop" parent="The Floor" instance=ExtResource("7_l41ks")]
 transform = Transform3D(-3.49691e-10, 0, -0.01, 0, 10, 0, 0.008, 0, -4.37114e-10, -0.0168703, 0.53774, -0.0553241)
 clean_plate = ExtResource("9_cwh3r")
+pizza_base_cheese = null
 
 [node name="Countertop2" parent="The Floor" instance=ExtResource("9_4a2m6")]
 transform = Transform3D(-3.49691e-10, 0, -0.01, 0, 10, 0, 0.008, 0, -4.37114e-10, -0.00295286, 5.35126, -0.0408409)
 itemName = "Oven"
+pizza_base_cheese = null
+
+[node name="Pizza Base" parent="The Floor" instance=ExtResource("10_1vkkk")]
+transform = Transform3D(0.01, 0, 0, 0, 10, 0, 0, 0, 0.01, -0.0111785, 0.999964, 0.0097319)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -5.86577, 2.77797, 0.136968)
@@ -197,13 +204,18 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -11.0171, 0.471891, -4.
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -15.0308, 0.410756, -4.82208)
 itemName = "trash can"
 clean_plate = null
+pizza_base_cheese = null
 
 [node name="Hob" parent="." instance=ExtResource("8_dbcws")]
 transform = Transform3D(-3.49691e-08, 0, -1, 0, 1, 0, 0.8, 0, -4.37114e-08, -4.6544, 0, -8.60177)
 clean_plate = null
+pizza_base_cheese = null
 
 [node name="Plate" parent="." instance=ExtResource("9_cwh3r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -9)
 
 [node name="Node3D" parent="." instance=ExtResource("10_5edhw")]
 transform = Transform3D(0.288348, 0, -0.0827969, 0, 0.3, 0, 0.0827969, 0, 0.288348, -16.7177, 1.01081, -8.01409)
+
+[node name="Cut Cheese" parent="." instance=ExtResource("15_34xsy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5474, 0.0108066, -4.44364)

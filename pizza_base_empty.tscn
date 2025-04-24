@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://de28xllgl6gns"]
+
+[ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="1_bxoqc"]
+[ext_resource type="Script" uid="uid://du22syrpg00us" path="res://pizzaBase.gd" id="2_bfvj5"]
+[ext_resource type="PackedScene" uid="uid://56uvj8nolb0l" path="res://Godot game/pots and pans/china plate.blend" id="3_r5fvp"]
+
+[node name="Pizza Base" instance=ExtResource("1_bxoqc")]
+
+[node name="test" parent="." index="0"]
+script = ExtResource("2_bfvj5")
+itemName = "Pizza Base"
+
+[node name="TEMPORARY" parent="test" index="1" instance=ExtResource("3_r5fvp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="china plate" parent="test" index="3"]
+visible = false

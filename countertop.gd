@@ -4,6 +4,7 @@ class_name Countertop
 @export var itemName: String
 @export var cut_onion: PackedScene
 @export var clean_plate: PackedScene
+@export var pizza_base_cheese: PackedScene
 var itemOnCountertop := false
 var held_item: Node = null
 var can_place_in_object := false
@@ -101,7 +102,10 @@ func _getNewItemOnCounterTop() -> Node: #Function to swap object on countertop e
 		new_item = cut_onion.instantiate()
 	elif (held_item.itemName == "DirtyPlate"):
 		new_item = clean_plate.instantiate()
+	elif (held_item.itemName == "PizzaBaseNowWithCheese"):
+		new_item = pizza_base_cheese.instantiate()
 	var item_pos = held_item.global_position
+	
 	held_item.queue_free()
 	#var new_item = cut_onion.instantiate()
 	

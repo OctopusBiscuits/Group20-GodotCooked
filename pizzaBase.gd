@@ -1,15 +1,15 @@
 extends RigidBody3D
 
 # === State ===
-var picked_up = false
-var in_range = false
-var onCounterTop = false
-var countertop : Node = null
-var player : Node = null
+var picked_up = false #is it picked up
+var in_range = false #is it in range to be picked up
+var onCounterTop = false #bool to say if on a countertop or not
+var countertop : Node = null #countertop this item is currently on (if not on countertop it is null)
+var player : Node = null #player
 
 # === Item Properties ===
 @export var cutsNeeded = 0
-@export var itemName : String
+@export var itemName : String #For pizza bases this should be pizza base + toppings
 @export var cuttable : bool
 @export var canHoldAnObject : bool
 @export var heldObjects : Array[Node] = []
@@ -25,8 +25,7 @@ func _physics_process(delta):
 		global_position = countertop.global_position + Vector3(0,0.6,0)
 	for item in heldObjects:
 		item.global_position = global_position + Vector3(0,0.1,0)
-	if (itemName == "DirtyPlate"):
-		canHoldAnObject = false
+	
 		
 	if picked_up:
 		_handle_while_held()
@@ -122,7 +121,10 @@ func _place_in_container():
 
 	player.objectPickedUp = false
 	player.objectInHand = null
-
+	if (held_item.itemName == "Cut Cheese" and itemName == "Pizza Base"):
+		itemName = "PizzaBaseNowWithCheese"
+		print("DEBUG: Trying to switch")
+		countertop._getNewItemOnCounterTop()
 
 func _take_out_of_container():
 	if heldObjects.is_empty():
