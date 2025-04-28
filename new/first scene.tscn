@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cieafi3xrydiu"]
+[gd_scene load_steps=21 format=3 uid="uid://cieafi3xrydiu"]
 
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_sjslj"]
 [ext_resource type="PackedScene" uid="uid://vlariurktc12" path="res://the kit/dungeon scenery/wall.gltf" id="2_75wtd"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://du3jj40l064k8" path="res://cut_cheese.tscn" id="15_34xsy"]
 [ext_resource type="PackedScene" uid="uid://hwfd88cowjbs" path="res://converybelt.tscn" id="16_wr6wj"]
 [ext_resource type="PackedScene" uid="uid://dtvuxfck0xwjw" path="res://pot_stove.tscn" id="17_wr6wj"]
+[ext_resource type="PackedScene" uid="uid://b5gcvebiunq53" path="res://produce_crate.tscn" id="18_a3g3y"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c3yrm"]
 
@@ -223,3 +224,8 @@ itemName = "Converybelt"
 [node name="Pot Stove" parent="." instance=ExtResource("17_wr6wj")]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -6.6293, 0.0218766, -6.45763)
 itemName = "Stove"
+
+[node name="Produce Crate" parent="." instance=ExtResource("18_a3g3y")]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -8.44572, 0.410807, -12.5365)
+itemName = "Produce Crate"
+itemStored = ExtResource("6_0ptwd")

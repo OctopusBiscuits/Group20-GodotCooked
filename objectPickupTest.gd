@@ -57,9 +57,15 @@ func pickup_from_countertop():
 	reparent(player)
 
 func _handle_put_down():
-	if player.currentCounterTop and not player.currentCounterTop._getItemOnCounterTop() and player.currentCounterTop.itemName != "Hob":
+	if (player.currentCounterTop and player.currentCounterTop.itemName == "Produce Crate"):
+		print("Cannot put down here")
+		return
+	if player.currentCounterTop and not player.currentCounterTop._getItemOnCounterTop() and player.currentCounterTop.itemName != "Hob" and player.currentCounterTop.itemName != "Produce Crate":
+		print("Going on countertop")
 		_put_on_countertop()
+	
 	else:
+		print("on the floor")
 		_put_on_floor()
 
 func _pick_up():

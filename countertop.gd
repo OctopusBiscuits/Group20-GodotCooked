@@ -7,6 +7,7 @@ class_name Countertop
 @export var pizza_base_cheese: PackedScene
 @export var foodSentList : Node
 @export var itemsInStove : Array[String] = []
+@export var itemStored : PackedScene #Used for Produce crates 
 var itemOnCountertop := false
 var held_item: Node = null
 var can_place_in_object := false
@@ -32,11 +33,17 @@ func _on_area_3d_body_exited(body):
 
 func _physics_process(_delta: float):
 	
-		
+	
 	if itemName == "trash can":
 		itemOnCountertop = false
 		if (held_item):
 			held_item.queue_free()
+	elif itemName == "Produce Crate":
+		
+		itemOnCountertop = true
+		
+		if (player.currentCounterTop == self and player.objectPickedUp == false):
+			_handle_produce()
 	elif itemName == "Hob" and held_item :
 		can_place_in_object = held_item.canHoldAnObject and not held_item.holdingAnObject
 		#print("GOt here for hob")
@@ -64,6 +71,11 @@ func _changeItemOnCounterTop() -> void:
 		itemOnCountertop = false
 	else:
 		itemOnCountertop = true
+func _handle_produce() -> void:
+	#print("handling produce.")
+	if Input.is_action_just_pressed("Toggle Pickup"):
+		print("trying to spawn new produce")
+		_getNewItemOnCounterTop()
 func _handle_hob(_delta: float) -> void:
 	#print("I am hobbing so hard rn")
 	if held_item.itemName != "Frying Pan" or held_item.holdingAnObject != true:
@@ -114,19 +126,25 @@ func _setItemOnCounterTop(item: Node) -> void:
 	itemOnCountertop = true
 func _getNewItemOnCounterTop() -> Node: #Function to swap object on countertop eg uncut onion to cut onion
 	var new_item : Node
-	if (held_item.itemName == "Uncut Onion"):
-		new_item = cut_onion.instantiate()
-	elif (held_item.itemName == "DirtyPlate"):
-		new_item = clean_plate.instantiate()
-	elif (held_item.itemName == "PizzaBaseNowWithCheese"):
-		new_item = pizza_base_cheese.instantiate()
-	var item_pos = held_item.global_position
+	var itemPos
+	if (itemName == "Produce Crate"):
+		new_item = itemStored.instantiate()
+		itemPos = self.global_position + Vector3(0, 0.5, 0)
+	else:
+		
+		if (held_item.itemName == "Uncut Onion"):
+			new_item = cut_onion.instantiate()
+		elif (held_item.itemName == "DirtyPlate"):
+			new_item = clean_plate.instantiate()
+		elif (held_item.itemName == "PizzaBaseNowWithCheese"):
+			new_item = pizza_base_cheese.instantiate()
+		itemPos = held_item.global_position
+		held_item.queue_free()
 	
-	held_item.queue_free()
 	#var new_item = cut_onion.instantiate()
 	
 	add_child(new_item)
-	new_item.global_position = item_pos
+	new_item.global_position = itemPos
 	new_item.reparent(self)
 	held_item = new_item.get_child(0)
 	held_item.onCounterTop = true
