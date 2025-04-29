@@ -1,21 +1,21 @@
 extends Node3D
 
 # Array to store all playable characters
-var characters = []
-var current_character_index = 0
+var chefs = []
+var chefi = 0
 
 func _ready():
 	# Find and store all character instances
 	for child in get_children():
 		if child is CharacterBody3D:
-			characters.append(child)
+			chefs.append(child)
 			# Disable all characters except the first one
 			child.set_process(false)
 			child.set_physics_process(false)
 			
 	
 	# Enable the first character
-	if characters.size() > 0:
+	if chefs.size() > 0:
 		enable_character(0)
 
 func _input(event):
@@ -23,26 +23,26 @@ func _input(event):
 		switch_to_next_character()
 
 func switch_to_next_character():
-	if characters.size() <= 1:
+	if chefs.size() <= 1:
 		return
 		
 	# Disable current character
-	disable_character(current_character_index)
+	disable_character(chefi)
 	
 	# Switch to next character
-	current_character_index = (current_character_index + 1) % characters.size()
+	chefi= (chefi + 1) % chefs.size()
 	
 	# Enable new current character
-	enable_character(current_character_index)
+	enable_character(chefi)
 
-func enable_character(index):
-	var character = characters[index]
-	character.set_process(true)
-	character.set_physics_process(true)
+func enable_character(i):
+	var chef = chefs[i]
+	chef.set_process(true)
+	chef.set_physics_process(true)
 	
 
-func disable_character(index):
-	var character = characters[index]
-	character.set_process(false)
-	character.set_physics_process(false)
+func disable_character(i):
+	var chef = chefs[i]
+	chef.set_process(false)
+	chef.set_physics_process(false)
 	
