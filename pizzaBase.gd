@@ -41,7 +41,7 @@ func _physics_process(_delta):
 		if picked_up:
 			_handle_while_held(player)
 		elif _can_pick_up_from_floor(player):
-			print("trying to pick up from floor")
+			
 			_try_pick_up_off_floor(player)
 		elif _can_pick_up_from_countertop(player):
 			_try_pick_up_off_countertop(player)
