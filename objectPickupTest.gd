@@ -5,6 +5,7 @@ var in_range = false
 var onCounterTop = false
 var countertop : Node
 var inAnObject = false
+var players_in_range : Array = []
 @export var canUseStove : bool
 @export var timeNeededOnStove : float
 @export var cutsNeeded = 0
@@ -16,37 +17,34 @@ var inAnObject = false
 @export var canGoInOven : bool
 @export var timeToCook : float 
 func _ready():
-	player = get_tree().get_nodes_in_group("Player1")[0]
-
+	#player = get_tree().get_nodes_in_group("Player1")[0]
+	pass
 func _on_area_3d_body_entered(body):
-	if body.name == "Little Fella":
-		in_range = true
-
+	print("In onareaentered")
+	print(body.is_in_group("Players"))
+	print(body)
+	if body.is_in_group("Players") and not players_in_range.has(body):
+		players_in_range.append(body)
+		print("in range")
 func _on_area_3d_body_exited(body):
-	if body.name == "Little Fella":
-		in_range = false
+	if body.is_in_group("Players"):
+		players_in_range.erase(body)
 
 func _physics_process(_delta):
-	if not player:
-		return
-	
+	for player in players_in_range:
 		
-	#print(countertopThisIsCurrentlyOn)
-	if Input.is_action_just_pressed("Toggle Pickup"):
-		print("E pressed")
-		if picked_up:
-			print("put down")
-			_handle_put_down()
-		elif in_range and not picked_up and not player.objectPickedUp and not onCounterTop:
-			# Pick up off floor
-			print("floor pickup")
-			_pick_up()
-		elif onCounterTop and (player.currentCounterTop == countertop) and (!player.objectPickedUp):
-			# Pick up off countertop
-			print("from coutnertop")
-			pickup_from_countertop()
+		#print("in for loop")
 
-func pickup_from_countertop():
+		if Input.is_action_just_pressed("Toggle Pickup"):
+			print("Got here")
+			if picked_up and player.objectInHand == self:
+				_handle_put_down(player)
+			elif not picked_up and not player.objectPickedUp and not onCounterTop:
+				_pick_up(player)
+			elif onCounterTop and (player.currentCounterTop == countertop) and (!player.objectPickedUp):
+				pickup_from_countertop(player)
+
+func pickup_from_countertop(player):
 	print("Picking up from countertop")
 	print(player.currentCounterTop)
 	player.currentCounterTop._remove_item()
@@ -56,31 +54,31 @@ func pickup_from_countertop():
 	onCounterTop = false
 	reparent(player)
 
-func _handle_put_down():
+func _handle_put_down(player):
 	if (player.currentCounterTop and player.currentCounterTop.itemName == "Produce Crate"):
 		print("Cannot put down here")
 		return
 	if player.currentCounterTop and not player.currentCounterTop._getItemOnCounterTop() and player.currentCounterTop.itemName != "Hob" and player.currentCounterTop.itemName != "Produce Crate":
 		print("Going on countertop")
-		_put_on_countertop()
+		_put_on_countertop(player)
 	
 	else:
 		print("on the floor")
-		_put_on_floor()
+		_put_on_floor(player)
 
-func _pick_up():
+func _pick_up(player):
 	picked_up = true
 	onCounterTop = false
 	player.objectPickedUp = true
 	player.objectInHand = self
 	reparent(player)
 
-func _put_on_floor():
+func _put_on_floor(player):
 	picked_up = false
 	reparent(get_tree().current_scene)
 	player.objectPickedUp = false
 
-func _put_on_countertop():
+func _put_on_countertop(player):
 	var counter = player.currentCounterTop as Countertop
 	reparent(counter)
 	global_position = counter.global_position + Vector3(0, 0.5, 0)

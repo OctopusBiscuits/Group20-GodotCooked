@@ -17,19 +17,16 @@ func _ready():
 	player = get_tree().get_nodes_in_group("Player1")[0]
 	foodSentList = get_tree().get_nodes_in_group("FoodSentPrefab")[0]
 	#print(foodSentList)
-func _on_area_3d_body_entered(body: Node3D) -> void:
+func _on_area_3d_body_entered(body: Node3D) -> void: 
 	if body.name == "Little Fella":
-		if body.counterTopsTouching == 0:
-			print("This could work")
-			#print(itemHeldOnCounterTop)
-			body.currentCounterTop = self
-		body.counterTopsTouching += 1
+		if not self in body.nearbyCounterTops:
+			body.nearbyCounterTops.append(self)
+		body.update_currentCounterTop()
 
-func _on_area_3d_body_exited(body):
+func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.name == "Little Fella":
-		body.counterTopsTouching -= 1
-		if body.currentCounterTop == self:
-			body.currentCounterTop = null
+		body.nearbyCounterTops.erase(self)
+		body.update_currentCounterTop()
 
 func _physics_process(_delta: float):
 	

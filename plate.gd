@@ -6,7 +6,7 @@ var in_range = false
 var onCounterTop = false
 var countertop : Node = null
 var player : Node = null
-
+var players_in_range : Array = []
 # === Item Properties ===
 @export var cutsNeeded = 0
 @export var itemName : String
@@ -15,59 +15,70 @@ var player : Node = null
 @export var heldObjects : Array[Node] = []
 @export var timeToClean : float
 
-func _ready():
-	player = get_tree().get_nodes_in_group("Player1").front()
+func _on_area_3d_body_entered(body):
+	
+	if body.is_in_group("Players") and not players_in_range.has(body):
+		players_in_range.append(body)
+		print("in range")
+		print(itemName)
+func _on_area_3d_body_exited(body):
+	if body.is_in_group("Players"):
+		players_in_range.erase(body)
 
-func _physics_process(delta):
-	if player == null:
-		return
+func _physics_process(_delta):
 	if (onCounterTop):
 		global_position = countertop.global_position + Vector3(0,0.6,0)
 	for item in heldObjects:
 		item.global_position = global_position + Vector3(0,0.1,0)
 	if (itemName == "DirtyPlate"):
 		canHoldAnObject = false
+	for player in players_in_range:
 		
-	if picked_up:
-		_handle_while_held()
-	elif _can_pick_up_from_floor():
-		_try_pick_up_off_floor()
-	elif _can_pick_up_from_countertop():
-		_try_pick_up_off_countertop()
-
-	if _can_interact_with_held_object():
-		if player.objectPickedUp:
-			_place_in_container()
+		#print("in for loop")
+		in_range = true
+		if picked_up:
+			_handle_while_held(player)
+		elif _can_pick_up_from_floor(player):
+			print("trying to pick up from floor")
+			_try_pick_up_off_floor(player)
+		elif _can_pick_up_from_countertop(player):
+			_try_pick_up_off_countertop(player)
 		else:
-			_take_out_of_container()
+			#print("in the else")
+			pass
+		if _can_interact_with_held_object(player):
+			if player.objectPickedUp:
+				_place_in_container(player)
+			else:
+				_take_out_of_container(player)
 
 # === Interaction Conditions ===
 
-func _can_pick_up_from_floor() -> bool:
+func _can_pick_up_from_floor(player) -> bool:
 	return in_range and not picked_up and not onCounterTop and not player.objectPickedUp
 
-func _can_pick_up_from_countertop() -> bool:
+func _can_pick_up_from_countertop(player) -> bool:
 	return player.currentCounterTop == countertop and onCounterTop and not picked_up
 
-func _can_interact_with_held_object() -> bool:
+func _can_interact_with_held_object(player) -> bool:
 	return Input.is_action_just_pressed("putInFryingPan") and countertop == player.currentCounterTop and onCounterTop
 
 # === Player Interaction Actions ===
 
-func _handle_while_held():
+func _handle_while_held(player):
 	if not Input.is_action_just_pressed("Toggle Pickup"):
 		return
 
 	if player.currentCounterTop:
-		_put_item_on_countertop()
+		_put_item_on_countertop(player)
 	else:
-		_put_item_on_floor()
+		_put_item_on_floor(player)
 
-func _try_pick_up_off_floor():
+func _try_pick_up_off_floor(player):
 	if Input.is_action_just_pressed("Toggle Pickup"):
 		_pick_up(player)
 
-func _try_pick_up_off_countertop():
+func _try_pick_up_off_countertop(player):
 	if Input.is_action_just_pressed("Toggle Pickup"):
 		player.currentCounterTop._remove_item()
 		player.objectPickedUp = true
@@ -84,7 +95,7 @@ func _pick_up(holder: Node):
 	holder.objectInHand = self
 	reparent(holder)
 
-func _put_item_on_countertop():
+func _put_item_on_countertop(player):
 	if player.currentCounterTop.itemName == "trash can":
 		player.objectPickedUp = false
 		queue_free()
@@ -103,12 +114,12 @@ func _put_item_on_countertop():
 	onCounterTop = true
 	player.objectPickedUp = false
 
-func _put_item_on_floor():
+func _put_item_on_floor(player):
 	reparent(get_tree().current_scene)
 	picked_up = false
 	player.objectPickedUp = false
 
-func _place_in_container():
+func _place_in_container(player):
 	var held_item = player.objectInHand
 	if not held_item:
 		return
@@ -124,7 +135,7 @@ func _place_in_container():
 	player.objectInHand = null
 
 
-func _take_out_of_container():
+func _take_out_of_container(player):
 	if heldObjects.is_empty():
 		return
 
@@ -135,13 +146,3 @@ func _take_out_of_container():
 
 	player.objectPickedUp = true
 	player.objectInHand = lastObject
-
-# === Signals ===
-
-func _on_area_3d_body_entered(body):
-	if body.name == "Little Fella":
-		in_range = true
-
-func _on_area_3d_body_exited(body):
-	if body.name == "Little Fella":
-		in_range = false

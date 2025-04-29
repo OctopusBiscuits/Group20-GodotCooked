@@ -13,9 +13,23 @@ var objectInHand = null
 var counterTopsTouching = 0
 var currentCounterTop: Node3D = null 
 var counterTopPosition = null
+var nearbyCounterTops : Array = []
 func _ready():
-	add_to_group("player")
+	add_to_group("Players")
 
+func update_currentCounterTop():
+	if (nearbyCounterTops.size() == 0):
+		return null
+	var closest = nearbyCounterTops[0]
+	var closest_dist = global_position.distance_to(closest.global_position)
+
+	for c in nearbyCounterTops:
+		var dist = global_position.distance_to(c.global_position)
+		if dist < closest_dist:
+			closest = c
+			closest_dist = dist
+
+	currentCounterTop = closest
 func inpuut(event):
 	if !$AnimationTree.get("parameters/conditions/roll"):
 		if $dash_window.is_stopped():
