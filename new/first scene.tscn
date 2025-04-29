@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="7_flfhx"]
 [ext_resource type="PackedScene" uid="uid://b35qig32bc6j5" path="res://sink.tscn" id="7_l41ks"]
 [ext_resource type="PackedScene" uid="uid://bt0gg3rj7y1m1" path="res://hob.tscn" id="8_dbcws"]
-[ext_resource type="PackedScene" uid="uid://id4cmgy0jk3j" path="res://oven.tscn" id="9_4a2m6"]
+[ext_resource type="PackedScene" uid="uid://id4cmgy0jk3j" path="res://Oven.tscn" id="9_4a2m6"]
 [ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="9_cwh3r"]
 [ext_resource type="PackedScene" uid="uid://de28xllgl6gns" path="res://pizza_base_empty.tscn" id="10_1vkkk"]
 [ext_resource type="PackedScene" uid="uid://diiogll3k463y" path="res://food_sent_out.tscn" id="11_34xsy"]
@@ -24,24 +24,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_nydfx"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Countertop5" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.252, 0, -6.544)
-
-[node name="Countertop3" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25182, 0, -6.54443)
-
-[node name="Countertop4" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.252, 0, -6.544)
-
-[node name="Countertop6" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.252, 0, -6.544)
-
-[node name="Countertop7" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.252, 0, -6.544)
-
-[node name="Countertop8" parent="." instance=ExtResource("1_sjslj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.252, 0, -6.544)
 
 [node name="Countertop9" parent="." instance=ExtResource("1_sjslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.252, 0, -6.544)

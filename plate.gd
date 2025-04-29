@@ -14,6 +14,7 @@ var players_in_range : Array = []
 @export var canHoldAnObject : bool
 @export var heldObjects : Array[Node] = []
 @export var timeToClean : float
+@export var canGoInOven : bool = false
 
 func _on_area_3d_body_entered(body):
 	

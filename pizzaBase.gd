@@ -8,6 +8,7 @@ var countertop : Node = null #countertop this item is currently on (if not on co
 var player : Node = null #player
 var inAnObject = false
 var players_in_range : Array = []
+var canGoInOven : bool
 # === Item Properties ===
 @export var cutsNeeded = 0
 @export var itemName : String #For pizza bases this should be pizza base + toppings
@@ -30,6 +31,9 @@ func _on_area_3d_body_exited(body):
 		players_in_range.erase(body)
 
 func _physics_process(_delta):
+	if itemName == "PizzaBaseNowWithCheese":
+		canGoInOven = true
+		
 	if (onCounterTop):
 		global_position = countertop.global_position + Vector3(0,0.6,0)
 	for item in heldObjects:
