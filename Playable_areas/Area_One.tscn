@@ -173,10 +173,10 @@ transform = Transform3D(75, 0, 0, 0, 84.951, 0, 0, 0, 92.125, -4.02389, 0.665419
 [node name="CuttingBoard2" parent="CuttingBoard" instance=ExtResource("11_miqie")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.012332)
 
-[node name="Basic_Cabinet_No_Handle" parent="." instance=ExtResource("12_gh3se")]
+[node name="Tomato Box" parent="." instance=ExtResource("12_gh3se")]
 transform = Transform3D(120, 0, 0, 0, 120, 0, 0, 0, 120, 0.288468, -0.0259287, 0.423045)
 
-[node name="Basic_Cabinet_No_Handle2" parent="Basic_Cabinet_No_Handle" instance=ExtResource("13_y61n1")]
+[node name="Onion Box" parent="Tomato Box" instance=ExtResource("13_y61n1")]
 transform = Transform3D(0.958333, 0, 0, 0, 0.958333, 0, 0, 0, 0.958333, 4.97003e-05, 0.000210329, -0.00998994)
 
 [node name="stove" parent="." instance=ExtResource("14_q44gh")]
