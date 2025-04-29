@@ -14,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="9_cwh3r"]
 [ext_resource type="PackedScene" uid="uid://de28xllgl6gns" path="res://pizza_base_empty.tscn" id="10_1vkkk"]
 [ext_resource type="PackedScene" uid="uid://diiogll3k463y" path="res://food_sent_out.tscn" id="11_34xsy"]
-[ext_resource type="PackedScene" uid="uid://du3jj40l064k8" path="res://cut_cheese.tscn" id="15_34xsy"]
 [ext_resource type="PackedScene" uid="uid://hwfd88cowjbs" path="res://converybelt.tscn" id="16_wr6wj"]
 [ext_resource type="PackedScene" uid="uid://dtvuxfck0xwjw" path="res://pot_stove.tscn" id="17_wr6wj"]
 [ext_resource type="PackedScene" uid="uid://b5gcvebiunq53" path="res://produce_crate.tscn" id="18_a3g3y"]
+[ext_resource type="Script" uid="uid://bavld4bmfw3mt" path="res://new/player_controller.gd" id="19_qyek8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c3yrm"]
 
@@ -130,8 +130,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.211887, -0.0517972, 1.5936
 [node name="wall3" parent="." instance=ExtResource("2_75wtd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135155, -0.0938553, -1.89702)
 
-[node name="chef" parent="." groups=["Players"] instance=ExtResource("3_bswhx")]
+[node name="chef" parent="." instance=ExtResource("3_bswhx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91735, 1.71135, -4.87964)
+
+[node name="chef2" parent="." instance=ExtResource("3_bswhx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.80503, 1.71135, -4.87964)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.767165, 0.64145, 0, -0.64145, 0.767165, -9.41196, 4.37214, -1.25272)
@@ -179,9 +182,6 @@ transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 
 [node name="Uncut Onion" parent="." instance=ExtResource("6_0ptwd")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -10.1309, 0.471891, -4.58897)
 
-[node name="Uncut Onion2" parent="." instance=ExtResource("6_0ptwd")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -11.0171, 0.471891, -4.58897)
-
 [node name="TrashCan" parent="." instance=ExtResource("7_flfhx")]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -15.0308, 0.410756, -4.82208)
 itemName = "trash can"
@@ -196,9 +196,6 @@ pizza_base_cheese = null
 [node name="Plate" parent="." instance=ExtResource("9_cwh3r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -9)
 
-[node name="Cut Cheese" parent="." instance=ExtResource("15_34xsy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5474, 0.0108066, -4.44364)
-
 [node name="Converybelt" parent="." instance=ExtResource("16_wr6wj")]
 transform = Transform3D(0.0326216, 0, -0.999168, 0, 1, 0, 0.799335, 0, 0.0407771, -14.6244, 0.710807, -12.6405)
 itemName = "Converybelt"
@@ -211,3 +208,8 @@ itemName = "Stove"
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -8.44572, 0.410807, -12.5365)
 itemName = "Produce Crate"
 itemStored = ExtResource("6_0ptwd")
+
+[node name="Player Controller" type="Node3D" parent="." node_paths=PackedStringArray("player1Node", "player2Node")]
+script = ExtResource("19_qyek8")
+player1Node = NodePath("../chef")
+player2Node = NodePath("../chef2")

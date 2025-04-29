@@ -6,6 +6,8 @@ var onCounterTop = false
 var countertop : Node
 var inAnObject = false
 var players_in_range : Array = []
+var totalPlayers : Array = []
+
 @export var canUseStove : bool
 @export var timeNeededOnStove : float
 @export var cutsNeeded = 0
@@ -18,7 +20,18 @@ var players_in_range : Array = []
 @export var timeToCook : float 
 func _ready():
 	#player = get_tree().get_nodes_in_group("Player1")[0]
-	pass
+	print("Start of ready")
+	
+	totalPlayers = get_tree().get_nodes_in_group("Players")
+	
+	for player in totalPlayers:
+		if (player.name != "Little Fella"):
+			print("This should not be here")
+			#totalPlayers.remove(player)
+	#totalPlayers[0] = totalPlayers[0].get_child(2)
+	#totalPlayers[1] = totalPlayers[1].get_child(2)
+	print(totalPlayers[0])
+	print(totalPlayers[1])
 func _on_area_3d_body_entered(body):
 	print("In onareaentered")
 	print(body.is_in_group("Players"))
@@ -30,20 +43,32 @@ func _on_area_3d_body_exited(body):
 	if body.is_in_group("Players"):
 		players_in_range.erase(body)
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
+	
 	for player in players_in_range:
 		
 		#print("in for loop")
-
+		if (picked_up):
+			global_position = player.global_position + Vector3(0,0,0.3)
 		if Input.is_action_just_pressed("Toggle Pickup"):
-			print("Got here")
+			
 			if picked_up and player.objectInHand == self:
 				_handle_put_down(player)
+				print("put down")
+				return
 			elif not picked_up and not player.objectPickedUp and not onCounterTop:
+				print("trying to pickup")
 				_pick_up(player)
 			elif onCounterTop and (player.currentCounterTop == countertop) and (!player.objectPickedUp):
+				print("trying to pick up from countertop")
 				pickup_from_countertop(player)
-
+	if (onCounterTop):
+		for player in totalPlayers:
+			if (player.currentCounterTop == null):
+				return
+			if onCounterTop and (player.currentCounterTop == countertop) and (!player.objectPickedUp) and Input.is_action_just_pressed("Toggle Pickup"):
+				print("trying to pick up from countertop outside for loop")
+				pickup_from_countertop(player)
 func pickup_from_countertop(player):
 	print("Picking up from countertop")
 	print(player.currentCounterTop)

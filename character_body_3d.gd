@@ -14,6 +14,7 @@ var counterTopsTouching = 0
 var currentCounterTop: Node3D = null 
 var counterTopPosition = null
 var nearbyCounterTops : Array = []
+var active : bool 
 func _ready():
 	add_to_group("Players")
 
@@ -48,6 +49,7 @@ func _physics_process(delta):
 	else:
 		speed =10
 	#print(currentCounterTop)
+	update_currentCounterTop()
 	if (currentCounterTop):
 		
 		counterTopPosition = currentCounterTop.position 
@@ -103,21 +105,9 @@ func _physics_process(delta):
 	
 func pick_up_object(object: Node):
 	objectInHand = object
-"""
-func _on_area_3d_body_entered(body):
-	print("Debug 12345")
-	if (getPickups(body)):
-		print("Its in there")
-	print(body.name)
-
-func getPickups(body):
-	var groupMembers = get_tree().get_nodes_in_group("PickUps")
-	for a in groupMembers:
-		if a == body:
-			print("Found it")
-			return true;
-	print("Didn't find it")
-	return false;
-		
-
-"""
+func _enableCharacter():
+	set_process(true)
+	set_physics_process(true)
+func _disableCharacter():
+	set_process(false)
+	set_physics_process(false)
