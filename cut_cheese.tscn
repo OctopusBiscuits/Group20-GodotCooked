@@ -6,7 +6,7 @@
 [node name="Cut Cheese" instance=ExtResource("1_wn8m4")]
 
 [node name="test" parent="." index="0"]
-itemName = "Cut Cheese"
+itemName = "Uncut Cheese"
 cuttable = false
 canGoInOven = false
 

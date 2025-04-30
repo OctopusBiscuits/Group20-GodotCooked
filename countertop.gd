@@ -136,6 +136,8 @@ func _getNewItemOnCounterTop() -> Node: #Function to swap object on countertop e
 			new_item = clean_plate.instantiate()
 		elif (held_item.itemName == "PizzaBaseNowWithCheese"):
 			new_item = pizza_base_cheese.instantiate()
+		elif (held_item.itemName == "Uncut Cheese"):
+			new_item = cut_cheese.instantiate()
 		itemPos = held_item.global_position
 		held_item.queue_free()
 	
