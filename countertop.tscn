@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bupvmbk3r352o"]
+[gd_scene load_steps=12 format=3 uid="uid://bupvmbk3r352o"]
 
 [ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://countertop.gd" id="1_7a77d"]
 [ext_resource type="PackedScene" uid="uid://0qoubuffgca8" path="res://Godot game/Counters/Counter 1.blend" id="2_3v8sl"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cxv7lb6lp4u6p" path="res://player_colission_test.gd" id="3_7a77d"]
 [ext_resource type="PackedScene" uid="uid://bltrgefklygjn" path="res://pan.tscn" id="3_wr8pb"]
 [ext_resource type="PackedScene" uid="uid://c4fy5flx2jd2x" path="res://pizza_base_cheese.tscn" id="4_jkvpq"]
+[ext_resource type="PackedScene" uid="uid://ma3lt8455js" path="res://cut_cheese_real.tscn" id="5_3a51o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ce8re"]
 albedo_color = Color(1, 0.470588, 0.109804, 1)
@@ -23,6 +24,7 @@ itemName = "Countertop"
 cut_onion = ExtResource("2_oldlg")
 clean_plate = ExtResource("3_wr8pb")
 pizza_base_cheese = ExtResource("4_jkvpq")
+cut_cheese = ExtResource("5_3a51o")
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("1_7a77d")

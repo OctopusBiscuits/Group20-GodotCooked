@@ -8,6 +8,7 @@ class_name Countertop
 @export var foodSentList : Node
 @export var itemsInStove : Array[String] = []
 @export var itemStored : PackedScene #Used for Produce crates 
+@export var cut_cheese : PackedScene
 var itemOnCountertop := false
 var held_item: Node = null
 var can_place_in_object := false

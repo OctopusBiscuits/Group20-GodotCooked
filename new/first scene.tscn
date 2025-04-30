@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="7_flfhx"]
 [ext_resource type="PackedScene" uid="uid://b35qig32bc6j5" path="res://sink.tscn" id="7_l41ks"]
 [ext_resource type="PackedScene" uid="uid://bt0gg3rj7y1m1" path="res://hob.tscn" id="8_dbcws"]
-[ext_resource type="PackedScene" uid="uid://id4cmgy0jk3j" path="res://Oven.tscn" id="9_4a2m6"]
+[ext_resource type="PackedScene" uid="uid://id4cmgy0jk3j" path="res://oven.tscn" id="9_4a2m6"]
 [ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="9_cwh3r"]
 [ext_resource type="PackedScene" uid="uid://de28xllgl6gns" path="res://pizza_base_empty.tscn" id="10_1vkkk"]
 [ext_resource type="PackedScene" uid="uid://diiogll3k463y" path="res://food_sent_out.tscn" id="11_34xsy"]
@@ -173,11 +173,11 @@ pizza_base_cheese = null
 [node name="Pizza Base" parent="The Floor" instance=ExtResource("10_1vkkk")]
 transform = Transform3D(0.01, 0, 0, 0, 10, 0, 0, 0, 0.01, -0.0111785, 0.999964, 0.0097319)
 
-[node name="Food Sent Out" parent="The Floor" groups=["FoodSentPrefab"] instance=ExtResource("11_34xsy")]
-transform = Transform3D(0.01, 0, 0, 0, 10, 0, 0, 0, 0.01, -0.101799, 0.35126, 0.00115476)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -5.86577, 2.77797, 0.136968)
+
+[node name="Timer + Food Sent" parent="." groups=["FoodSentPrefab"] instance=ExtResource("11_34xsy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0729, 0.0108066, -4.78052)
 
 [node name="Uncut Onion" parent="." instance=ExtResource("6_0ptwd")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -10.1309, 0.471891, -4.58897)
