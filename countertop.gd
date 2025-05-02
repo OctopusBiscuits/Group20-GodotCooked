@@ -6,9 +6,11 @@ class_name Countertop
 @export var clean_plate: PackedScene
 @export var pizza_base_cheese: PackedScene
 @export var foodSentList : Node
-@export var itemsInStove : Array[String] = []
+@export var itemsInStove : Array[String] 
 @export var itemStored : PackedScene #Used for Produce crates 
 @export var cut_cheese : PackedScene
+var moreInStove = true
+var onion_soup : Array[String ]= ["Cut_Onion", "Cut_Onion", "Cut_Onion"]
 var itemOnCountertop := false
 var held_item: Node = null
 var can_place_in_object := false
@@ -17,6 +19,8 @@ var player: Node = null
 func _ready():
 	player = get_tree().get_nodes_in_group("Player1")[0]
 	foodSentList = get_tree().get_nodes_in_group("FoodSentPrefab")[0]
+	if (itemName == "Stove"):
+		itemsInStove = onion_soup
 	#print(foodSentList)
 func _on_area_3d_body_entered(body: Node3D) -> void: 
 	if body.name == "Little Fella":
@@ -59,6 +63,8 @@ func _physics_process(_delta: float):
 			held_item.queue_free()
 	elif itemName == "Stove" and held_item:
 		_handle_stove(_delta)
+		_check_for_finished_recipe()
+		
 	elif held_item: #normal countertop
 		#print("Item is held")
 		_handle_cutting()
@@ -106,13 +112,19 @@ func _place_item(item: Node):
 	held_item = item
 	itemOnCountertop = true
 func _handle_stove(_delta: float): 
-	#print("Stoving")
-	itemsInStove.append(held_item.itemName)
-	held_item.queue_free()
-	_remove_item()
+	if (held_item.canUseStove and moreInStove):
+		itemsInStove.append(held_item.itemName)
+		held_item.queue_free()
+		_remove_item()
 	
-	print(itemsInStove)
+		print(itemsInStove)
+		
 	
+func _check_for_finished_recipe():
+	if (itemsInStove == onion_soup):
+		print("ONION SOUP")
+		moreInStove = false
+		
 func _remove_item():
 	held_item = null
 	itemOnCountertop = false
@@ -132,6 +144,7 @@ func _getNewItemOnCounterTop() -> Node: #Function to swap object on countertop e
 		
 		if (held_item.itemName == "Uncut Onion"):
 			new_item = cut_onion.instantiate()
+			print("Instantiated")
 		elif (held_item.itemName == "DirtyPlate"):
 			new_item = clean_plate.instantiate()
 		elif (held_item.itemName == "PizzaBaseNowWithCheese"):
@@ -146,9 +159,12 @@ func _getNewItemOnCounterTop() -> Node: #Function to swap object on countertop e
 	add_child(new_item)
 	new_item.global_position = itemPos
 	new_item.reparent(self)
-	held_item = new_item.get_child(0)
+	held_item = new_item.get_node("test")
+	print(held_item)
 	held_item.onCounterTop = true
 	held_item.picked_up = false
 	held_item.countertop = self
+	held_item.player = player
+	
 	_place_item(held_item)
 	return null

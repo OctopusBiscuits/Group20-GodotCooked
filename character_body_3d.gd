@@ -20,6 +20,7 @@ func _ready():
 
 func update_currentCounterTop():
 	if (nearbyCounterTops.size() == 0):
+		#print("No countertops nearby")
 		return null
 	var closest = nearbyCounterTops[0]
 	var closest_dist = global_position.distance_to(closest.global_position)
@@ -31,6 +32,7 @@ func update_currentCounterTop():
 			closest_dist = dist
 
 	currentCounterTop = closest
+	#print(currentCounterTop)
 func inpuut(event):
 	if !$AnimationTree.get("parameters/conditions/roll"):
 		if $dash_window.is_stopped():
@@ -43,13 +45,15 @@ func inpuut(event):
 				$dash_window.start()
 func _physics_process(delta):
 	var directional_input = Input.get_vector("left", "right", "forward", "back",)
-	#print(objectPickedUp)
+	
+	#print(active)
 	if !$dash_window.is_stopped():
 		speed=20
 	else:
 		speed =10
 	#print(currentCounterTop)
-	update_currentCounterTop()
+	if (active):
+		update_currentCounterTop()
 	if (currentCounterTop):
 		
 		counterTopPosition = currentCounterTop.position 
@@ -106,8 +110,10 @@ func _physics_process(delta):
 func pick_up_object(object: Node):
 	objectInHand = object
 func _enableCharacter():
+	active = true
 	set_process(true)
 	set_physics_process(true)
 func _disableCharacter():
+	active = false
 	set_process(false)
 	set_physics_process(false)

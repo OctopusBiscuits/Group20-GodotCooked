@@ -45,9 +45,21 @@ func _on_area_3d_body_exited(body):
 
 func _physics_process(_delta) -> void:
 	
+	
+		
+		#print("Start of phsysics process")
+		
+		#print("wrapper")
+	if (picked_up):
+		if (player and players_in_range.has(player) == false):
+			
+			players_in_range.append(player)
+	players_in_range = players_in_range.filter(func(p): return p != null and is_instance_valid(p))
+
 	for player in players_in_range:
 		
-		#print("in for loop")
+		if (not player):
+			continue
 		if (picked_up):
 			global_position = player.global_position + Vector3(0,0,0.3)
 		if Input.is_action_just_pressed("Toggle Pickup"):
@@ -69,9 +81,11 @@ func _physics_process(_delta) -> void:
 			if onCounterTop and (player.currentCounterTop == countertop) and (!player.objectPickedUp) and Input.is_action_just_pressed("Toggle Pickup"):
 				print("trying to pick up from countertop outside for loop")
 				pickup_from_countertop(player)
+	
 func pickup_from_countertop(player):
 	print("Picking up from countertop")
 	print(player.currentCounterTop)
+	print(itemName)
 	player.currentCounterTop._remove_item()
 	player.objectPickedUp = true
 	player.objectInHand = self
@@ -92,6 +106,7 @@ func _handle_put_down(player):
 		_put_on_floor(player)
 
 func _pick_up(player):
+	print ("Picked up by:" , player)
 	picked_up = true
 	onCounterTop = false
 	player.objectPickedUp = true

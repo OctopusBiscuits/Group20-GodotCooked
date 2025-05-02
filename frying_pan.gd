@@ -7,6 +7,7 @@ var on_countertop = false
 var countertop : Node = null
 var player : Node = null
 var players_in_range : Array = []
+var canUseStove = false
 # === Item Properties ===
 @export var cutsNeeded = 0
 @export var itemName : String

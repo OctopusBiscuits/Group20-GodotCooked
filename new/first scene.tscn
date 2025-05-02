@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cieafi3xrydiu"]
+[gd_scene load_steps=22 format=3 uid="uid://cieafi3xrydiu"]
 
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_sjslj"]
 [ext_resource type="PackedScene" uid="uid://vlariurktc12" path="res://the kit/dungeon scenery/wall.gltf" id="2_75wtd"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://hwfd88cowjbs" path="res://converybelt.tscn" id="16_wr6wj"]
 [ext_resource type="PackedScene" uid="uid://dtvuxfck0xwjw" path="res://pot_stove.tscn" id="17_wr6wj"]
 [ext_resource type="PackedScene" uid="uid://b5gcvebiunq53" path="res://produce_crate.tscn" id="18_a3g3y"]
+[ext_resource type="PackedScene" uid="uid://du3jj40l064k8" path="res://cut_cheese.tscn" id="19_k8nm5"]
 [ext_resource type="Script" uid="uid://bavld4bmfw3mt" path="res://new/player_controller.gd" id="19_qyek8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c3yrm"]
@@ -27,6 +28,7 @@
 
 [node name="Countertop9" parent="." instance=ExtResource("1_sjslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.252, 0, -6.544)
+itemStored = ExtResource("6_0ptwd")
 
 [node name="Countertop18" parent="." instance=ExtResource("1_sjslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.252, 0, -10.5213)
@@ -171,7 +173,7 @@ itemName = "Oven"
 pizza_base_cheese = null
 
 [node name="Pizza Base" parent="The Floor" instance=ExtResource("10_1vkkk")]
-transform = Transform3D(0.01, 0, 0, 0, 10, 0, 0, 0, 0.01, -0.0111785, 0.999964, 0.0097319)
+transform = Transform3D(0.01, 0, 0, 0, 10, 0, 0, 0, 0.01, -0.0111785, 0.999964, 0.0369579)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -5.86577, 2.77797, 0.136968)
@@ -213,3 +215,6 @@ itemStored = ExtResource("6_0ptwd")
 script = ExtResource("19_qyek8")
 player1Node = NodePath("../chef")
 player2Node = NodePath("../chef2")
+
+[node name="Cut Cheese" parent="." instance=ExtResource("19_k8nm5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.12719, 0.0108064, -6.60326)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://biq1w3u0pr0t6"]
+
+[ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="1_hkj6n"]
+[ext_resource type="PackedScene" uid="uid://cm0mq13r8qmk6" path="res://dirtyPlate.tscn" id="2_pa31o"]
+
+[node name="Onion Soup on plate" instance=ExtResource("1_hkj6n")]
+
+[node name="test" parent="." index="0"]
+itemName = "Onion Soup"
+
+[node name="Plate" parent="test/PickUpArea3D" index="3" instance=ExtResource("2_pa31o")]

@@ -9,6 +9,7 @@ var player : Node = null #player
 var inAnObject = false
 var players_in_range : Array = []
 var canGoInOven : bool
+var canUseStove = false
 # === Item Properties ===
 @export var cutsNeeded = 0
 @export var itemName : String #For pizza bases this should be pizza base + toppings

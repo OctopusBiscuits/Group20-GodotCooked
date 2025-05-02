@@ -7,6 +7,8 @@ var onCounterTop = false
 var countertop : Node = null
 var player : Node = null
 var players_in_range : Array = []
+var canUseStove = false
+
 # === Item Properties ===
 @export var cutsNeeded = 0
 @export var itemName : String
@@ -15,6 +17,8 @@ var players_in_range : Array = []
 @export var heldObjects : Array[Node] = []
 @export var timeToClean : float
 @export var canGoInOven : bool = false
+@export var onionSoup : PackedScene
+
 
 func _on_area_3d_body_entered(body):
 	
@@ -30,9 +34,11 @@ func _physics_process(_delta):
 	if (onCounterTop):
 		global_position = countertop.global_position + Vector3(0,0.6,0)
 	for item in heldObjects:
+		print(item.itemName)
 		item.global_position = global_position + Vector3(0,0.1,0)
 	if (itemName == "DirtyPlate"):
 		canHoldAnObject = false
+	
 	for player in players_in_range:
 		
 		#print("in for loop")
@@ -67,6 +73,11 @@ func _can_interact_with_held_object(player) -> bool:
 # === Player Interaction Actions ===
 
 func _handle_while_held(player):
+	if player.currentCounterTop:
+		if player.currentCounterTop.itemName == "Stove":
+			if player.currentCounterTop.moreInStove == false:
+				if Input.is_action_just_pressed("putInFryingPan"):
+					_getFoodFromStove(player)
 	if not Input.is_action_just_pressed("Toggle Pickup"):
 		return
 
@@ -74,7 +85,16 @@ func _handle_while_held(player):
 		_put_item_on_countertop(player)
 	else:
 		_put_item_on_floor(player)
+func _getFoodFromStove(player):
+	var a = 0
+	if (player.currentCounterTop.itemsInStove == player.currentCounterTop.onion_soup):
+		var soup = onionSoup.instantiate()
+		get_parent().add_child(soup)
 
+		soup.global_position = global_position
+		heldObjects.append(soup)
+		print("Trying to get it from stove")
+		print(heldObjects)
 func _try_pick_up_off_floor(player):
 	if Input.is_action_just_pressed("Toggle Pickup"):
 		_pick_up(player)

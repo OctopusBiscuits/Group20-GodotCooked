@@ -8,6 +8,7 @@
 [node name="test" parent="." index="0"]
 itemName = "DirtyPlate"
 timeToClean = 1.4
+onionSoup = null
 
 [node name="dirty plate" parent="test/PickUpArea3D" index="3" instance=ExtResource("2_vim84")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
