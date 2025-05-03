@@ -94,13 +94,15 @@ func _pick_up(holder: Node):
 	holder.objectInHand = self
 	reparent(holder)
 
-func _put_item_on_countertop(player):
+func _put_item_on_countertop(player) -> void:
 	if player.currentCounterTop.itemName == "trash can":
 		player.objectPickedUp = false
 		queue_free()
 		return
 
 	var counter = player.currentCounterTop as Countertop
+	if (not counter.can_accept_item(self)):
+		return
 	countertop = counter
 	reparent(counter)
 
@@ -123,10 +125,9 @@ func _place_in_container(player):
 	if not held_item:
 		return
 	
-	held_item.global_position = global_position
+	held_item.reparent(self)
+	held_item.global_position = global_position 
 	held_item.inAnObject = true
-	held_item.get_parent().remove_child(held_item)
-	add_child(held_item)
 
 	objectBeingHeld = held_item
 	holdingAnObject = true

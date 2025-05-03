@@ -34,7 +34,7 @@ func _physics_process(_delta):
 	if (onCounterTop):
 		global_position = countertop.global_position + Vector3(0,0.6,0)
 	for item in heldObjects:
-		print(item.itemName)
+		
 		item.global_position = global_position + Vector3(0,0.1,0)
 	if (itemName == "DirtyPlate"):
 		canHoldAnObject = false
@@ -116,13 +116,15 @@ func _pick_up(holder: Node):
 	holder.objectInHand = self
 	reparent(holder)
 
-func _put_item_on_countertop(player):
+func _put_item_on_countertop(player) -> void:
 	if player.currentCounterTop.itemName == "trash can":
 		player.objectPickedUp = false
 		queue_free()
 		return
 
 	var counter = player.currentCounterTop as Countertop
+	if (not counter.can_accept_item(self)):
+		return
 	countertop = counter
 	reparent(counter)
 
@@ -141,22 +143,27 @@ func _put_item_on_floor(player):
 	player.objectPickedUp = false
 
 func _place_in_container(player):
+	print("placing in container")
 	var held_item = player.objectInHand
+	var heldItemName = held_item.itemName
+	print(held_item)
 	if not held_item:
 		return
 	
-	held_item.global_position = global_position
+	held_item.reparent(self)
+	held_item.global_position = global_position 
 	held_item.inAnObject = true
-	held_item.get_parent().remove_child(held_item)
-	add_child(held_item)
 
 	heldObjects.append(held_item)
-
+	
 	player.objectPickedUp = false
 	player.objectInHand = null
-
+	print(heldObjects)
+	for child in player.get_children():
+		print(child)
 
 func _take_out_of_container(player):
+	print("taking out")
 	if heldObjects.is_empty():
 		return
 

@@ -30,12 +30,12 @@ func _ready():
 			#totalPlayers.remove(player)
 	#totalPlayers[0] = totalPlayers[0].get_child(2)
 	#totalPlayers[1] = totalPlayers[1].get_child(2)
-	print(totalPlayers[0])
-	print(totalPlayers[1])
+	#print(totalPlayers[0])
+	#print(totalPlayers[1])
 func _on_area_3d_body_entered(body):
-	print("In onareaentered")
-	print(body.is_in_group("Players"))
-	print(body)
+	#print("In onareaentered")
+	#print(body.is_in_group("Players"))
+	#print(body)
 	if body.is_in_group("Players") and not players_in_range.has(body):
 		players_in_range.append(body)
 		print("in range")
@@ -85,7 +85,7 @@ func _physics_process(_delta) -> void:
 func pickup_from_countertop(player):
 	print("Picking up from countertop")
 	print(player.currentCounterTop)
-	print(itemName)
+	#print(itemName)
 	player.currentCounterTop._remove_item()
 	player.objectPickedUp = true
 	player.objectInHand = self
@@ -118,8 +118,10 @@ func _put_on_floor(player):
 	reparent(get_tree().current_scene)
 	player.objectPickedUp = false
 
-func _put_on_countertop(player):
+func _put_on_countertop(player) -> void:
 	var counter = player.currentCounterTop as Countertop
+	if (not counter.can_accept_item(self)):
+		return
 	reparent(counter)
 	global_position = counter.global_position + Vector3(0, 0.5, 0)
 	counter._place_item(self)

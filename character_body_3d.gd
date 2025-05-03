@@ -52,6 +52,10 @@ func _physics_process(delta):
 	else:
 		speed =10
 	#print(currentCounterTop)
+	#print(objectPickedUp)
+	#dprint(objectInHand)
+	if (not objectPickedUp):
+		objectInHand = null
 	if (active):
 		update_currentCounterTop()
 	if (currentCounterTop):

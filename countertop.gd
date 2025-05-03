@@ -32,6 +32,22 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.name == "Little Fella":
 		body.nearbyCounterTops.erase(self)
 		body.update_currentCounterTop()
+		
+func can_accept_item(item) -> bool:
+	if itemName == "Sink":
+		return item.itemName == "DirtyPlate"
+	elif itemName == "Oven":
+		return item.canGoInOven
+	elif itemName == "Hob":
+		return item.canHoldAnObject and not item.holdingAnObject
+	elif itemName == "Produce Crate":
+		return false  
+	elif itemName == "Trash Can":
+		return true  
+	elif itemName == "Stove":
+		return item.itemName == "Plate" or item.itemName == "Pot"  
+	else:
+		return true  
 
 func _physics_process(_delta: float):
 	
@@ -58,7 +74,7 @@ func _physics_process(_delta: float):
 		if held_item.canGoInOven:
 			_handle_oven(_delta)
 	elif itemName == "Converybelt" and held_item:
-		if (held_item.itemName == "Plate"):
+		if (held_item.itemName == "Plate" and held_item.heldObjects.size() >= 1):
 			foodSentList._addMeal(held_item)
 			held_item.queue_free()
 	elif itemName == "Stove" and held_item:
@@ -85,7 +101,7 @@ func _handle_hob(_delta: float) -> void:
 	if held_item.itemName != "Frying Pan" or held_item.holdingAnObject != true:
 		return
 
-	print (held_item.objectBeingHeld.timeNeededOnStove)
+	#print (held_item.objectBeingHeld.timeNeededOnStove)
 	held_item.objectBeingHeld.timeNeededOnStove -= _delta
 	if held_item.objectBeingHeld.timeNeededOnStove <= 0:
 		held_item.holdingAnObject = false
@@ -117,7 +133,7 @@ func _handle_stove(_delta: float):
 		held_item.queue_free()
 		_remove_item()
 	
-		print(itemsInStove)
+		#print(itemsInStove)
 		
 	
 func _check_for_finished_recipe():
@@ -160,7 +176,7 @@ func _getNewItemOnCounterTop() -> Node: #Function to swap object on countertop e
 	new_item.global_position = itemPos
 	new_item.reparent(self)
 	held_item = new_item.get_node("test")
-	print(held_item)
+	#print(held_item)
 	held_item.onCounterTop = true
 	held_item.picked_up = false
 	held_item.countertop = self
