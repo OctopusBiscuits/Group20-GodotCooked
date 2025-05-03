@@ -11,5 +11,8 @@ itemName = "Converybelt"
 [node name="Counter 1" parent="Area3D" index="0"]
 visible = false
 
+[node name="CollisionShape3D" parent="Area3D" index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.5131, -0.750525)
+
 [node name="Node3D" parent="Area3D" index="3" instance=ExtResource("2_rqles")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
