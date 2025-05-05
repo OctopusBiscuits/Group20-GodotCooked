@@ -9,13 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bhtrdjvyptjv5" path="res://KitchenObjects_Scenes/poster.tscn" id="8_miqie"]
 [ext_resource type="PackedScene" uid="uid://binjn65jdtjk3" path="res://KitchenObjects_Scenes/Fire_Extinguisher.tscn" id="9_05hgt"]
 [ext_resource type="PackedScene" uid="uid://dd5w8n2rnlb54" path="res://UTF-8assets/assets/materials/Conveyor_belt.tscn" id="10_3iquo"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://clhxy51xamj8o" path="res://KitchenObjects_Scenes/counter_2_sink.tscn" id="10_gh3se"]
-=======
->>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://brl0b1sljwoyn" path="res://KitchenObjects_Scenes/cutting_board.tscn" id="11_miqie"]
 [ext_resource type="PackedScene" uid="uid://mtr4ntahkwqi" path="res://KitchenObjects_Scenes/Produce_box_Tomato.tscn" id="12_gh3se"]
-[ext_resource type="PackedScene" uid="uid://c1g3rls0xexn3" path="res://KitchenObjects_Scenes/Produce_box_Onion.tscn" id="13_y61n1"]
+[ext_resource type="PackedScene" uid="uid://bg0ljsu5e5tsm" path="res://KitchenObjects_Scenes/Produce_box_Onion.tscn" id="13_y61n1"]
 [ext_resource type="PackedScene" uid="uid://dhmoxuaoudn81" path="res://stoveTop.tscn" id="14_q44gh"]
 [ext_resource type="PackedScene" uid="uid://ctank1gprxtry" path="res://Godot game/pots and pans/frying pan.fbx" id="15_a8k8m"]
 [ext_resource type="PackedScene" uid="uid://bcp7n2qrw0sje" path="res://Godot game/pots and pans/china plate.fbx" id="16_g0yq1"]

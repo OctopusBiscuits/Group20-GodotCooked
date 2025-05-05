@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bupvmbk3r352o"]
 
-[ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://countertop.gd" id="1_b01cd"]
+[ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://KitchenObjects_Scenes/countertop.gd" id="1_b01cd"]
 [ext_resource type="PackedScene" uid="uid://tri5xbdxd4dh" path="res://cut_onion.tscn" id="2_nl46d"]
 [ext_resource type="PackedScene" uid="uid://0qoubuffgca8" path="res://Godot game/Counters/Counter 1.blend" id="3_4ud5i"]
 [ext_resource type="Script" uid="uid://cxv7lb6lp4u6p" path="res://player_colission_test.gd" id="4_kwmvl"]
