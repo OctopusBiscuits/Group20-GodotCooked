@@ -18,7 +18,7 @@ albedo_color = Color(1, 0.470588, 0.109804, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7a77d"]
 
 [node name="Countertop" type="Node3D"]
-transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3.75, 0, 0, 0, 3.75, 0, 0, 0)
 script = ExtResource("1_7a77d")
 itemName = "Countertop"
 cut_onion = ExtResource("2_oldlg")

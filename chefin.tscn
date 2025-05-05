@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=4 uid="uid://dgj2bbfi5p3wr"]
 
-[ext_resource type="PackedScene" uid="uid://cp2xodqlgui3a" path="res://Undercooked/chef/chef/ChefTest1.FBX" id="1_t3oat"]
+[ext_resource type="PackedScene" uid="uid://cp2xodqlgui3a" path="res://chef/chef/ChefTest1.FBX" id="1_t3oat"]
 [ext_resource type="Script" uid="uid://cx3jfwraxe0vx" path="res://character_body_3d.gd" id="2_80p06"]
 [ext_resource type="Material" uid="uid://bvlech52wu7p2" path="res://Undercooked/chef/chef/M_ChefHat.tres" id="4_pxuil"]
 [ext_resource type="Material" uid="uid://dlhhs7oql4wxm" path="res://Undercooked/chef/chef/M_ChefHead.tres" id="5_y7q8x"]

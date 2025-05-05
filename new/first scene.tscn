@@ -179,7 +179,6 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -10.1309, 0.471891, -4.
 
 [node name="TrashCan" parent="." instance=ExtResource("7_flfhx")]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -15.0308, 0.410756, -4.82208)
-itemName = "trash can"
 clean_plate = null
 pizza_base_cheese = null
 

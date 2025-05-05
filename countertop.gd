@@ -17,14 +17,20 @@ var can_place_in_object := false
 var player: Node = null
 
 func _ready():
+	for player in get_tree().get_nodes_in_group("Player1"):
+		print("START")
+		print(player)
 	player = get_tree().get_nodes_in_group("Player1")[0]
 	foodSentList = get_tree().get_nodes_in_group("FoodSentPrefab")[0]
 	if (itemName == "Stove"):
 		itemsInStove = onion_soup
+	if (itemName == "Produce Crate"):
+		_getNewItemOnCounterTop()
 	#print(foodSentList)
 func _on_area_3d_body_entered(body: Node3D) -> void: 
 	if body.name == "Little Fella":
 		if not self in body.nearbyCounterTops:
+			print("countertop in range")
 			body.nearbyCounterTops.append(self)
 		body.update_currentCounterTop()
 
@@ -55,12 +61,13 @@ func _physics_process(_delta: float):
 	if itemName == "trash can":
 		itemOnCountertop = false
 		if (held_item):
+			print("deleeting")
 			held_item.queue_free()
 	elif itemName == "Produce Crate":
 		
 		itemOnCountertop = true
 		
-		if (player.currentCounterTop == self and player.objectPickedUp == false):
+		if (player and player.currentCounterTop == self and player.objectPickedUp == false):
 			_handle_produce()
 	elif itemName == "Hob" and held_item :
 		can_place_in_object = held_item.canHoldAnObject and not held_item.holdingAnObject
