@@ -50,7 +50,7 @@ tonemap_mode = 2
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -2.61589, 0.066937, 0.666296)
 
 [node name="chef2" parent="." instance=ExtResource("2_nas62")]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.0349151, 0.469979, -1.17572)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -1.89749, 0.124622, -1.20573)
 
 [node name="Kitchen_Objects" type="Node3D" parent="."]
 transform = Transform3D(-1.62921e-07, 0, 1, 0, 0.8, 0, -1, 0, -1.62921e-07, -1.62629, 0.328981, -3.13037)

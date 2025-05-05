@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dd5w8n2rnlb54"]
 
-[ext_resource type="ArrayMesh" uid="uid://by161a172fgwi" path="res://assetsFromSamH/models/conveyor belt.obj" id="1_xeses"]
+[ext_resource type="ArrayMesh" uid="uid://by161a172fgwi" path="res://UTF-8assets/assets/models/conveyor belt.obj" id="1_xeses"]
 [ext_resource type="Script" uid="uid://dg5teb6ek2hl6" path="res://assetsFromSamH/materials/conveyor_belt.gd" id="2_irvwg"]
-[ext_resource type="Material" uid="uid://csknefhpusta" path="res://assetsFromSamH/materials/gear.tres" id="2_nlvyl"]
-[ext_resource type="Material" uid="uid://bw1k54n2kr4rg" path="res://assetsFromSamH/materials/black.tres" id="3_smcu7"]
-[ext_resource type="Material" uid="uid://2y4ha2ggljj7" path="res://assetsFromSamH/materials/conveyor.tres" id="4_77sql"]
+[ext_resource type="Material" uid="uid://csknefhpusta" path="res://UTF-8assets/assets/materials/gear.tres" id="2_nlvyl"]
+[ext_resource type="Material" uid="uid://bw1k54n2kr4rg" path="res://UTF-8assets/assets/materials/black.tres" id="3_smcu7"]
+[ext_resource type="Material" uid="uid://2y4ha2ggljj7" path="res://UTF-8assets/assets/materials/conveyor.tres" id="4_77sql"]
 
 [node name="Node3D" type="Node3D"]
 

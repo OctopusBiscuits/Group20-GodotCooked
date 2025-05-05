@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://hwfd88cowjbs"]
 
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_p0v4d"]
-[ext_resource type="PackedScene" uid="uid://dd5w8n2rnlb54" path="res://assetsFromSamH/materials/node_3d.tscn" id="2_rqles"]
+[ext_resource type="PackedScene" uid="uid://dd5w8n2rnlb54" path="res://UTF-8assets/assets/materials/Conveyor_belt.tscn" id="2_rqles"]
 
 [node name="Countertop" instance=ExtResource("1_p0v4d")]
 
