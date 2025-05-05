@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://brl0b1sljwoyn"]
+
+[ext_resource type="PackedScene" uid="uid://vjui1bn7cjkm" path="res://Undercooked/Source Meshes/Meshes/CuttingBoard.fbx" id="1_ggwym"]
+[ext_resource type="Texture2D" uid="uid://db1hma2nmsn7k" path="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/Boat_CounterTop_Wood.png" id="2_0stav"]
+[ext_resource type="PackedScene" uid="uid://b5gpsr5ag3ltp" path="res://Godot game Assets-20250418T095406Z-001/Godot game Assets/pots and pans/kitchen knife.blend" id="3_0stav"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pbbb"]
+albedo_color = Color(0.84291, 0.429083, 0.319498, 1)
+albedo_texture = ExtResource("2_0stav")
+uv1_scale = Vector3(0.35, 0.35, 0.35)
+
+[node name="CuttingBoard" instance=ExtResource("1_ggwym")]
+transform = Transform3D(75, 0, 0, 0, 84.951, 0, 0, 0, 92.125, 0, 0, 0)
+
+[node name="orig_cuttingboard" parent="." index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7pbbb")
+
+[node name="kitchen knife" parent="." index="13" instance=ExtResource("3_0stav")]
+transform = Transform3D(0.00577331, 0, 0.0013614, 0, 0.006, 0, -0.00163368, 0, 0.00481109, -0.000194497, 0.000352929, -0.00114721)

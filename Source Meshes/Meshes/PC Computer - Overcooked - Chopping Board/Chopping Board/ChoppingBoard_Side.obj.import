@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dttbkl7gvn3ln"
+path="res://.godot/imported/ChoppingBoard_Side.obj-e14257e58b36c382213bc23cf5e2319f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ChoppingBoard_Side.obj-e14257e58b36c382213bc23cf5e2319f.mesh"]
+
+source_file="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/ChoppingBoard_Side.obj"
+dest_files=["res://.godot/imported/ChoppingBoard_Side.obj-e14257e58b36c382213bc23cf5e2319f.mesh", "res://.godot/imported/ChoppingBoard_Side.obj-e14257e58b36c382213bc23cf5e2319f.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

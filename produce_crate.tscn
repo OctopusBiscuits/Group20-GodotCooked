@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5gcvebiunq53"]
 
-[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_w3oh0"]
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://KitchenObjects_Scenes/countertop.tscn" id="1_w3oh0"]
 [ext_resource type="PackedScene" uid="uid://cblp25cwb8lfl" path="res://Godot game/pots and pans/crate.blend" id="2_8uj5p"]
 
 [node name="Produce Crate" instance=ExtResource("1_w3oh0")]

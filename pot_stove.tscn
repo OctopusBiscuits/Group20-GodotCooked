@@ -1,9 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtvuxfck0xwjw"]
 
-[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_poux1"]
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://KitchenObjects_Scenes/countertop.tscn" id="1_poux1"]
 [ext_resource type="PackedScene" uid="uid://bthalvdg15d2k" path="res://Godot game/pots and pans/sauce pan.blend" id="2_1dg5q"]
 
 [node name="Pot Stove" instance=ExtResource("1_poux1")]
 
+[node name="Counter 1" parent="Area3D" index="0"]
+visible = false
+
 [node name="sauce pan" parent="Area3D" index="3" instance=ExtResource("2_1dg5q")]
-transform = Transform3D(0.3, 0, 0, 0, 0.24, 0, 0, 0, 0.24, -0.0260482, 0.471801, 0.0284469)
+transform = Transform3D(0.35, 0, 0, 0, 0.25, 0, 0, 0, 0.35, -0.0260482, 0.471801, 0.0284469)

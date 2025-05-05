@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdar1klqeqpyu"]
+
+[ext_resource type="PackedScene" uid="uid://ogkorr5ewbs1" path="res://Godot game/Counters/Counter corner 2.blend" id="1_yq6ow"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k0ltr"]
+size = Vector3(2.25179, 1.14502, 4.36314)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2yye"]
+size = Vector3(2.61578, 1.16733, 1.99994)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp3m3"]
+
+[node name="Counter corner 2" instance=ExtResource("1_yq6ow")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_004" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_004/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115622, -0.394391, -1.17139)
+visible = false
+shape = SubResource("BoxShape3D_k0ltr")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Cube_004/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10023, -0.411983, -2.32081)
+visible = false
+shape = SubResource("BoxShape3D_y2yye")
+
+[node name="Cube_005" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bp3m3")
