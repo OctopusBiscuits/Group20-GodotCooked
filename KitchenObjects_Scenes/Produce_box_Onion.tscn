@@ -1,7 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://c1g3rls0xexn3"]
 
 [ext_resource type="PackedScene" uid="uid://cis3to4ho566m" path="res://Undercooked/Source Meshes/Meshes/Basic_Cabinet_No_Handle.fbx" id="1_elxiv"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://db1hma2nmsn7k" path="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/Boat_CounterTop_Wood.png" id="2_gfqrt"]
+=======
+[ext_resource type="Texture2D" uid="uid://co7wfdg05dk7n" path="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/Boat_CounterTop_Wood.png" id="2_gfqrt"]
+>>>>>>> Stashed changes
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vo400"]
 albedo_color = Color(0.714239, 0.586962, 0.576287, 1)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhmoxuaoudn81"]
+
+[ext_resource type="Script" uid="uid://duq1umm4recyy" path="res://StoveTopDubious.gd" id="1_llf0a"]
+[ext_resource type="PackedScene" uid="uid://be1vkpkgqwss4" path="res://Godot game/assorted/hob.fbx" id="2_3fsnh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_percx"]
+size = Vector3(1.34391, 0.749878, 1)
+
+[node name="StoveTop" type="Node3D"]
+script = ExtResource("1_llf0a")
+
+[node name="hob" parent="." instance=ExtResource("2_3fsnh")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0653659, -0.298886, 0.00846481)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0767333)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.352786, 0.0232944, 0)
+shape = SubResource("BoxShape3D_percx")

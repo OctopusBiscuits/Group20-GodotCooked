@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8jp50tkorllm"]
 
-[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://KitchenObjects_Scenes/countertop.tscn" id="1_bgvmr"]
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://KitchenObjects_Scenes/BaseCounter.tscn" id="1_bgvmr"]
 [ext_resource type="PackedScene" uid="uid://4wv2lpjnm66n" path="res://Godot game/assorted/bin.blend" id="2_alpy1"]
 
 [node name="TrashCan" instance=ExtResource("1_bgvmr")]
@@ -10,8 +10,8 @@ cut_onion = null
 [node name="bin" parent="Area3D" index="0" instance=ExtResource("2_alpy1")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
-[node name="Counter 1" parent="Area3D" index="1"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, -0.267851, 0)
+[node name="BaseCounter" parent="Area3D" index="1"]
+visible = false
 
 [node name="CollisionShape3D" parent="Area3D" index="3"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.168243, 0.555993, 0.0692139)

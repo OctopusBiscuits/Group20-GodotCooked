@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8jp50tkorllm"]
+
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_bgvmr"]
+[ext_resource type="PackedScene" uid="uid://4wv2lpjnm66n" path="res://Godot game/assorted/bin.blend" id="2_alpy1"]
+[ext_resource type="Script" uid="uid://c3f14k5h2sdy1" path="res://bin.gd" id="2_wr0p8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wr0p8"]
+size = Vector3(0.438829, 0.769665, 0.424721)
+
+[node name="TrashCan" instance=ExtResource("1_bgvmr")]
+script = ExtResource("2_wr0p8")
+
+[node name="bin" parent="Area3D" index="0" instance=ExtResource("2_alpy1")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="BaseCounter" parent="Area3D" index="1"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1, 0)
+visible = false
+
+[node name="CollisionShape3D" parent="Area3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000274014, 0.105552, -0.00609243)
+
+[node name="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103654, 0.4631, 0)
+visible = false
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0091688, 0.528445, 0)
+visible = false
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4631, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, -0.000663225, 0, 0.000663225, 2, 0.00257709, 0.291826, -0.0135879)
+shape = SubResource("BoxShape3D_wr0p8")

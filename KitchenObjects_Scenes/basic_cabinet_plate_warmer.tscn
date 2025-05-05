@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0ekbq6mpm8ya"]
+[gd_scene load_steps=4 format=3 uid="uid://b0ekbq6mpm8ya"]
 
 [ext_resource type="PackedScene" uid="uid://c71h7cgj8elrd" path="res://Undercooked/Source Meshes/Meshes/Basic_Cabinet_PlateWarmer.fbx" id="1_hy2kv"]
 
@@ -9,8 +9,17 @@ metallic_specular = 0.93
 metallic_texture_channel = 4
 roughness = 0.45
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hy2kv"]
+size = Vector3(1, 0.917114, 1)
+
 [node name="Basic_Cabinet_PlateWarmer" instance=ExtResource("1_hy2kv")]
 
 [node name="uv_unitize1" parent="." index="0"]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_yohjl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.524859, 0)
+shape = SubResource("BoxShape3D_hy2kv")

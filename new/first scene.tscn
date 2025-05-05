@@ -184,3 +184,35 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -10.1309, 0.471891, -4.
 
 [node name="TrashCan" parent="." instance=ExtResource("7_flfhx")]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -15.0308, 0.410756, -4.82208)
+<<<<<<< Updated upstream
+=======
+
+[node name="Hob" parent="." instance=ExtResource("8_dbcws")]
+transform = Transform3D(-3.49691e-08, 0, -1, 0, 1, 0, 0.8, 0, -4.37114e-08, -4.6544, 0, -8.60177)
+clean_plate = null
+pizza_base_cheese = null
+
+[node name="Plate" parent="." instance=ExtResource("9_cwh3r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -9)
+
+[node name="Converybelt" parent="." instance=ExtResource("16_wr6wj")]
+transform = Transform3D(0.0326216, 0, -0.999168, 0, 1, 0, 0.799335, 0, 0.0407771, -14.6244, 0.710807, -12.6405)
+itemName = "Converybelt"
+
+[node name="Pot Stove" parent="." instance=ExtResource("17_wr6wj")]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -6.6293, 0.0218766, -6.45763)
+itemName = "Stove"
+
+[node name="Produce Crate" parent="." instance=ExtResource("18_a3g3y")]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -8.44572, 0.410807, -12.5365)
+itemName = "Produce Crate"
+itemStored = ExtResource("6_0ptwd")
+
+[node name="Player Controller" type="Node3D" parent="." node_paths=PackedStringArray("player1Node", "player2Node")]
+script = ExtResource("19_qyek8")
+player1Node = NodePath("../chef")
+player2Node = NodePath("../chef2")
+
+[node name="Cut Cheese" parent="." instance=ExtResource("19_k8nm5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.12719, 0.0108064, -6.60326)
+>>>>>>> Stashed changes
