@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://id4cmgy0jk3j"]
+
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_my181"]
+[ext_resource type="PackedScene" uid="uid://dvdpo2pctsnfw" path="res://Godot game/assorted/oven.blend" id="2_3n55h"]
+
+[node name="Countertop" instance=ExtResource("1_my181")]
+
+[node name="Area3D" parent="." index="0"]
+itemName = "Oven"
+
+[node name="Counter 1" parent="Area3D" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="Area3D" index="2"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.0377276, 0)
+
+[node name="oven" parent="Area3D" index="3" instance=ExtResource("2_3n55h")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

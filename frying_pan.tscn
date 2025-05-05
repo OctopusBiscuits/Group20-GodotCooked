@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhk2u2gaf33a2"]
+
+[ext_resource type="Script" uid="uid://cdgkeyokk8vsu" path="res://frying_pan.gd" id="1_83g37"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e15rc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lkiuw"]
+
+[node name="Frying Pan" type="Node3D"]
+script = ExtResource("1_83g37")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_e15rc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_lkiuw")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt0gg3rj7y1m1"]
+
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_mtt5x"]
+[ext_resource type="PackedScene" uid="uid://2ox2n7luqctg" path="res://Godot game/assorted/hob.blend" id="2_0dq75"]
+
+[node name="Hob" instance=ExtResource("1_mtt5x")]
+itemName = "Hob"
+
+[node name="hob" parent="." index="2" instance=ExtResource("2_0dq75")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.588536, -0.0324986)

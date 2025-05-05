@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dsysiwvwnhlgr"
+path="res://.godot/imported/plate.obj-56d1b5bc9db70fe9aaf06b639f49f8ac.mesh"
+
+[deps]
+
+files=["res://.godot/imported/plate.obj-56d1b5bc9db70fe9aaf06b639f49f8ac.mesh"]
+
+source_file="res://Undercooked/Source Meshes/Meshes/pots and pans/plate.obj"
+dest_files=["res://.godot/imported/plate.obj-56d1b5bc9db70fe9aaf06b639f49f8ac.mesh", "res://.godot/imported/plate.obj-56d1b5bc9db70fe9aaf06b639f49f8ac.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

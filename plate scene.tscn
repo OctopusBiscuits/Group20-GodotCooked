@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://brgf0bhixxfwt"]
+
+[ext_resource type="Script" uid="uid://bwjofgcubrgya" path="res://objectPickupTest.gd" id="1_xshoe"]
+[ext_resource type="PackedScene" uid="uid://drfgco054qe0w" path="res://Godot game/pots and pans/plate.fbx" id="2_khb3x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_psfrl"]
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_hpo7t"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qrq53"]
+
+[node name="plate" type="Node3D"]
+
+[node name="test" type="RigidBody3D" parent="."]
+gravity_scale = 0.0
+script = ExtResource("1_xshoe")
+itemName = "Uncut Onion"
+
+[node name="PickUpArea3D" type="Area3D" parent="test"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test/PickUpArea3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.51761, 0)
+shape = SubResource("BoxShape3D_psfrl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test/PickUpArea3D"]
+mesh = SubResource("PlaceholderMesh_hpo7t")
+skeleton = NodePath("../../..")
+
+[node name="test2" type="CollisionShape3D" parent="test"]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+shape = SubResource("CylinderShape3D_qrq53")
+disabled = true
+
+[node name="plate" parent="test" instance=ExtResource("2_khb3x")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[connection signal="body_entered" from="test/PickUpArea3D" to="test" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="test/PickUpArea3D" to="test" method="_on_area_3d_body_exited"]

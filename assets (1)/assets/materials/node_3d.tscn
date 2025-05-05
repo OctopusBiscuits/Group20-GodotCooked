@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd5w8n2rnlb54"]
+
+[ext_resource type="ArrayMesh" uid="uid://by161a172fgwi" path="res://assets/models/conveyor belt.obj" id="1_xeses"]
+[ext_resource type="Script" path="res://assets/materials/conveyor_belt.gd" id="2_irvwg"]
+[ext_resource type="Material" uid="uid://csknefhpusta" path="res://assets/materials/gear.tres" id="2_nlvyl"]
+[ext_resource type="Material" uid="uid://bw1k54n2kr4rg" path="res://assets/materials/black.tres" id="3_smcu7"]
+[ext_resource type="Material" uid="uid://2y4ha2ggljj7" path="res://assets/materials/conveyor.tres" id="4_77sql"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="ConveyorBelt" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455289, 0, -1.02922)
+mesh = ExtResource("1_xeses")
+surface_material_override/0 = ExtResource("2_nlvyl")
+surface_material_override/1 = ExtResource("3_smcu7")
+surface_material_override/2 = ExtResource("4_77sql")
+script = ExtResource("2_irvwg")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.605238, 0, 0.796044, 0, 1, 0, -0.796044, 0, 0.605238, 8.3651, 3.09525, 6.19749)

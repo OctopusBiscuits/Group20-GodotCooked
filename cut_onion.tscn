@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://tri5xbdxd4dh"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_kh52j"]
+[ext_resource type="PackedScene" uid="uid://b7os5boapad2l" path="res://food/onion half.blend" id="2_kh52j"]
+
+[node name="Node3D" instance=ExtResource("1_kh52j")]
+
+[node name="test" parent="." index="0"]
+canUseStove = true
+itemName = "Cut_Onion"
+
+[node name="CollisionShape3D" parent="test/PickUpArea3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+disabled = true
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+mesh = null
+
+[node name="onion half" parent="test/PickUpArea3D" index="2" instance=ExtResource("2_kh52j")]

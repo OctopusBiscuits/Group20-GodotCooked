@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://5a22lmu4nkul"]
+
+[ext_resource type="Script" uid="uid://bwjofgcubrgya" path="res://objectPickupTest.gd" id="1_rfubn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_icyub"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lwpki"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rrs6m"]
+
+[node name="Node3D" type="Node3D" groups=["PickUps"]]
+
+[node name="test" type="RigidBody3D" parent="."]
+gravity_scale = 0.0
+script = ExtResource("1_rfubn")
+
+[node name="PickUpArea3D" type="Area3D" parent="test"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test/PickUpArea3D"]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+shape = SubResource("CylinderShape3D_icyub")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test/PickUpArea3D"]
+mesh = SubResource("CylinderMesh_lwpki")
+skeleton = NodePath("../../..")
+
+[node name="test2" type="CollisionShape3D" parent="test"]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+shape = SubResource("CylinderShape3D_rrs6m")
+disabled = true
+
+[connection signal="body_entered" from="test/PickUpArea3D" to="test" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="test/PickUpArea3D" to="test" method="_on_area_3d_body_exited"]

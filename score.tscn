@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://uqcrp0cfp7kn"]
+
+[node name="score" type="Node2D"]
+scale = Vector2(0.289065, 0.282168)
+
+[node name="plate count" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(16.6, 13.84)
+text = "score:"

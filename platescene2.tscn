@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://wues3qej33uh"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_s01ef"]
+[ext_resource type="PackedScene" uid="uid://dybay664wems5" path="res://Undercooked/Source Meshes/Meshes/pots and pans/plate.fbx" id="2_msolm"]
+
+[node name="Node3D" instance=ExtResource("1_s01ef")]
+
+[node name="test" parent="." index="0"]
+itemName = "Plate"
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+visible = false
+
+[node name="plate" parent="test/PickUpArea3D" index="2" groups=["PickUps"] instance=ExtResource("2_msolm")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.167549, 0)

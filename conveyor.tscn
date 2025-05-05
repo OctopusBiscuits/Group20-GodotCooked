@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvki1orwddfst"]
+
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_m44ft"]
+[ext_resource type="ArrayMesh" uid="uid://by161a172fgwi" path="res://Source Meshes/Meshes/conveyor/models/conveyor belt.obj" id="1_wo26x"]
+[ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="2_2jdux"]
+[ext_resource type="Material" uid="uid://2y4ha2ggljj7" path="res://Source Meshes/Meshes/conveyor/materials/conveyor.tres" id="2_nyola"]
+[ext_resource type="PackedScene" uid="uid://cm0mq13r8qmk6" path="res://dirtyPlate.tscn" id="3_dqewr"]
+
+[node name="conveyor" instance=ExtResource("1_m44ft")]
+itemName = "conveyor"
+cut_onion = ExtResource("2_2jdux")
+clean_plate = ExtResource("3_dqewr")
+
+[node name="Area3D" parent="." index="0"]
+itemName = "conveyor"
+
+[node name="Counter 1" parent="Area3D" index="0"]
+visible = false
+
+[node name="conveyor" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0.26042)
+mesh = ExtResource("1_wo26x")
+skeleton = NodePath("../Area3D")
+surface_material_override/0 = ExtResource("2_nyola")
+surface_material_override/1 = ExtResource("2_nyola")
+surface_material_override/2 = ExtResource("2_nyola")
+
+[node name="Timer" type="Timer" parent="." index="3"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

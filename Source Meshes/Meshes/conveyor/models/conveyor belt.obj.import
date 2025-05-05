@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://by161a172fgwi"
+path="res://.godot/imported/conveyor belt.obj-08d6cdfee3c8e9398857eb08fa648285.mesh"
+
+[deps]
+
+files=["res://.godot/imported/conveyor belt.obj-08d6cdfee3c8e9398857eb08fa648285.mesh"]
+
+source_file="res://Source Meshes/Meshes/conveyor/models/conveyor belt.obj"
+dest_files=["res://.godot/imported/conveyor belt.obj-08d6cdfee3c8e9398857eb08fa648285.mesh", "res://.godot/imported/conveyor belt.obj-08d6cdfee3c8e9398857eb08fa648285.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

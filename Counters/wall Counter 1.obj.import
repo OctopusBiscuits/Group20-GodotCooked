@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c56mxqgrggqx"
+path="res://.godot/imported/wall Counter 1.obj-475f486a64ea7bf8e222524eed84f1ee.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall Counter 1.obj-475f486a64ea7bf8e222524eed84f1ee.mesh"]
+
+source_file="res://Counters/wall Counter 1.obj"
+dest_files=["res://.godot/imported/wall Counter 1.obj-475f486a64ea7bf8e222524eed84f1ee.mesh", "res://.godot/imported/wall Counter 1.obj-475f486a64ea7bf8e222524eed84f1ee.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

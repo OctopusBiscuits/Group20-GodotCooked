@@ -1,11 +1,10 @@
 extends CharacterBody3D
 
 # How fast the player moves in meters per second.
-@export var speed =5
+@export var speed = 10
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
 @export var rotation_speed = 10
-
 var last_direction = Vector3.FORWARD
 var target_velocity = Vector3.ZERO
 var dash_speed = 20
@@ -34,7 +33,7 @@ func _physics_process(delta):
 	if !$dash_window.is_stopped():
 		speed=20
 	else:
-		speed =5
+		speed =10
 	
 	direction = (transform.basis * Vector3(directional_input.x, 0, directional_input.y)).normalized()
 	
@@ -54,7 +53,7 @@ func _physics_process(delta):
 	$Rig.rotation.y = lerp_angle($Rig.rotation.y, atan2(-last_direction.x, -last_direction.z), delta * rotation_speed)
 	anim_tree.set("parameters/moving/blend_position", Vector2(velocity.x,velocity.z)/ speed)
 	#dash that doesnt work it registers the input but just tposes
-	#if Input.is_action_pressed("dash"):
+	#if Input.iawds_action_pressed("dash"):
 		#anim_state.travel("parameters/moving/roll/blend_position")
 
 	if direction != Vector3.ZERO:
@@ -83,5 +82,4 @@ func _physics_process(delta):
 
 	# Moving the Character
 	velocity = target_velocity
-
 	move_and_slide()

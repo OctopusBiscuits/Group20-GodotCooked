@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1gwabnjtikb0"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_ysrll"]
+[ext_resource type="PackedScene" uid="uid://56uvj8nolb0l" path="res://Godot game/pots and pans/china plate.blend" id="2_8vquc"]
+[ext_resource type="PackedScene" uid="uid://ydy7cewta2ew" path="res://assetsFromSamH/dirty plate.blend" id="3_usjap"]
+
+[node name="Onion Soup" instance=ExtResource("1_ysrll")]
+
+[node name="test" parent="." index="0"]
+itemName = "Onion Soup"
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+visible = false
+
+[node name="china plate" parent="test/PickUpArea3D" index="2" instance=ExtResource("2_8vquc")]
+
+[node name="dirty plate" parent="test/PickUpArea3D" index="3" instance=ExtResource("3_usjap")]

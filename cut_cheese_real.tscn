@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ma3lt8455js"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_e7uv3"]
+[ext_resource type="PackedScene" uid="uid://4upb8ol8edsy" path="res://food/Cheese half.blend" id="2_0sh33"]
+
+[node name="Cut Cheese Real" instance=ExtResource("1_e7uv3")]
+
+[node name="test" parent="." index="0"]
+itemName = "Cut Cheese"
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+visible = false
+
+[node name="Cheese half" parent="test/PickUpArea3D" index="2" instance=ExtResource("2_0sh33")]

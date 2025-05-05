@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dd5w8n2rnlb54"]
+
+[ext_resource type="Script" uid="uid://lx8ohvm5u0c1" path="res://conveyorbelt.gd" id="1_507io"]
+[ext_resource type="ArrayMesh" uid="uid://by161a172fgwi" path="res://Source Meshes/Meshes/conveyor/models/conveyor belt.obj" id="3_3l06f"]
+[ext_resource type="Material" uid="uid://bw1k54n2kr4rg" path="res://Source Meshes/Meshes/conveyor/materials/black.tres" id="4_33rr2"]
+[ext_resource type="Material" uid="uid://2y4ha2ggljj7" path="res://Source Meshes/Meshes/conveyor/materials/conveyor.tres" id="5_at3ok"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3l06f"]
+size = Vector3(1, 1, 1.45776)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_507io"]
+size = Vector3(1.10986, 1, 1.42865)
+
+[node name="ConveyorBelt" type="Node3D"]
+script = ExtResource("1_507io")
+output_offset = Vector3(0, 0.5, 2)
+
+[node name="ConveyorBeltModel" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = ExtResource("3_3l06f")
+surface_material_override/0 = ExtResource("4_33rr2")
+surface_material_override/1 = ExtResource("5_at3ok")
+surface_material_override/2 = ExtResource("5_at3ok")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.171577)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 0.477562, 0, 0, 0, 0.92795, -0.00507009, 0.000742316, 0.0386249)
+shape = SubResource("BoxShape3D_3l06f")
+
+[node name="ProcessingTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="OutputPosition" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.896343, 0.132393, -0.0563402, 0.101105)
+shape = SubResource("BoxShape3D_507io")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="timeout" from="ProcessingTimer" to="." method="_on_processing_timer_timeout"]

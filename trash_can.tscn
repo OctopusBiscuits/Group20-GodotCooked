@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8jp50tkorllm"]
+
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_bgvmr"]
+[ext_resource type="PackedScene" uid="uid://4wv2lpjnm66n" path="res://Godot game/assorted/bin.blend" id="2_alpy1"]
+
+[node name="TrashCan" instance=ExtResource("1_bgvmr")]
+
+[node name="bin" parent="Area3D" index="0" instance=ExtResource("2_alpy1")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Counter 1" parent="Area3D" index="1"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0.47893, 0)

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctei72otcy2nk"]
+
+[ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="1_pllhe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rtcoe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yddbv"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, -8.893, -1.11917, -4.896)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("BoxShape3D_rtcoe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D"]
+mesh = SubResource("BoxMesh_yddbv")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.900197, 0.435483, 0, -0.435483, 0.900197, 0, 2.8129, 2.67136)
+fov = 81.5625
+
+[node name="chef" parent="." instance=ExtResource("1_pllhe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17136, -0.832314, -1.79824)
