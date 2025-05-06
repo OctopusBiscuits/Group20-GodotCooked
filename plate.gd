@@ -3,7 +3,7 @@ extends RigidBody3D
 # === State ===
 var picked_up = false
 var in_range = false
-var onCounterTop = false
+var onCounterTop : bool = false
 var countertop : Node = null
 var player : Node = null
 var players_in_range : Array = []

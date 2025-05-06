@@ -35,6 +35,7 @@ func _ready():
 	if (itemName == "Conveyer Belt"):
 		print("Conveyer named")
 	foodSentList = get_tree().get_nodes_in_group("FoodSentPrefab")[0]
+	platesCurrentlyOut = 1
 	if startingItem: #Spawn an item in automatically
 		
 		var item = startingItem.instantiate()
@@ -113,8 +114,8 @@ func _physics_process(_delta: float):
 			if held_item.itemName == "DirtyPlate":
 				_handle_washing(_delta, player)
 		
-		elif itemName == "Convery Belt" and held_item:
-			
+		elif itemName == "Conveyer Belt" and held_item:
+			print("In here")
 			if (held_item.itemName == "Plate" and held_item.heldObjects.size() >= 1):
 				foodSentList._addMeal(held_item)
 				held_item.queue_free()
@@ -133,6 +134,8 @@ func _physics_process(_delta: float):
 	elif itemName == "Stove" and held_item:
 			_handle_stove(_delta)
 			_check_for_finished_recipe()
+	elif itemName == "Plate Warmer":
+		_handle_plate_warmer()
 func _changeItemOnCounterTop() -> void:
 	if itemOnCountertop == true:
 		itemOnCountertop = false
@@ -179,16 +182,8 @@ func _handle_oven(_delta: float):
 			_getNewItemOnCounterTop(null)
 func _handle_plate_warmer():
 	if (platesCurrentlyOut > 0 and held_item == null):
-		var item = dirty_plate.instantiate()
-		add_child(item)
-		item.global_position = global_position + Vector3(0, 0.5, 0)
-		item.reparent(self)
-		held_item = item.get_node("test")
-		itemOnCountertop = true
-		held_item.onCounterTop = true
-		held_item.picked_up = false
-		held_item.countertop = self
 		platesCurrentlyOut -= 1
+		_getNewItemOnCounterTop(null)
 func _place_item(item: Node):
 	held_item = item
 	itemOnCountertop = true
@@ -221,6 +216,9 @@ func _getNewItemOnCounterTop(player : Node) -> Node: #Function to swap object on
 	if (itemName == "Produce Crate"):
 		new_item = itemStored.instantiate()
 		itemPos = self.global_position + Vector3(0, 0.5, 0)
+	elif (itemName == "Plate Warmer"):
+		new_item = dirty_plate.instantiate()
+		itemPos = self.global_position + Vector3(0,0.5,0)
 	else:
 		
 		if (held_item.itemName == "Uncut Onion"):

@@ -1,11 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://wakc5js5sl28"]
+[gd_scene load_steps=30 format=3 uid="uid://wakc5js5sl28"]
 
 [ext_resource type="Texture2D" uid="uid://djuknffyax3oa" path="res://Undercooked/Flooring Checker.png" id="1_3axvw"]
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="2_nas62"]
 [ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="3_q54t8"]
 [ext_resource type="PackedScene" uid="uid://bxgje2e4eqcdk" path="res://KitchenObjects_Scenes/brick_wall.tscn" id="4_nas62"]
+[ext_resource type="PackedScene" uid="uid://cm0mq13r8qmk6" path="res://dirtyPlate.tscn" id="5_q53qx"]
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="5_sldos"]
-[ext_resource type="PackedScene" uid="uid://b0ekbq6mpm8ya" path="res://KitchenObjects_Scenes/basic_cabinet_plate_warmer.tscn" id="6_sldos"]
 [ext_resource type="PackedScene" uid="uid://bhtrdjvyptjv5" path="res://KitchenObjects_Scenes/poster.tscn" id="8_miqie"]
 [ext_resource type="PackedScene" uid="uid://binjn65jdtjk3" path="res://KitchenObjects_Scenes/Fire_Extinguisher.tscn" id="9_05hgt"]
 [ext_resource type="PackedScene" uid="uid://brl0b1sljwoyn" path="res://KitchenObjects_Scenes/cutting_board.tscn" id="11_miqie"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://id4cmgy0jk3j" path="res://Oven.tscn" id="21_ui55b"]
 [ext_resource type="PackedScene" uid="uid://cftnri1w8s6ql" path="res://food/conveyer new.tscn" id="22_q53qx"]
 [ext_resource type="PackedScene" uid="uid://cwtjsdgrx5crb" path="res://food/pizza base w mushroom.tscn" id="22_ykiuy"]
+[ext_resource type="PackedScene" uid="uid://js1cppvxws3u" path="res://conveyer.tscn" id="23_q53qx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7udxi"]
 albedo_color = Color(0.910582, 0.919253, 0.986566, 1)
@@ -95,8 +96,10 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 [node name="BaseCounter3" parent="Kitchen_Objects/BaseCounter 0" instance=ExtResource("5_sldos")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 7.0118)
 
-[node name="BaseCounter4" parent="Kitchen_Objects/BaseCounter 0" instance=ExtResource("5_sldos")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 11.6459)
+[node name="Plate Warmer" parent="Kitchen_Objects/BaseCounter 0" instance=ExtResource("5_sldos")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -14.2366, 0, 9.57861)
+itemName = "Plate Warmer"
+dirty_plate = ExtResource("5_q53qx")
 
 [node name="BaseCounter5" parent="Kitchen_Objects/BaseCounter 0" instance=ExtResource("5_sldos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.31684)
@@ -126,8 +129,8 @@ transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -4.76837
 [node name="BaseCounter4" parent="Kitchen_Objects/BaseCounter 0/BaseCounter7" instance=ExtResource("5_sldos")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.26898, 0, 11.6444)
 
-[node name="Basic_Cabinet_PlateWarmer" parent="Kitchen_Objects" instance=ExtResource("6_sldos")]
-transform = Transform3D(-1.79213e-07, -0.00896566, -1.09996, 0, 1.37495, -0.0112071, 1.1, -1.46069e-09, -1.79207e-07, -4.74356, -0.481218, -2.45783)
+[node name="Plate" parent="Kitchen_Objects/BaseCounter 0" instance=ExtResource("5_q53qx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10.5706, 0.0177429, 8.33412)
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -188,10 +191,12 @@ transform = Transform3D(-2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, 
 
 [node name="Sink" parent="." instance=ExtResource("16_q44gh")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.0986664, -0.0482495, -3.0648)
+clean_plate = ExtResource("20_qcqhk")
 
-[node name="Timer + Food Sent" type="Node3D" parent="." groups=["FoodSentPrefab"]]
+[node name="Timer + Food Sent" type="Node3D" parent="." node_paths=PackedStringArray("plateWarmer") groups=["FoodSentPrefab"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.976578, 1.08913, 1.57835)
 script = ExtResource("18_g0yq1")
+plateWarmer = NodePath("../Kitchen_Objects/BaseCounter 0/Plate Warmer")
 
 [node name="Node3D2" parent="." instance=ExtResource("19_ui55b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10146, 0.104557, -2.6173)
@@ -219,4 +224,9 @@ itemName = "Oven"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76117, 0.394002, 0.0511746)
 
 [node name="Countertop2" parent="." instance=ExtResource("22_q53qx")]
-transform = Transform3D(0.0897561, 0, -0.760766, 0, 0.769, 0, 0.608415, 0, 0.112232, -6.54464, -0.00377882, 0.367947)
+transform = Transform3D(-2.68825e-08, 0, -0.769, 0, 0.769, 0, 0.615, 0, -3.36141e-08, -6.54464, 0.272906, -0.0129026)
+itemName = "Conveyer Belt"
+
+[node name="Conveyer" parent="." instance=ExtResource("23_q53qx")]
+transform = Transform3D(3, 0, 0, 0, 3.75, 0, 0, 0, 3.75, -6.17427, -1.02707, -0.159324)
+itemName = "Conveyer Belt"

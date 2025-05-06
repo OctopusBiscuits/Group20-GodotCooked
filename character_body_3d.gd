@@ -52,9 +52,11 @@ func _physics_process(delta):
 		speed=20
 	else:
 		speed =10
-	#print(currentCounterTop)
+	if (currentCounterTop):
+		
+		print(currentCounterTop.itemName)
 	#print(objectPickedUp)
-	#dprint(objectInHand)
+	print(objectInHand)
 	if (not objectPickedUp):
 		objectInHand = null
 	if (active):
