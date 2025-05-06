@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ehag3hi4g5mg"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_2xg5y"]
+[ext_resource type="PackedScene" uid="uid://qglgam5gfhb0" path="res://food/dough.res" id="2_lykxk"]
+
+[node name="Node3D" instance=ExtResource("1_2xg5y")]
+
+[node name="test" parent="." index="0"]
+cutsNeeded = 5
+itemName = "Dough"
+cuttable = true
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+visible = false
+
+[node name="dough2" parent="test/PickUpArea3D" index="2" instance=ExtResource("2_lykxk")]

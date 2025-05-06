@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://6g5xoa228mju"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_7s7qv"]
+[ext_resource type="Script" uid="uid://du22syrpg00us" path="res://pizzaBase.gd" id="2_ch8rp"]
+[ext_resource type="PackedScene" uid="uid://cudxy4h5q1ylm" path="res://food/pizza base w sauce.res" id="3_freqd"]
+
+[node name="Node3D" instance=ExtResource("1_7s7qv")]
+
+[node name="test" parent="." index="0" node_paths=PackedStringArray("heldObjects")]
+script = ExtResource("2_ch8rp")
+itemName = "PizzaBaseNowWithSauce"
+heldObjects = []
+timeToClean = 0.0
+
+[node name="PickUpArea3D" parent="test" index="0"]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+visible = false
+
+[node name="pizza base w sauce" parent="test/PickUpArea3D" index="2" instance=ExtResource("3_freqd")]
+transform = Transform3D(1.00235, 0, 0, 0, 1.00235, 0, 0, 0, 1.00235, 0, 0, 0)

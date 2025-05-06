@@ -1,12 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://bupvmbk3r352o"]
+[gd_scene load_steps=20 format=3 uid="uid://bupvmbk3r352o"]
 
 [ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://countertop.gd" id="1_7a77d"]
 [ext_resource type="PackedScene" uid="uid://0qoubuffgca8" path="res://Godot game/Counters/Counter 1.blend" id="2_3v8sl"]
 [ext_resource type="PackedScene" uid="uid://tri5xbdxd4dh" path="res://cut_onion.tscn" id="2_oldlg"]
 [ext_resource type="Script" uid="uid://cxv7lb6lp4u6p" path="res://player_colission_test.gd" id="3_7a77d"]
 [ext_resource type="PackedScene" uid="uid://bltrgefklygjn" path="res://pan.tscn" id="3_wr8pb"]
-[ext_resource type="PackedScene" uid="uid://c4fy5flx2jd2x" path="res://pizza_base_cheese.tscn" id="4_jkvpq"]
+[ext_resource type="PackedScene" uid="uid://cfojhljlc7at" path="res://food/pizza base.tscn" id="5_0ubbe"]
 [ext_resource type="PackedScene" uid="uid://ma3lt8455js" path="res://cut_cheese_real.tscn" id="5_3a51o"]
+[ext_resource type="PackedScene" uid="uid://6g5xoa228mju" path="res://food/Pizza Base w Sauce.tscn" id="6_su4a7"]
+[ext_resource type="PackedScene" uid="uid://clex860gjla0t" path="res://food/Pizza base w cheese.tscn" id="7_8ldoo"]
+[ext_resource type="PackedScene" uid="uid://cwtjsdgrx5crb" path="res://food/pizza base w mushroom.tscn" id="8_lpc7f"]
+[ext_resource type="PackedScene" uid="uid://dmmkrwpqjjoba" path="res://food/cooked pizza w cheese.tscn" id="9_6sa43"]
+[ext_resource type="PackedScene" uid="uid://c51hmcmfxtjxv" path="res://food/cooked pizza w mushroom.tscn" id="10_yddqi"]
+[ext_resource type="PackedScene" uid="uid://d0x3pqg67gup0" path="res://food/Mushroom.tscn" id="11_431f6"]
+[ext_resource type="PackedScene" uid="uid://c7fgme8xch6b4" path="res://food/sauce.tscn" id="12_kneka"]
+[ext_resource type="PackedScene" uid="uid://bii8jpy2w6r50" path="res://MushroomHalf.tscn" id="13_s34im"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ce8re"]
 albedo_color = Color(1, 0.470588, 0.109804, 1)
@@ -23,8 +31,16 @@ script = ExtResource("1_7a77d")
 itemName = "Countertop"
 cut_onion = ExtResource("2_oldlg")
 clean_plate = ExtResource("3_wr8pb")
-pizza_base_cheese = ExtResource("4_jkvpq")
 cut_cheese = ExtResource("5_3a51o")
+pizza_base = ExtResource("5_0ubbe")
+pizza_base_sauce = ExtResource("6_su4a7")
+pizza_base_cheese = ExtResource("7_8ldoo")
+pizza_base_mushroom = ExtResource("8_lpc7f")
+cooked_pizza_base_cheese = ExtResource("9_6sa43")
+cooked_pizza_base_mushroom = ExtResource("10_yddqi")
+mushroom = ExtResource("11_431f6")
+Sauce = ExtResource("12_kneka")
+cut_mushroom = ExtResource("13_s34im")
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("1_7a77d")

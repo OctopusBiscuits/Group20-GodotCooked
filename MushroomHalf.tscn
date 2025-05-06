@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bii8jpy2w6r50"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_kwwv8"]
+[ext_resource type="PackedScene" uid="uid://s40thcvyjo5d" path="res://food/mushroom half.blend" id="2_fesjr"]
+
+[node name="Node3D" instance=ExtResource("1_kwwv8")]
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+visible = false
+
+[node name="mushroom half" parent="test/PickUpArea3D" index="2" instance=ExtResource("2_fesjr")]

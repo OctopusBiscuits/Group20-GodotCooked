@@ -45,7 +45,7 @@ func inpuut(event):
 				$dash_window.start()
 func _physics_process(delta):
 	var directional_input = Input.get_vector("left", "right", "forward", "back",)
-	
+	print(nearbyCounterTops.size())
 	#print(active)
 	if !$dash_window.is_stopped():
 		speed=20

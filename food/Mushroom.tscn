@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0x3pqg67gup0"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_325xe"]
+[ext_resource type="PackedScene" uid="uid://dk0aovgrsb0fu" path="res://food/PC Computer - Overcooked - Mushroom/Mushroom.res" id="2_vlf2n"]
+
+[node name="Node3D" instance=ExtResource("1_325xe")]
+
+[node name="test" parent="." index="0"]
+itemName = "5"
+cuttable = true
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+visible = false
+
+[node name="Mushroom2" parent="test/PickUpArea3D" index="2" instance=ExtResource("2_vlf2n")]

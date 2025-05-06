@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwtjsdgrx5crb"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_ceq8x"]
+[ext_resource type="Script" uid="uid://du22syrpg00us" path="res://pizzaBase.gd" id="2_c82ti"]
+[ext_resource type="PackedScene" uid="uid://xyylrwnwjxgn" path="res://food/mushroom pizzablend.res" id="3_ojoli"]
+
+[node name="Node3D" instance=ExtResource("1_ceq8x")]
+
+[node name="test" parent="." index="0" node_paths=PackedStringArray("heldObjects")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+script = ExtResource("2_c82ti")
+itemName = "PizzaBaseNowWithCheeseMushroom"
+heldObjects = []
+timeToClean = 0.0
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+visible = false
+
+[node name="mushroom pizzablend2" parent="test/PickUpArea3D" index="2" instance=ExtResource("3_ojoli")]

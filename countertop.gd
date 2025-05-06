@@ -4,12 +4,20 @@ class_name Countertop
 @export var itemName: String
 @export var cut_onion: PackedScene
 @export var clean_plate: PackedScene
-@export var pizza_base_cheese: PackedScene
 @export var foodSentList : Node
 @export var itemsInStove : Array[String] 
 @export var itemStored : PackedScene #Used for Produce crates 
 @export var cut_cheese : PackedScene
+@export var pizza_base : PackedScene
+@export var pizza_base_sauce : PackedScene
+@export var pizza_base_cheese : PackedScene
+@export var pizza_base_mushroom : PackedScene
+@export var cooked_pizza_base_cheese : PackedScene
+@export var cooked_pizza_base_mushroom : PackedScene
+@export var mushroom : PackedScene
+@export var Sauce : PackedScene
 @export var allPlayers : Array = []
+@export var cut_mushroom : PackedScene
 var moreInStove = true
 var onion_soup : Array[String ]= ["Cut_Onion", "Cut_Onion", "Cut_Onion"]
 var itemOnCountertop := false
@@ -20,7 +28,7 @@ var can_place_in_object := false
 func _ready():
 	for player in get_tree().get_nodes_in_group("Players"):
 		allPlayers.append(player)
-	
+		print(allPlayers)
 	foodSentList = get_tree().get_nodes_in_group("FoodSentPrefab")[0]
 	if (itemName == "Stove"):
 		itemsInStove = onion_soup
@@ -31,10 +39,12 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		if not self in body.nearbyCounterTops:
 			print("countertop in range")
 			body.nearbyCounterTops.append(self)
+			
 		body.update_currentCounterTop()
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.name == "Little Fella":
+		
 		body.nearbyCounterTops.erase(self)
 		body.update_currentCounterTop()
 		
@@ -57,8 +67,9 @@ func can_accept_item(item) -> bool:
 func _physics_process(_delta: float):
 	
 	var nearbyPlayers = _get_nearby_players()
-
+	
 	for player in nearbyPlayers:
+		print("nearby player")
 		if itemName == "trash can":
 			itemOnCountertop = false
 			if (held_item):
@@ -91,6 +102,9 @@ func _physics_process(_delta: float):
 		
 		elif held_item: #normal countertop
 		#print("Item is held")
+			print("normal countertop")
+			if (held_item.itemName == "Dough"):
+				print("got to this functoin")
 			_handle_cutting(player)
 			can_place_in_object = held_item.canHoldAnObject and not held_item.holdingAnObject
 		
@@ -115,9 +129,12 @@ func _handle_hob(_delta: float) -> void:
 		held_item.holdingAnObject = false
 		held_item.objectBeingHeld.queue_free()
 func _handle_cutting(player : Node):
+	if (held_item.itemName == "Dough"):
+		print("got to this functoin")
 	if Input.is_action_just_pressed("attack") and player.currentCounterTop == self and itemName == "Countertop":
 		if held_item.cuttable and held_item.cutsNeeded > 0:
 			held_item.cutsNeeded -= 1
+			print("one less cut needed")
 			if held_item.cutsNeeded == 0:
 				_getNewItemOnCounterTop(player)
 func _handle_washing(_delta : float, player : Node):
@@ -171,10 +188,26 @@ func _getNewItemOnCounterTop(player : Node) -> Node: #Function to swap object on
 			print("Instantiated")
 		elif (held_item.itemName == "DirtyPlate"):
 			new_item = clean_plate.instantiate()
-		elif (held_item.itemName == "PizzaBaseNowWithCheese"):
-			new_item = pizza_base_cheese.instantiate()
+		elif (held_item.itemName == "Uncut Mushroom"):
+			new_item = mushroom.instantiate()
+		elif (held_item.itemName == "Uncut Mushroom"):
+			new_item = cut_mushroom.instantiate()
 		elif (held_item.itemName == "Uncut Cheese"):
 			new_item = cut_cheese.instantiate()
+		elif (held_item.itemName == "Dough"):
+			new_item = pizza_base.instantiate()
+		elif (held_item.itemName == "PizzaBaseNowWithSauce"):
+			new_item = pizza_base_sauce.instantiate()
+		elif (held_item.itemName == "PizzaBaseNowWithCheese"):
+			new_item = pizza_base_cheese.instantiate()
+		elif (held_item.itemName == "PizzaBaseNowWithCheeseMushroom"):
+			new_item = pizza_base_mushroom.instantiate()
+		elif (held_item.itemName == "CookedPizzaBaseNowWithCheese"):
+			new_item = cooked_pizza_base_cheese.instantiate()
+		elif (held_item.itemName == "CookedPizzaBaseNowWithCheeseMushroom"):
+			new_item = cooked_pizza_base_mushroom.instantiate()
+		
+		
 		itemPos = held_item.global_position
 		held_item.queue_free()
 	
@@ -196,6 +229,9 @@ func _getNewItemOnCounterTop(player : Node) -> Node: #Function to swap object on
 func _get_nearby_players() -> Array:
 	var players = []
 	for player in allPlayers:
+		
 		if self in player.nearbyCounterTops:
 			players.append(player)
+	if (players.size() > 0):
+		print(players.size())
 	return players
