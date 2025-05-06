@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dkcyow3n7vf4b"]
+[gd_scene load_steps=23 format=3 uid="uid://dkcyow3n7vf4b"]
 
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="1_jicv8"]
 [ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="2_f3n6k"]
@@ -12,13 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://brl0b1sljwoyn" path="res://KitchenObjects_Scenes/cutting_board.tscn" id="11_qh6dr"]
 [ext_resource type="PackedScene" uid="uid://mtr4ntahkwqi" path="res://KitchenObjects_Scenes/Produce_box_Tomato.tscn" id="12_nj7j4"]
 [ext_resource type="PackedScene" uid="uid://c1g3rls0xexn3" path="res://KitchenObjects_Scenes/Produce_box_Onion.tscn" id="13_w2veo"]
-[ext_resource type="PackedScene" uid="uid://dhmoxuaoudn81" path="res://stove.tscn" id="14_ax6uk"]
+[ext_resource type="PackedScene" uid="uid://dhmoxuaoudn81" path="res://stoveTop.tscn" id="14_ax6uk"]
 [ext_resource type="PackedScene" uid="uid://ctank1gprxtry" path="res://Godot game/pots and pans/frying pan.fbx" id="15_kcwmb"]
 [ext_resource type="PackedScene" uid="uid://bcp7n2qrw0sje" path="res://Godot game/pots and pans/china plate.fbx" id="16_7mqx6"]
 [ext_resource type="PackedScene" uid="uid://b35qig32bc6j5" path="res://sink.tscn" id="16_jicv8"]
-[ext_resource type="PackedScene" uid="uid://ehag3hi4g5mg" path="res://dough.tscn" id="17_f3n6k"]
-[ext_resource type="Script" uid="uid://c2pq8afi80dnn" path="res://food_sent_out.gd" id="17_mwa5j"]
-[ext_resource type="PackedScene" uid="uid://cqmq1wn75vq7s" path="res://uncut_onion.tscn" id="19_de57l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kok17"]
 size = Vector3(1.36331, 0.0973633, 1.50787)
@@ -204,17 +201,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -3.03976, 0.65524, 1.55
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -3.11463, 0.625454, 0.464191)
 
 [node name="chef" parent="." instance=ExtResource("1_jicv8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67278, 0.480236, -1.82109)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.452, 0.480236, -1.82109)
 
 [node name="Countertop" parent="." instance=ExtResource("16_jicv8")]
 transform = Transform3D(6.55671e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.55671e-08, -1.37422, -0.0818096, 2.72681)
-
-[node name="Timer + Food Sent" type="Node3D" parent="." groups=["FoodSentPrefab"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.976578, 1.08913, 1.57835)
-script = ExtResource("17_mwa5j")
-
-[node name="Node3D" parent="." instance=ExtResource("17_f3n6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.976578, 1.08913, 1.57835)
-
-[node name="Uncut Onion" parent="." instance=ExtResource("19_de57l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.910775, 0.0891308, 0.71572)

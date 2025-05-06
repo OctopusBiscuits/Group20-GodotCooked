@@ -7,7 +7,6 @@
 
 [node name="test" parent="." index="0"]
 itemName = "Uncut Cheese"
-cuttable = false
 canGoInOven = false
 
 [node name="Onion" parent="test/PickUpArea3D" index="2"]

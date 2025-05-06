@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="9_cwh3r"]
 [ext_resource type="PackedScene" uid="uid://de28xllgl6gns" path="res://pizza_base_empty.tscn" id="10_1vkkk"]
 [ext_resource type="PackedScene" uid="uid://diiogll3k463y" path="res://food_sent_out.tscn" id="11_34xsy"]
-[ext_resource type="PackedScene" uid="uid://c4fy5flx2jd2x" path="res://pizza_base_cheese.tscn" id="15_dtabj"]
+[ext_resource type="PackedScene" uid="uid://c4fy5flx2jd2x" path="res://food/pizza_base_cheese.tscn" id="15_dtabj"]
 [ext_resource type="PackedScene" uid="uid://hwfd88cowjbs" path="res://converybelt.tscn" id="16_wr6wj"]
 [ext_resource type="PackedScene" uid="uid://dtvuxfck0xwjw" path="res://pot_stove.tscn" id="17_wr6wj"]
 [ext_resource type="PackedScene" uid="uid://b5gcvebiunq53" path="res://produce_crate.tscn" id="18_a3g3y"]

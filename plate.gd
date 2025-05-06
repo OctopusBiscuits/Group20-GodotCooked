@@ -14,6 +14,7 @@ var canUseStove = false
 @export var itemName : String
 @export var cuttable : bool
 @export var canHoldAnObject : bool
+@export var holdingAnObject : bool = true
 @export var heldObjects : Array[Node] = []
 @export var timeToClean : float
 @export var canGoInOven : bool = false

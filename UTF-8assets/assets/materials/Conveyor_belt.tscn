@@ -1,16 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://dd5w8n2rnlb54"]
+[gd_scene load_steps=10 format=3 uid="uid://dd5w8n2rnlb54"]
 
 [ext_resource type="Script" uid="uid://c26gdgmxubcus" path="res://UTF-8assets/assets/materials/conveyor_belt.gd" id="1_47dwv"]
-[ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://countertop.gd" id="1_dboyy"]
 [ext_resource type="ArrayMesh" uid="uid://by161a172fgwi" path="res://UTF-8assets/assets/models/conveyor belt.obj" id="1_xeses"]
 [ext_resource type="Material" uid="uid://csknefhpusta" path="res://UTF-8assets/assets/materials/gear.tres" id="2_nlvyl"]
 [ext_resource type="Material" uid="uid://bw1k54n2kr4rg" path="res://UTF-8assets/assets/materials/black.tres" id="3_smcu7"]
 [ext_resource type="Material" uid="uid://2y4ha2ggljj7" path="res://UTF-8assets/assets/materials/conveyor.tres" id="4_77sql"]
-[ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://KitchenObjects_Scenes/countertop.gd" id="7_vrvi5"]
-[ext_resource type="PackedScene" uid="uid://0qoubuffgca8" path="res://Godot game/Counters/Counter 1.blend" id="8_6ivxk"]
+[ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://countertop.gd" id="7_vrvi5"]
 [ext_resource type="Script" uid="uid://cxv7lb6lp4u6p" path="res://player_colission_test.gd" id="9_hmbw0"]
-
-[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_olp1k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h02c7"]
 size = Vector3(0.916283, 0.554626, 0.747009)
@@ -19,32 +15,25 @@ size = Vector3(0.916283, 0.554626, 0.747009)
 size = Vector3(4.41284, 1.26904, 6.02881)
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_dboyy")
-
-[node name="ConveyorBelt" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455289, 0, -1.02922)
-mesh = ExtResource("1_xeses")
-surface_material_override/0 = ExtResource("2_nlvyl")
-surface_material_override/1 = ExtResource("3_smcu7")
-surface_material_override/2 = ExtResource("4_77sql")
-script = ExtResource("1_47dwv")
+script = ExtResource("7_vrvi5")
+itemName = "Conveyer Belt"
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.531344)
 script = ExtResource("7_vrvi5")
 itemName = "Converybelt"
 
-[node name="Counter 1" parent="Area3D" instance=ExtResource("8_6ivxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.374945, 1, -2.25287)
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 3.96433, -0.431056, 0.959914, -2.34471)
-mesh = SubResource("PlaceholderMesh_olp1k")
+[node name="ConveyorBelt" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455289, 0, -0.497876)
+mesh = ExtResource("1_xeses")
 skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_nlvyl")
+surface_material_override/1 = ExtResource("3_smcu7")
+surface_material_override/2 = ExtResource("4_77sql")
+script = ExtResource("1_47dwv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.385494, 0.5131, -2.25765)
+transform = Transform3D(6.29, 0, 0, 0, 6.29, 0, 0, 0, 6.29, -0.385494, 0.5131, -1.20065)
 shape = SubResource("BoxShape3D_h02c7")
 script = ExtResource("9_hmbw0")
 

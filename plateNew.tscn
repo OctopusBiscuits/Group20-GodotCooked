@@ -10,6 +10,8 @@
 [node name="test" parent="." index="0" node_paths=PackedStringArray("heldObjects")]
 script = ExtResource("2_ovrww")
 itemName = "Plate"
+canHoldAnObject = true
+holdingAnObject = true
 heldObjects = []
 timeToClean = 0.0
 onionSoup = ExtResource("3_ovrww")

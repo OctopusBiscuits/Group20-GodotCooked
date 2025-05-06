@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c1g3rls0xexn3"]
 
-[ext_resource type="PackedScene" uid="uid://cis3to4ho566m" path="res://Source Meshes/Meshes/Basic_Cabinet_No_Handle.fbx" id="1_elxiv"]
+[ext_resource type="PackedScene" uid="uid://cis3to4ho566m" path="res://Undercooked/Source Meshes/Meshes/Basic_Cabinet_No_Handle.fbx" id="1_elxiv"]
 [ext_resource type="Texture2D" uid="uid://co7wfdg05dk7n" path="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/Boat_CounterTop_Wood.png" id="2_gfqrt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vo400"]
@@ -25,7 +25,6 @@ size = Vector3(0.0115204, 0.00857544, 0.00992584)
 transform = Transform3D(115, 0, 0, 0, 115, 0, 0, 0, 115, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="uv_unitize1" parent="." index="1"]
 surface_material_override/0 = SubResource("StandardMaterial3D_vo400")

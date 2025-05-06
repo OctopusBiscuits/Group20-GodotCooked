@@ -18,10 +18,11 @@ var active : bool
 func _ready():
 	add_to_group("Players")
 
-func update_currentCounterTop():
+func update_currentCounterTop() -> void:
 	if (nearbyCounterTops.size() == 0):
 		#print("No countertops nearby")
-		return null
+		currentCounterTop = null
+		return
 	var closest = nearbyCounterTops[0]
 	var closest_dist = global_position.distance_to(closest.global_position)
 
@@ -45,7 +46,7 @@ func inpuut(event):
 				$dash_window.start()
 func _physics_process(delta):
 	var directional_input = Input.get_vector("left", "right", "forward", "back",)
-	print(nearbyCounterTops.size())
+	#print(nearbyCounterTops.size())
 	#print(active)
 	if !$dash_window.is_stopped():
 		speed=20

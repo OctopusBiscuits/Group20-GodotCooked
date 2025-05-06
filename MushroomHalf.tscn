@@ -5,6 +5,12 @@
 
 [node name="Node3D" instance=ExtResource("1_kwwv8")]
 
+[node name="test" parent="." index="0"]
+itemName = "Cut Mushroom"
+
+[node name="PickUpArea3D" parent="test" index="0"]
+transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 0, 0, 0)
+
 [node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
 visible = false
 

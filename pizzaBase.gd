@@ -17,6 +17,7 @@ var canUseStove = false
 @export var canHoldAnObject : bool
 @export var heldObjects : Array[Node] = []
 @export var timeToClean : float
+@export var timeToCook = 5
 
 func _ready():
 	#player = get_tree().get_nodes_in_group("Player1").front()
@@ -32,7 +33,7 @@ func _on_area_3d_body_exited(body):
 		players_in_range.erase(body)
 
 func _physics_process(_delta):
-	if itemName == "PizzaBaseNowWithCheese":
+	if itemName == "PizzaBaseNowWithCheeseMushroom":
 		canGoInOven = true
 		
 	if (onCounterTop):
@@ -62,14 +63,7 @@ func _physics_process(_delta):
 # === Interaction Conditions ===
 
 func _can_pick_up_from_floor(player) -> bool:
-	print("in range:")
-	print(in_range)
-	print ("picked_up:")
-	print(picked_up)
-	print("on countertop: ")
-	print(onCounterTop)
-	print("Player holding smth?")
-	print(player.objectPickedUp)
+	
 	return in_range and not picked_up and not onCounterTop and not player.objectPickedUp
 
 func _can_pick_up_from_countertop(player) -> bool:
@@ -151,10 +145,16 @@ func _place_in_container(player):
 
 	player.objectPickedUp = false
 	player.objectInHand = null
-	if (held_item.itemName == "Cut Cheese" and itemName == "Pizza Base"):
+	if (held_item.itemName == "Cut Cheese" and itemName == "PizzaBaseNowWithSauce"):
 		itemName = "PizzaBaseNowWithCheese"
 		print("DEBUG: Trying to switch")
-		countertop._getNewItemOnCounterTop()
+		countertop._getNewItemOnCounterTop(player)
+	if (held_item.itemName == "Sauce" and itemName == "Pizza Base"):
+		itemName = "PizzaBaseNowWithSauce"
+		countertop._getNewItemOnCounterTop(player)
+	if (held_item.itemName == "Cut Mushroom" and itemName == "PizzaBaseNowWithCheese"):
+		itemName = "PizzaBaseNowWithCheeseMushroom"
+		countertop._getNewItemOnCounterTop(player)
 
 func _take_out_of_container(player):
 	if heldObjects.is_empty():

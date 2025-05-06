@@ -12,6 +12,7 @@ script = ExtResource("2_c82ti")
 itemName = "PizzaBaseNowWithCheeseMushroom"
 heldObjects = []
 timeToClean = 0.0
+timeToCook = 2
 
 [node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
 visible = false

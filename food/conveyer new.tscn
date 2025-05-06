@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cftnri1w8s6ql"]
+
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_a6t58"]
+[ext_resource type="PackedScene" uid="uid://hwfd88cowjbs" path="res://converybelt.tscn" id="2_mq4t0"]
+
+[node name="Countertop" instance=ExtResource("1_a6t58")]
+transform = Transform3D(0.615, 0, 0, 0, 0.769, 0, 0, 0, 0.769, 0, 0, 0)
+
+[node name="Countertop" parent="Area3D" index="0" instance=ExtResource("2_mq4t0")]
+
+[node name="Counter 1" parent="Area3D" index="1"]
+visible = false
