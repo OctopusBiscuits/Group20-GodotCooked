@@ -1,14 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bupvmbk3r352o"]
+[gd_scene load_steps=11 format=3 uid="uid://bupvmbk3r352o"]
 
-[ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://KitchenObjects_Scenes/countertop.gd" id="1_b01cd"]
+[ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://countertop.gd" id="1_b01cd"]
 [ext_resource type="PackedScene" uid="uid://tri5xbdxd4dh" path="res://cut_onion.tscn" id="2_nl46d"]
 [ext_resource type="PackedScene" uid="uid://0qoubuffgca8" path="res://Godot game/Counters/Counter 1.blend" id="3_4ud5i"]
+[ext_resource type="PackedScene" uid="uid://bltrgefklygjn" path="res://KitchenObjects_Scenes/pan.tscn" id="3_jkvpq"]
+[ext_resource type="PackedScene" uid="uid://c4fy5flx2jd2x" path="res://pizza_base_cheese.tscn" id="4_3a51o"]
 [ext_resource type="Script" uid="uid://cxv7lb6lp4u6p" path="res://player_colission_test.gd" id="4_kwmvl"]
+[ext_resource type="PackedScene" uid="uid://ma3lt8455js" path="res://cut_cheese_real.tscn" id="5_3a51o"]
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_n41gk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wx6d"]
-size = Vector3(0.001, 0.769096, 0.64277)
+size = Vector3(0.001, 0.262966, 0.109349)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7a77d"]
 size = Vector3(1.19086, 0.769665, 1.17365)
@@ -16,8 +19,11 @@ size = Vector3(1.19086, 0.769665, 1.17365)
 [node name="BaseCounter" type="Node3D"]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 script = ExtResource("1_b01cd")
-itemName = &"Countertop"
+itemName = "Countertop"
 cut_onion = ExtResource("2_nl46d")
+clean_plate = ExtResource("3_jkvpq")
+pizza_base_cheese = ExtResource("4_3a51o")
+cut_cheese = ExtResource("5_3a51o")
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("1_b01cd")
@@ -31,7 +37,7 @@ mesh = SubResource("PlaceholderMesh_n41gk")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0112108, 0.555993, -0.00794756)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0112108, 0.049863, 0.525474)
 shape = SubResource("BoxShape3D_5wx6d")
 script = ExtResource("4_kwmvl")
 

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://036jnhf6vyyb"]
+
+[ext_resource type="PackedScene" uid="uid://bltrgefklygjn" path="res://KitchenObjects_Scenes/pan.tscn" id="1_4pf1m"]
+[ext_resource type="Script" path="res://plate.gd" id="2_ovrww"]
+[ext_resource type="PackedScene" uid="uid://c1gwabnjtikb0" path="res://onion_soup.tscn" id="3_ovrww"]
+[ext_resource type="PackedScene" uid="uid://56uvj8nolb0l" path="res://Godot game/pots and pans/china plate.blend" id="3_u3vr5"]
+
+[node name="Plate" instance=ExtResource("1_4pf1m")]
+
+[node name="test" parent="." index="0" node_paths=PackedStringArray("heldObjects")]
+script = ExtResource("2_ovrww")
+itemName = "Plate"
+heldObjects = []
+timeToClean = 0.0
+canGoInOven = false
+onionSoup = ExtResource("3_ovrww")
+
+[node name="CollisionShape3D" parent="test/PickUpArea3D" index="0"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -0.0283691, 0.0362321)
+
+[node name="frying pan" parent="test/PickUpArea3D" index="2"]
+visible = false
+
+[node name="china plate" parent="test" index="2" instance=ExtResource("3_u3vr5")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

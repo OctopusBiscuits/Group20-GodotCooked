@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://hwfd88cowjbs"]
+
+[ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_p0v4d"]
+[ext_resource type="PackedScene" uid="uid://dd5w8n2rnlb54" path="res://UTF-8assets/assets/materials/Conveyor_belt.tscn" id="2_rqles"]
+
+[node name="Countertop" instance=ExtResource("1_p0v4d")]
+
+[node name="Area3D" parent="." index="0"]
+itemName = "Converybelt"
+
+[node name="BaseCounter" parent="Area3D" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="Area3D" index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.5131, -0.750525)
+
+[node name="Node3D" parent="Area3D" index="3" instance=ExtResource("2_rqles")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://diiogll3k463y"]
+
+[ext_resource type="Script" uid="uid://c2pq8afi80dnn" path="res://food_sent_out.gd" id="1_0f3ed"]
+
+[node name="Food Sent Out" type="Node3D"]
+script = ExtResource("1_0f3ed")

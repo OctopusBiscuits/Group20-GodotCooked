@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvy680g0y1w0p"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_bg2j3"]
+[ext_resource type="PackedScene" uid="uid://bbxwi773gjgh4" path="res://Godot game/pots and pans/frying pan.blend" id="2_djo8e"]
+[ext_resource type="Script" uid="uid://cdgkeyokk8vsu" path="res://frying_pan.gd" id="2_v8qao"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8qao"]
+size = Vector3(1, 0.27002, 0.948244)
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_aekj7"]
+
+[node name="pan" instance=ExtResource("1_bg2j3")]
+
+[node name="test" parent="." index="0"]
+script = ExtResource("2_v8qao")
+itemName = "Frying Pan"
+
+[node name="CollisionShape3D" parent="test/PickUpArea3D" index="0"]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, -0.0283691, -0.0943359)
+shape = SubResource("BoxShape3D_v8qao")
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+mesh = SubResource("PlaceholderMesh_aekj7")
+
+[node name="frying pan" parent="test/PickUpArea3D" index="2" instance=ExtResource("2_djo8e")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

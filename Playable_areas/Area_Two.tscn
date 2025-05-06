@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://brl0b1sljwoyn" path="res://KitchenObjects_Scenes/cutting_board.tscn" id="11_qh6dr"]
 [ext_resource type="PackedScene" uid="uid://mtr4ntahkwqi" path="res://KitchenObjects_Scenes/Produce_box_Tomato.tscn" id="12_nj7j4"]
 [ext_resource type="PackedScene" uid="uid://bg0ljsu5e5tsm" path="res://KitchenObjects_Scenes/Produce_box_Onion.tscn" id="13_w2veo"]
-[ext_resource type="PackedScene" uid="uid://dhmoxuaoudn81" path="res://stoveTop.tscn" id="14_ax6uk"]
+[ext_resource type="PackedScene" uid="uid://dhmoxuaoudn81" path="res://stove.tscn" id="14_ax6uk"]
 [ext_resource type="PackedScene" uid="uid://ctank1gprxtry" path="res://Godot game/pots and pans/frying pan.fbx" id="15_kcwmb"]
 [ext_resource type="PackedScene" uid="uid://bcp7n2qrw0sje" path="res://Godot game/pots and pans/china plate.fbx" id="16_7mqx6"]
 [ext_resource type="PackedScene" uid="uid://b35qig32bc6j5" path="res://sink.tscn" id="16_jicv8"]
@@ -49,6 +49,7 @@ transform = Transform3D(-1.62921e-07, 0, 1, 0, 0.8, 0, -1, 0, -1.62921e-07, -1.6
 
 [node name="TrashCan" parent="Kitchen_Objects" instance=ExtResource("2_f3n6k")]
 transform = Transform3D(-0.00577705, 0, 0.999983, 0, 1, 0, -0.999983, 0, -0.00577705, -2.49822, 0, -1.50671)
+clean_plate = null
 
 [node name="brick wall2" parent="Kitchen_Objects" instance=ExtResource("3_mwa5j")]
 transform = Transform3D(-0.805172, 0, 1.57328e-07, 0, 1.00647, 0, -1.66375e-07, 0, -0.761392, 1.72715, -0.487231, 0.285911)
@@ -205,3 +206,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.452, -0.100546, -1.82109)
 
 [node name="Countertop" parent="." instance=ExtResource("16_jicv8")]
 transform = Transform3D(6.55671e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.55671e-08, -1.37422, -0.0818096, 2.72681)
+clean_plate = null
+pizza_base_cheese = null
+cut_cheese = null

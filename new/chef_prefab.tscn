@@ -161,8 +161,8 @@ shape = SubResource("BoxShape3D_qyi8f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_klivg"),
-"idle": SubResource("AnimationLibrary_hws38")
+&"": SubResource("AnimationLibrary_klivg"),
+&"idle": SubResource("AnimationLibrary_hws38")
 }
 
 [node name="ChefTest1" type="MeshInstance3D" parent="."]
