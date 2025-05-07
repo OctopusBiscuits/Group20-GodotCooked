@@ -13,7 +13,8 @@ func _ready() -> void:
 func _process(delta: float):
 	update_completePercentage()
 	set_progress_bar()
-
+	if (timer.wait_time < 0):
+		queue_free()
 func update_completePercentage():
 	completePercentage = timer.time_left / timer.get_wait_time()
 

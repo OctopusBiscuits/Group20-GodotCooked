@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://wakc5js5sl28"]
+[gd_scene load_steps=29 format=3 uid="uid://wakc5js5sl28"]
 
 [ext_resource type="Texture2D" uid="uid://djuknffyax3oa" path="res://Undercooked/Flooring Checker.png" id="1_3axvw"]
+[ext_resource type="Script" uid="uid://4ubx7qxfhd8s" path="res://SamHUI/Scripts/Level.gd" id="1_ykiuy"]
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="2_nas62"]
 [ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="3_q54t8"]
 [ext_resource type="PackedScene" uid="uid://bxgje2e4eqcdk" path="res://KitchenObjects_Scenes/brick_wall.tscn" id="4_nas62"]
@@ -48,6 +49,7 @@ sky = SubResource("Sky_w4yug")
 tonemap_mode = 2
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_ykiuy")
 
 [node name="chef" parent="." instance=ExtResource("2_nas62")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -2.61589, 0.066937, -1.73532)
@@ -178,11 +180,12 @@ transform = Transform3D(-1.33183e-07, 3, 7.27607e-08, 0, 5.96046e-08, -3.05181, 
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.596902, 0.00090472, 2.75763)
 clean_plate = ExtResource("20_qcqhk")
 
-[node name="Timer + Food Sent" type="Node3D" parent="." node_paths=PackedStringArray("plateWarmer") groups=["FoodSentPrefab"]]
+[node name="Timer + Food Sent" type="Node3D" parent="." node_paths=PackedStringArray("plateWarmer", "levelNode") groups=["FoodSentPrefab"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.976578, 1.08913, 1.57835)
 script = ExtResource("18_g0yq1")
 plateWarmer = NodePath("../Kitchen_Objects/Plate Warmer")
-mealsNeeded = Array[String](["Onion Soup", "Onion Soup", "Onion Soup"])
+mealsNeeded = Array[String](["Onion Soup", "Onion Soup", "Onion Soup", "Onion Soup", "Onion Soup"])
+levelNode = NodePath("..")
 
 [node name="Produce Crate" parent="." instance=ExtResource("18_qcqhk")]
 transform = Transform3D(0.399997, 0, 0.00154985, 0, 0.4, 0, -0.00154985, 0, 0.399997, -1.62172, 0.493116, -0.611186)

@@ -94,7 +94,7 @@ func _getFoodFromStove(player):
 		
 		soup.global_position = global_position
 		heldObjects.append(soup)
-		player.currentCounterTop.itemsInStove = []
+		#player.currentCounterTop.itemsInStove = []
 		print("Trying to get it from stove")
 		#print(heldObjects)
 func _try_pick_up_off_floor(player):

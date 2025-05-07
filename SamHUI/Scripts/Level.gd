@@ -9,7 +9,7 @@ var pizza = "res://SamHUI/Assets/Textures/pizza with sauce.png"
 var pizzaCheese = "res://SamHUI/Assets/Textures/pizza.png"
 
 var recipesList = [
-	[["onionSoup", onionSoup, 60], ["onionSoup", onionSoup, 70], ["onionSoup", onionSoup, 90], ["onionSoup", onionSoup, 110], ["onionSoup", onionSoup, 120]],
+	[["Onion Soup", onionSoup, 75], ["Onion Soup", onionSoup, 90], ["Onion Soup", onionSoup, 110], ["Onion Soup", onionSoup, 125], ["Onion Soup", onionSoup, 150]],
 	[["pizzaCheese", pizza, 50], ["pizza", pizzaCheese, 70], ["pizzaCheese", pizza, 75], ["pizza", pizzaCheese, 95], ["pizzaCheese", pizza, 100], ["pizza", pizzaCheese, 110]],
 	[["pizzaCheese", pizza, 50], ["pizza", pizzaCheese, 70], ["pizzaCheese", pizza, 75], ["pizza", pizzaCheese, 95], ["pizzaCheese", pizza, 100], ["pizza", pizzaCheese, 110]]
 	]

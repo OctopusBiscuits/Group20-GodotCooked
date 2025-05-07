@@ -118,7 +118,8 @@ func _physics_process(_delta: float):
 			if (held_item.itemName == "Plate" and held_item.heldObjects.size() >= 1):
 				foodSentList._addMeal(held_item)
 				held_item.queue_free()
-		
+				player.objectInHand = null
+				player.objectPickedUp = false
 		
 		elif held_item: #normal countertop
 		#print("Item is held")
