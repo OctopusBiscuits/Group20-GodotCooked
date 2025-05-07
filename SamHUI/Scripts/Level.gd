@@ -10,8 +10,8 @@ var pizzaCheese = "res://SamHUI/Assets/Textures/pizza.png"
 var recipeCardList = []
 var recipesList = [
 	[["Onion Soup", onionSoup, 90], ["Onion Soup", onionSoup, 180], ["Onion Soup", onionSoup, 240], ["Onion Soup", onionSoup, 270], ["Onion Soup", onionSoup, 300]],
-	[["pizzaCheese", pizza, 300], ["pizza", pizzaCheese, 300], ["pizzaCheese", pizza, 300], ["pizza", pizzaCheese, 300], ["pizzaCheese", pizza, 300], ["pizza", pizzaCheese, 300]],
-	[["pizzaCheese", pizza, 300], ["pizza", pizzaCheese, 300], ["pizzaCheese", pizza, 300], ["pizza", pizzaCheese, 300], ["pizzaCheese", pizza, 300], ["pizza", pizzaCheese, 300]]
+	[["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300]],
+	[["Onion Soup", onionSoup, 300], ["Onion Soup", onionSoup, 300], ["pizzaCheese", pizzaCheese, 300], ["pizza", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizza", pizzaCheese, 300]]
 	]
 var levelOneRecipe = [["Onion Soup", onionSoup, 300], ["Onion Soup", onionSoup, 300], ["Onion Soup", onionSoup, 300], ["Onion Soup", onionSoup, 300], ["Onion Soup", onionSoup, 300]]
 var levelTwoRecipe = [["pizzaCheese", pizza, 300], ["pizza", pizzaCheese, 300], ["pizzaCheese", pizza, 300], ["pizza", pizzaCheese, 300], ["pizzaCheese", pizza, 300], ["pizza", pizzaCheese, 300]]
