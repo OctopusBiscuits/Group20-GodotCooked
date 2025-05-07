@@ -1,0 +1,139 @@
+[gd_scene load_steps=15 format=3 uid="uid://wi01ivq2wvfd"]
+
+[ext_resource type="Theme" uid="uid://dnccuh2r4i2tb" path="res://SamHUI/Assets/Themes/Menu Theme.tres" id="1_qi0os"]
+[ext_resource type="Texture2D" uid="uid://cbqkk8mx0cyfh" path="res://SamHUI/Assets/Textures/Keyboard/WASD.png" id="2_15785"]
+[ext_resource type="Script" uid="uid://kscoab1flb7n" path="res://SamHUI/Scripts/UI/Settings/quitSettings.gd" id="2_ycrry"]
+[ext_resource type="Script" uid="uid://b8vwccfo0c0wn" path="res://SamHUI/Scripts/UI/UI Components/animation_component.gd" id="3_3gkh1"]
+[ext_resource type="Texture2D" uid="uid://dksluumfvsl0d" path="res://SamHUI/Assets/Textures/Keyboard/e.png" id="3_gcp37"]
+[ext_resource type="Script" uid="uid://diuovvswa04iq" path="res://SamHUI/Scripts/UI/UI Components/sound_component.gd" id="4_gcp37"]
+[ext_resource type="Texture2D" uid="uid://dadi1w2nq0ahm" path="res://SamHUI/Assets/Textures/Keyboard/f.png" id="4_wnwej"]
+[ext_resource type="Texture2D" uid="uid://w1kfs3dbxagh" path="res://SamHUI/Assets/Textures/Keyboard/r.png" id="5_m1fsy"]
+[ext_resource type="AudioStream" uid="uid://crqrimrew402g" path="res://SamHUI/Assets/Sounds/button.mp3" id="5_wnwej"]
+[ext_resource type="FontFile" uid="uid://c601dyip6gfsv" path="res://SamHUI/Assets/Fonts/Banana Stick.otf" id="6_iwgr8"]
+[ext_resource type="AudioStream" uid="uid://cex214s0ek3nh" path="res://SamHUI/Assets/Sounds/hover-button-287656.mp3" id="6_m1fsy"]
+[ext_resource type="Script" uid="uid://dnehamc18uxbu" path="res://SamHUI/Scripts/UI/Menu/nextHelpPage.gd" id="12_gcp37"]
+[ext_resource type="PackedScene" uid="uid://biqico2pl15i0" path="res://SamHUI/Scenes/UI/Menu/HowToMake.tscn" id="13_wnwej"]
+
+[sub_resource type="Theme" id="Theme_gj3bk"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 48
+Label/fonts/font = ExtResource("6_iwgr8")
+
+[node name="Menu2" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_qi0os")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_qi0os")
+text = "How to play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Images" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Info"]
+layout_mode = 2
+
+[node name="WASD" type="TextureRect" parent="PanelContainer/VBoxContainer/Info/Images"]
+layout_mode = 2
+texture = ExtResource("2_15785")
+
+[node name="E" type="TextureRect" parent="PanelContainer/VBoxContainer/Info/Images"]
+layout_mode = 2
+texture = ExtResource("3_gcp37")
+stretch_mode = 5
+
+[node name="F" type="TextureRect" parent="PanelContainer/VBoxContainer/Info/Images"]
+layout_mode = 2
+texture = ExtResource("4_wnwej")
+stretch_mode = 5
+
+[node name="R" type="TextureRect" parent="PanelContainer/VBoxContainer/Info/Images"]
+layout_mode = 2
+texture = ExtResource("5_m1fsy")
+stretch_mode = 5
+
+[node name="Text" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Info"]
+layout_mode = 2
+
+[node name="WASD text" type="Label" parent="PanelContainer/VBoxContainer/Info/Text"]
+layout_mode = 2
+theme = SubResource("Theme_gj3bk")
+text = "
+-Use WASD to the move the cheif.
+"
+
+[node name="E text" type="Label" parent="PanelContainer/VBoxContainer/Info/Text"]
+layout_mode = 2
+theme = SubResource("Theme_gj3bk")
+text = "-Use E to place on to countertops "
+
+[node name="F text" type="Label" parent="PanelContainer/VBoxContainer/Info/Text"]
+layout_mode = 2
+theme = SubResource("Theme_gj3bk")
+text = "-Use F to combine ingredients and place into pots and ovens"
+
+[node name="R text" type="Label" parent="PanelContainer/VBoxContainer/Info/Text"]
+layout_mode = 2
+theme = SubResource("Theme_gj3bk")
+text = "-Use R to switch between cheifs"
+
+[node name="Bottom Buttons" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/Bottom Buttons" node_paths=PackedStringArray("menutoclose")]
+layout_mode = 2
+theme = ExtResource("1_qi0os")
+theme_type_variation = &"QuitButton"
+text = "Back"
+script = ExtResource("2_ycrry")
+menutoclose = NodePath("../../../..")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Bottom Buttons/Quit"]
+script = ExtResource("3_3gkh1")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 9
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/Bottom Buttons/Quit"]
+script = ExtResource("4_gcp37")
+click_sound = ExtResource("5_wnwej")
+hover_sound = ExtResource("6_m1fsy")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/Bottom Buttons"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Next" type="Button" parent="PanelContainer/VBoxContainer/Bottom Buttons" node_paths=PackedStringArray("menutoclose")]
+layout_mode = 2
+theme = ExtResource("1_qi0os")
+text = "Next"
+script = ExtResource("12_gcp37")
+scene = ExtResource("13_wnwej")
+menutoclose = NodePath("../../../..")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Bottom Buttons/Next"]
+script = ExtResource("3_3gkh1")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 9
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/Bottom Buttons/Next"]
+script = ExtResource("4_gcp37")
+click_sound = ExtResource("5_wnwej")
+hover_sound = ExtResource("6_m1fsy")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Bottom Buttons/Quit" to="PanelContainer/VBoxContainer/Bottom Buttons/Quit" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Bottom Buttons/Next" to="PanelContainer/VBoxContainer/Bottom Buttons/Next" method="on_pressed"]

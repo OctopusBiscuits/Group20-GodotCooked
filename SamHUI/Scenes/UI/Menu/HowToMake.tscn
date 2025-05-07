@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://biqico2pl15i0"]
+
+[ext_resource type="Theme" uid="uid://dnccuh2r4i2tb" path="res://SamHUI/Assets/Themes/Menu Theme.tres" id="1_hhs78"]
+[ext_resource type="Texture2D" uid="uid://sowb81g6k5xq" path="res://SamHUI/Assets/Textures/soup icon.png" id="3_fr20d"]
+[ext_resource type="Texture2D" uid="uid://bac3le2upd8jv" path="res://SamHUI/Assets/Textures/pizza.png" id="4_jqxb2"]
+[ext_resource type="Texture2D" uid="uid://b6f86wmg1tnva" path="res://SamHUI/Assets/Textures/pizza with sauce.png" id="5_hhs78"]
+[ext_resource type="FontFile" uid="uid://c601dyip6gfsv" path="res://SamHUI/Assets/Fonts/Banana Stick.otf" id="6_4ps2g"]
+[ext_resource type="Script" uid="uid://kscoab1flb7n" path="res://SamHUI/Scripts/UI/Settings/quitSettings.gd" id="7_j0lsq"]
+[ext_resource type="Script" uid="uid://b8vwccfo0c0wn" path="res://SamHUI/Scripts/UI/UI Components/animation_component.gd" id="8_c5ibq"]
+[ext_resource type="Script" uid="uid://diuovvswa04iq" path="res://SamHUI/Scripts/UI/UI Components/sound_component.gd" id="9_ph6re"]
+[ext_resource type="AudioStream" uid="uid://crqrimrew402g" path="res://SamHUI/Assets/Sounds/button.mp3" id="10_yxjqg"]
+[ext_resource type="AudioStream" uid="uid://cex214s0ek3nh" path="res://SamHUI/Assets/Sounds/hover-button-287656.mp3" id="11_owu6b"]
+
+[sub_resource type="Theme" id="Theme_jbo0i"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 48
+Label/fonts/font = ExtResource("6_4ps2g")
+
+[node name="Menu2" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_hhs78")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_hhs78")
+text = "How to Make"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info2" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="onion soup" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Info2"]
+layout_mode = 2
+
+[node name="Onion Soup" type="TextureRect" parent="PanelContainer/VBoxContainer/Info2/onion soup"]
+layout_mode = 2
+texture = ExtResource("3_fr20d")
+
+[node name="onion soup text" type="Label" parent="PanelContainer/VBoxContainer/Info2/onion soup"]
+layout_mode = 2
+theme = SubResource("Theme_jbo0i")
+text = "Onion soup
+-3 cut Onions in a pot"
+
+[node name="pizza" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Info2"]
+layout_mode = 2
+
+[node name="Pizza" type="TextureRect" parent="PanelContainer/VBoxContainer/Info2/pizza"]
+layout_mode = 2
+texture = ExtResource("4_jqxb2")
+
+[node name="pizza text" type="Label" parent="PanelContainer/VBoxContainer/Info2/pizza"]
+layout_mode = 2
+theme = SubResource("Theme_jbo0i")
+text = "Cheese Pizza
+-Pizza Base + sauce + cheese in an oven"
+
+[node name="mushroom pizza2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Info2"]
+layout_mode = 2
+
+[node name="mushroom pizza" type="TextureRect" parent="PanelContainer/VBoxContainer/Info2/mushroom pizza2"]
+layout_mode = 2
+texture = ExtResource("5_hhs78")
+
+[node name="mushroom pizza2" type="Label" parent="PanelContainer/VBoxContainer/Info2/mushroom pizza2"]
+layout_mode = 2
+theme = SubResource("Theme_jbo0i")
+text = "Mushroom Pizza
+-pizza base + sauce + cheese + mushroom in an oven"
+
+[node name="Bottom Buttons" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/Bottom Buttons" node_paths=PackedStringArray("menutoclose")]
+layout_mode = 2
+theme = ExtResource("1_hhs78")
+theme_type_variation = &"QuitButton"
+text = "Back"
+script = ExtResource("7_j0lsq")
+menutoclose = NodePath("../../../..")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Bottom Buttons/Quit"]
+script = ExtResource("8_c5ibq")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 9
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/Bottom Buttons/Quit"]
+script = ExtResource("9_ph6re")
+click_sound = ExtResource("10_yxjqg")
+hover_sound = ExtResource("11_owu6b")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Bottom Buttons/Quit" to="PanelContainer/VBoxContainer/Bottom Buttons/Quit" method="_on_pressed"]
