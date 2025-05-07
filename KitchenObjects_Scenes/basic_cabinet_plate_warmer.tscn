@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0ekbq6mpm8ya"]
 
-[ext_resource type="PackedScene" uid="uid://c71h7cgj8elrd" path="res://Undercooked/Source Meshes/Meshes/Basic_Cabinet_PlateWarmer.fbx" id="1_hy2kv"]
+[ext_resource type="PackedScene" uid="uid://c71h7cgj8elrd" path="res://Source Meshes/Meshes/Basic_Cabinet_PlateWarmer.fbx" id="1_hy2kv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yohjl"]
 albedo_color = Color(0.489622, 0.489622, 0.489622, 1)

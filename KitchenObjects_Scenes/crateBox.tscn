@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://7hxmpjvxdqvv"]
+
+[ext_resource type="PackedScene" uid="uid://cblp25cwb8lfl" path="res://Godot game/pots and pans/crate.blend" id="1_4m0vl"]
+[ext_resource type="Texture2D" uid="uid://co7wfdg05dk7n" path="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/Boat_CounterTop_Wood.png" id="2_oyo8v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8phs"]
+albedo_color = Color(0.986208, 0.916108, 0.910518, 1)
+albedo_texture = ExtResource("2_oyo8v")
+uv1_scale = Vector3(1.5, 0, 1)
+uv1_offset = Vector3(0.5, 0.7, 1)
+
+[node name="crate" instance=ExtResource("1_4m0vl")]
+
+[node name="Cube" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_t8phs")

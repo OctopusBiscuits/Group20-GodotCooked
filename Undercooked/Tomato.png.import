@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqvb00lpu37w5"
-path.s3tc="res://.godot/imported/Boat_CounterTop_Wood_N.png-6735343ea0aca7e85d4b397f56066799.s3tc.ctex"
+uid="uid://cx8flk58bsvjb"
+path.s3tc="res://.godot/imported/Tomato.png-70c022400aecb72e8d3d83cce316f345.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/Boat_CounterTop_Wood_N.png"
-dest_files=["res://.godot/imported/Boat_CounterTop_Wood_N.png-6735343ea0aca7e85d4b397f56066799.s3tc.ctex"]
+source_file="res://Undercooked/Tomato.png"
+dest_files=["res://.godot/imported/Tomato.png-70c022400aecb72e8d3d83cce316f345.s3tc.ctex"]
 
 [params]
 

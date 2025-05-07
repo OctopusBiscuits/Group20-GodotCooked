@@ -1,7 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://mtr4ntahkwqi"]
+[gd_scene load_steps=14 format=3 uid="uid://mtr4ntahkwqi"]
 
-[ext_resource type="PackedScene" uid="uid://cis3to4ho566m" path="res://Undercooked/Source Meshes/Meshes/Basic_Cabinet_No_Handle.fbx" id="1_djahm"]
-[ext_resource type="Texture2D" uid="uid://db1hma2nmsn7k" path="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/Boat_CounterTop_Wood.png" id="2_vodku"]
+[ext_resource type="PackedScene" uid="uid://cis3to4ho566m" path="res://Source Meshes/Meshes/Basic_Cabinet_No_Handle.fbx" id="1_djahm"]
+[ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://countertop.gd" id="2_aelci"]
+[ext_resource type="Texture2D" uid="uid://co7wfdg05dk7n" path="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/Boat_CounterTop_Wood.png" id="2_vodku"]
+[ext_resource type="PackedScene" uid="uid://tri5xbdxd4dh" path="res://cut_onion.tscn" id="3_sxt1p"]
+[ext_resource type="Texture2D" uid="uid://cx8flk58bsvjb" path="res://Undercooked/Tomato.png" id="3_vodku"]
+[ext_resource type="PackedScene" uid="uid://bltrgefklygjn" path="res://pan.tscn" id="4_ulh4f"]
+[ext_resource type="PackedScene" uid="uid://c4fy5flx2jd2x" path="res://food/pizza_base_cheese.tscn" id="5_c8vyh"]
+[ext_resource type="PackedScene" uid="uid://ma3lt8455js" path="res://cut_cheese_real.tscn" id="6_o5gj6"]
+[ext_resource type="PackedScene" uid="uid://cq0q7h4nueiau" path="res://Whole_Tomato.tscn" id="6_sxt1p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vo400"]
 albedo_color = Color(0.714239, 0.586962, 0.576287, 1)
@@ -10,19 +17,29 @@ uv1_scale = Vector3(0.4, 0.4, 0.6)
 uv1_offset = Vector3(0.04, 0.56, 0.4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oeoel"]
-albedo_color = Color(0.599742, 0.459519, 0.431013, 1)
+albedo_color = Color(0.789338, 0.668581, 0.643681, 1)
 albedo_texture = ExtResource("2_vodku")
 uv1_scale = Vector3(0.5, 1, 0.2)
 uv2_scale = Vector3(2, 2, 2)
 uv2_offset = Vector3(0.3, 0.3, 0.3)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_qfs5s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2c6dy"]
+transparency = 1
+albedo_texture = ExtResource("3_vodku")
+backlight_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_djahm"]
-size = Vector3(0.0094347, 0.00549609, 0.00998104)
+[sub_resource type="PlaneMesh" id="PlaneMesh_qfs5s"]
+lightmap_size_hint = Vector2i(12, 12)
 
 [node name="Basic_Cabinet_No_Handle" instance=ExtResource("1_djahm")]
 transform = Transform3D(115, 0, 0, 0, 115, 0, 0, 0, 115, 0, 0, 0)
+script = ExtResource("2_aelci")
+itemName = "Countertop"
+cut_onion = ExtResource("3_sxt1p")
+clean_plate = ExtResource("4_ulh4f")
+itemStored = ExtResource("6_sxt1p")
+cut_cheese = ExtResource("6_o5gj6")
+pizza_base_cheese = ExtResource("5_c8vyh")
 
 [node name="uv_unitize1" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_vo400")
@@ -32,11 +49,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_oeoel")
 transform = Transform3D(1, 0, 0, 0, 0.522467, 0, 0, 0, 1, 0, 0.00311116, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
-transform = Transform3D(0.0024, 0, 0, 0, 0.2, 0, 0, 0, 0.0024, 4.07541e-05, 0.00503669, -4.45235e-05)
+transform = Transform3D(0.00299376, 0, 0, 0, 0.2, 0, 0, 0, 0.00293875, 4.07541e-05, 0.00502628, -4.45235e-05)
+visible = false
+material_override = SubResource("StandardMaterial3D_2c6dy")
 mesh = SubResource("PlaneMesh_qfs5s")
-
-[node name="RigidBody3D" type="RigidBody3D" parent="." index="3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51478e-05, 0.00292459, -0.000236286)
-shape = SubResource("BoxShape3D_djahm")

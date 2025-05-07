@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://b5gcvebiunq53"]
+[gd_scene load_steps=7 format=4 uid="uid://b5gcvebiunq53"]
 
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_w3oh0"]
-[ext_resource type="PackedScene" uid="uid://cblp25cwb8lfl" path="res://Godot game/pots and pans/crate.blend" id="2_8uj5p"]
-[ext_resource type="Texture2D" uid="uid://co7wfdg05dk7n" path="res://Source Meshes/Meshes/PC Computer - Overcooked - Chopping Board/Chopping Board/Boat_CounterTop_Wood.png" id="3_8uj5p"]
+[ext_resource type="PackedScene" uid="uid://7hxmpjvxdqvv" path="res://KitchenObjects_Scenes/crateBox.tscn" id="2_w3oh0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7q5ux"]
 resource_name = "labspbrshader"
@@ -72,33 +71,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1qu4l")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dakfg"]
-albedo_color = Color(0.714239, 0.586962, 0.576287, 1)
-albedo_texture = ExtResource("3_8uj5p")
-uv1_scale = Vector3(0.4, 0.4, 0.6)
-uv1_offset = Vector3(0.04, 0.56, 0.4)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nn7ac"]
-albedo_color = Color(0.599742, 0.459519, 0.431013, 1)
-albedo_texture = ExtResource("3_8uj5p")
-uv1_scale = Vector3(0.5, 1, 0.2)
-uv2_scale = Vector3(2, 2, 2)
-uv2_offset = Vector3(0.3, 0.3, 0.3)
-
 [node name="Produce Crate" instance=ExtResource("1_w3oh0")]
-transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="Counter 1" parent="Area3D" index="0"]
+transform = Transform3D(0.49, 0, 0, 0, 0.49, 0, 0, 0, 0.49, 0, 0.83899, 0)
 visible = false
 
-[node name="crate" parent="Area3D" index="3" instance=ExtResource("2_8uj5p")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+[node name="crate" parent="Area3D" index="3" instance=ExtResource("2_w3oh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00775516, 0, -0.00998836)
 
 [node name="uv_unitize1" type="MeshInstance3D" parent="Area3D" index="4"]
 mesh = SubResource("ArrayMesh_xueie")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_dakfg")
-surface_material_override/1 = SubResource("StandardMaterial3D_nn7ac")
 
 [node name="uv_unitize1_polyline0" type="Node3D" parent="Area3D" index="5"]
 transform = Transform3D(1, 0, 0, 0, 0.522467, 0, 0, 0, 1, 0, 0.00311116, 0)

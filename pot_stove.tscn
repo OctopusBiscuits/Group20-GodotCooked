@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bthalvdg15d2k" path="res://Godot game/pots and pans/sauce pan.blend" id="2_1dg5q"]
 
 [node name="Pot Stove" instance=ExtResource("1_poux1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Counter 1" parent="Area3D" index="0"]
 visible = false
