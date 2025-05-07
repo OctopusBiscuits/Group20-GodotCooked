@@ -170,7 +170,7 @@ light_volumetric_fog_energy = 1.162
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, -0.828766, 6.96312, 2.59202)
+transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, -0.828766, 5.96312, 3.59202)
 fov = 73.0584
 
 [node name="Node3D" parent="Environment" instance=ExtResource("8_miqie")]

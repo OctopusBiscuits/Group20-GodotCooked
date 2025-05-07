@@ -8,6 +8,6 @@ func _on_timeout() -> void:
 #This function spawns in the game over UI, and displays the final score on it.
 func gameover() -> void:
 	var instance = gameoverScene.instantiate()
-	instance.get_node("PanelContainer/VBoxContainer/Score").text = "High Score: " + "one krillion"
+	instance.get_node("PanelContainer/VBoxContainer/Score").text = "High Score: " + str(get_node("/root/Layout/Game/Node3D/Timer + Food Sent")._getScore())
 	get_node("/root/Layout/UI").add_child(instance)
 	get_tree().paused = true
