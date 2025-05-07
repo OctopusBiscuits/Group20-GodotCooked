@@ -21,7 +21,7 @@ func _on_area_3d_body_entered(body):
 	if body.is_in_group("Players") and not players_in_range.has(body):
 		players_in_range.append(body)
 		print("in range")
-		print(itemName)
+		#print(itemName)
 func _on_area_3d_body_exited(body):
 	if body.is_in_group("Players"):
 		players_in_range.erase(body)

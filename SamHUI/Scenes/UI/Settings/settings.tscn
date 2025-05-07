@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://7r0kcsc720xm"]
+
+[ext_resource type="Theme" uid="uid://dnccuh2r4i2tb" path="res://SamHUI/Assets/Themes/Menu Theme.tres" id="1_xly4y"]
+[ext_resource type="Script" uid="uid://2ktt22mo0uwp" path="res://SamHUI/Scripts/UI/Settings/fullscreen.gd" id="2_qilsq"]
+[ext_resource type="Script" uid="uid://di1vlm1apjkn2" path="res://SamHUI/Scripts/UI/Settings/vsync.gd" id="3_1hcu3"]
+[ext_resource type="Script" uid="uid://c7e0casktwwfd" path="res://SamHUI/Scripts/UI/Settings/audioSlider.gd" id="4_66wi7"]
+[ext_resource type="Script" uid="uid://kscoab1flb7n" path="res://SamHUI/Scripts/UI/Settings/quitSettings.gd" id="4_gdriu"]
+
+[node name="Settings" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_xly4y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_xly4y")
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FullScreen" type="CheckBox" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "fullscreen"
+alignment = 1
+script = ExtResource("2_qilsq")
+
+[node name="Vsync" type="CheckBox" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Vsync"
+alignment = 1
+script = ExtResource("3_1hcu3")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 45
+text = "Audio"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.5
+script = ExtResource("4_66wi7")
+bus_name = "Master"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer" node_paths=PackedStringArray("menutoclose")]
+layout_mode = 2
+theme = ExtResource("1_xly4y")
+theme_type_variation = &"QuitButton"
+text = "Back"
+script = ExtResource("4_gdriu")
+menutoclose = NodePath("../../..")
+
+[connection signal="toggled" from="PanelContainer/VBoxContainer/FullScreen" to="PanelContainer/VBoxContainer/FullScreen" method="_on_toggled"]
+[connection signal="toggled" from="PanelContainer/VBoxContainer/Vsync" to="PanelContainer/VBoxContainer/Vsync" method="_on_toggled"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/HSlider" to="PanelContainer/VBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="PanelContainer/VBoxContainer/Quit" method="_on_pressed"]

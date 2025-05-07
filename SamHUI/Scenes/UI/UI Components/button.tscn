@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk15jj78brpqo"]
+
+[ext_resource type="FontFile" uid="uid://dcjqc82mtkr7s" path="res://SamHUI/Assets/Fonts/Bolyfat.ttf" id="1_0i5ag"]
+[ext_resource type="FontFile" uid="uid://c601dyip6gfsv" path="res://SamHUI/Assets/Fonts/Banana Stick.otf" id="1_yw46e"]
+[ext_resource type="Script" uid="uid://ro3ul00s2j6c" path="res://SamHUI/Scripts/UI/UI Components/button.gd" id="2_dkbv4"]
+
+[sub_resource type="Theme" id="Theme_7yvn1"]
+default_font = ExtResource("1_0i5ag")
+default_font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_gf6sd"]
+font = ExtResource("1_yw46e")
+font_size = 50
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button"]
+process_mode = 3
+light_mask = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -37.5
+offset_right = 137.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7yvn1")
+theme_type_variation = &"FlatButton"
+script = ExtResource("2_dkbv4")
+
+[node name="Label" type="Label" parent="."]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -40.5
+offset_right = 137.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(137, 37)
+text = "settings"
+label_settings = SubResource("LabelSettings_gf6sd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

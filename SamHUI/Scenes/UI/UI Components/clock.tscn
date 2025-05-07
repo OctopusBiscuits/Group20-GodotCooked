@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://uv4gsesltdvc"]
+
+[ext_resource type="Texture2D" uid="uid://crtqvk2fv0jue" path="res://SamHUI/Assets/Textures/clock.png" id="1_xl1h1"]
+[ext_resource type="Script" uid="uid://blr25xohgpeug" path="res://SamHUI/Scripts/UI/UI Components/clock.gd" id="2_vt6aj"]
+
+[node name="Clock" type="Node2D" node_paths=PackedStringArray("timer")]
+script = ExtResource("2_vt6aj")
+timer = NodePath("Timer")
+
+[node name="Clock" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(250, 250)
+texture = ExtResource("1_xl1h1")
+expand_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 136.712
+one_shot = true
+autostart = true

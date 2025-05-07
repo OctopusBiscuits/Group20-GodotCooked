@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://5a60ncu4413x"]
+
+[ext_resource type="Theme" uid="uid://dnccuh2r4i2tb" path="res://SamHUI/Assets/Themes/Menu Theme.tres" id="1_cixun"]
+[ext_resource type="Script" uid="uid://htetud1s665p" path="res://SamHUI/Scripts/UI/Menu/loadLevelSelect.gd" id="2_bxeg8"]
+[ext_resource type="Script" uid="uid://b8vwccfo0c0wn" path="res://SamHUI/Scripts/UI/UI Components/animation_component.gd" id="2_t57so"]
+[ext_resource type="Script" uid="uid://diuovvswa04iq" path="res://SamHUI/Scripts/UI/UI Components/sound_component.gd" id="3_074mh"]
+[ext_resource type="AudioStream" uid="uid://crqrimrew402g" path="res://SamHUI/Assets/Sounds/button.mp3" id="4_slmnr"]
+[ext_resource type="AudioStream" uid="uid://cex214s0ek3nh" path="res://SamHUI/Assets/Sounds/hover-button-287656.mp3" id="5_ginor"]
+[ext_resource type="Script" uid="uid://dc0psp58ws3ux" path="res://SamHUI/Scripts/UI/Menu/quit.gd" id="6_anxgg"]
+[ext_resource type="Script" uid="uid://cnrva7rk4mgo7" path="res://SamHUI/Scripts/UI/Menu/loadSettings.gd" id="6_uh8h7"]
+[ext_resource type="PackedScene" uid="uid://7r0kcsc720xm" path="res://SamHUI/Scenes/UI/Settings/settings.tscn" id="7_1ecj2"]
+
+[node name="Menu" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_cixun")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_cixun")
+text = "UnderCooked"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="New Game" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_cixun")
+text = "New Game
+"
+script = ExtResource("2_bxeg8")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/New Game"]
+script = ExtResource("2_t57so")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 10
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/New Game"]
+script = ExtResource("3_074mh")
+click_sound = ExtResource("4_slmnr")
+hover_sound = ExtResource("5_ginor")
+
+[node name="Settings" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings
+"
+script = ExtResource("6_uh8h7")
+scene = ExtResource("7_1ecj2")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Settings"]
+script = ExtResource("2_t57so")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 9
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/Settings"]
+script = ExtResource("3_074mh")
+click_sound = ExtResource("4_slmnr")
+hover_sound = ExtResource("5_ginor")
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_cixun")
+theme_type_variation = &"QuitButton"
+text = "Quit Game"
+script = ExtResource("6_anxgg")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Quit"]
+script = ExtResource("2_t57so")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 9
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/Quit"]
+script = ExtResource("3_074mh")
+click_sound = ExtResource("4_slmnr")
+hover_sound = ExtResource("5_ginor")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/New Game" to="PanelContainer/VBoxContainer/New Game" method="on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Settings" to="PanelContainer/VBoxContainer/Settings" method="on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="PanelContainer/VBoxContainer/Quit" method="on_pressed"]

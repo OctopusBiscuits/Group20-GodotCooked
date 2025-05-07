@@ -178,7 +178,7 @@ func _handle_oven(_delta: float):
 		if (held_item.itemName == "PizzaBaseNowWithCheeseMushroom"):
 			
 			held_item.itemName = "CookedPizzaBaseNowWithCheeseMushroom"
-			print(held_item.itemName)
+			#print(held_item.itemName)
 			_getNewItemOnCounterTop(null)
 func _handle_plate_warmer():
 	if (foodSentList.platesOut > 0 and held_item == null):

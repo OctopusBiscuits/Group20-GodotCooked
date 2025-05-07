@@ -1,0 +1,49 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dnccuh2r4i2tb"]
+
+[ext_resource type="FontFile" uid="uid://dcjqc82mtkr7s" path="res://SamHUI/Assets/Fonts/Bolyfat.ttf" id="1_o7uii"]
+[ext_resource type="FontFile" uid="uid://c601dyip6gfsv" path="res://SamHUI/Assets/Fonts/Banana Stick.otf" id="2_70mnl"]
+[ext_resource type="StyleBox" uid="uid://b7djgxxqsys0w" path="res://SamHUI/Assets/Themes/RecipeCardTheme.tres" id="4_twi3t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_quxjb"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6b4lu"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_it0xx"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_owr6w"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_711r0"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_et7lq"]
+content_margin_bottom = 20.0
+
+[resource]
+Button/colors/font_hover_color = Color(0.94902, 0.823529, 0, 1)
+Button/constants/outline_size = 30
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource("1_o7uii")
+Button/styles/disabled = SubResource("StyleBoxEmpty_quxjb")
+Button/styles/focus = SubResource("StyleBoxEmpty_6b4lu")
+Button/styles/hover = SubResource("StyleBoxEmpty_it0xx")
+Button/styles/normal = SubResource("StyleBoxEmpty_owr6w")
+Button/styles/pressed = SubResource("StyleBoxEmpty_711r0")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/constants/outline_size = 20
+Label/font_sizes/font_size = 80
+Label/fonts/font = ExtResource("2_70mnl")
+Label/styles/normal = SubResource("StyleBoxEmpty_et7lq")
+PanelContainer/styles/panel = ExtResource("4_twi3t")
+QuitButton/base_type = &"Button"
+QuitButton/colors/font_hover_color = Color(1, 0, 0, 1)
+QuitButton/colors/font_hover_pressed_color = Color(0.442501, 9.3855e-07, 2.16588e-07, 1)

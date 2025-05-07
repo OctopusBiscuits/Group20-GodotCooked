@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmd6mfxdlmayr"]
+
+[ext_resource type="Theme" uid="uid://dnccuh2r4i2tb" path="res://SamHUI/Assets/Themes/Menu Theme.tres" id="1_bgwjo"]
+[ext_resource type="Script" uid="uid://cm2b3kngjwgo4" path="res://SamHUI/Scripts/UI/Menu/newGame.gd" id="2_40lro"]
+[ext_resource type="PackedScene" uid="uid://wakc5js5sl28" path="res://Playable_areas/Area_One.tscn" id="3_xlq6g"]
+[ext_resource type="Script" uid="uid://b8vwccfo0c0wn" path="res://SamHUI/Scripts/UI/UI Components/animation_component.gd" id="5_0odcm"]
+[ext_resource type="Script" uid="uid://diuovvswa04iq" path="res://SamHUI/Scripts/UI/UI Components/sound_component.gd" id="6_bhfdg"]
+[ext_resource type="AudioStream" uid="uid://crqrimrew402g" path="res://SamHUI/Assets/Sounds/button.mp3" id="7_7lo46"]
+[ext_resource type="AudioStream" uid="uid://cex214s0ek3nh" path="res://SamHUI/Assets/Sounds/hover-button-287656.mp3" id="8_dlfim"]
+[ext_resource type="PackedScene" uid="uid://dkcyow3n7vf4b" path="res://Playable_areas/Area_Two.tscn" id="8_lnfem"]
+[ext_resource type="Script" uid="uid://kscoab1flb7n" path="res://SamHUI/Scripts/UI/Settings/quitSettings.gd" id="9_6ndrr"]
+[ext_resource type="PackedScene" uid="uid://c6kckxqwawp4a" path="res://Playable_areas/Area_Three.tscn" id="9_bgwjo"]
+
+[node name="Menu" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_bgwjo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_bgwjo")
+text = "Level Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level 1" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_bgwjo")
+text = "Level 1
+"
+script = ExtResource("2_40lro")
+GameLevel = ExtResource("3_xlq6g")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Level 1"]
+script = ExtResource("5_0odcm")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 10
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/Level 1"]
+script = ExtResource("6_bhfdg")
+click_sound = ExtResource("7_7lo46")
+hover_sound = ExtResource("8_dlfim")
+
+[node name="Level 2" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level 2
+"
+script = ExtResource("2_40lro")
+GameLevel = ExtResource("8_lnfem")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Level 2"]
+script = ExtResource("5_0odcm")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 9
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/Level 2"]
+script = ExtResource("6_bhfdg")
+click_sound = ExtResource("7_7lo46")
+hover_sound = ExtResource("8_dlfim")
+
+[node name="Level 3" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level 3
+"
+script = ExtResource("2_40lro")
+GameLevel = ExtResource("9_bgwjo")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Level 3"]
+script = ExtResource("5_0odcm")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 9
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/Level 3"]
+script = ExtResource("6_bhfdg")
+click_sound = ExtResource("7_7lo46")
+hover_sound = ExtResource("8_dlfim")
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer" node_paths=PackedStringArray("menutoclose")]
+layout_mode = 2
+theme = ExtResource("1_bgwjo")
+theme_type_variation = &"QuitButton"
+text = "Back"
+script = ExtResource("9_6ndrr")
+menutoclose = NodePath("../../..")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Quit"]
+script = ExtResource("5_0odcm")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 9
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/Quit"]
+script = ExtResource("6_bhfdg")
+click_sound = ExtResource("7_7lo46")
+hover_sound = ExtResource("8_dlfim")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Level 1" to="PanelContainer/VBoxContainer/Level 1" method="on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Level 2" to="PanelContainer/VBoxContainer/Level 2" method="on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Level 3" to="PanelContainer/VBoxContainer/Level 3" method="on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="PanelContainer/VBoxContainer/Quit" method="_on_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://qjqs3vckesce"]
+
+[ext_resource type="PackedScene" uid="uid://5a60ncu4413x" path="res://SamHUI/Scenes/UI/Menu/menu.tscn" id="1_ebobe"]
+
+[node name="Layout" type="Node"]
+
+[node name="Game" type="Node" parent="."]
+process_mode = 1
+
+[node name="UI" type="Node" parent="."]
+process_mode = 3
+
+[node name="Menu" parent="UI" instance=ExtResource("1_ebobe")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
