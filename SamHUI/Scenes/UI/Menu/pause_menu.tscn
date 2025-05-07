@@ -122,6 +122,6 @@ hover_sound = ExtResource("7_kn250")
 [connection signal="pressed" from="PanelContainer/VBoxContainer/resume" to="PanelContainer/VBoxContainer/resume" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/New Game" to="PanelContainer/VBoxContainer/New Game" method="on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Settings" to="PanelContainer/VBoxContainer/Settings" method="on_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMainMenu" to="PanelContainer/VBoxContainer/BackToMainMenu" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMainMenu" to="PanelContainer/VBoxContainer/BackToMainMenu" method="on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMainMenu" to="PanelContainer/VBoxContainer/BackToMainMenu" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="PanelContainer/VBoxContainer/Quit" method="on_pressed"]
