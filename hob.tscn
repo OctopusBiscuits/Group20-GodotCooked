@@ -7,8 +7,5 @@
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 itemName = "Hob"
 
-[node name="CollisionShape3D" parent="Area3D" index="2"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.5131, 0)
-
 [node name="hob" parent="." index="2" instance=ExtResource("2_0dq75")]
 transform = Transform3D(0.5, 0, 0, 0, 0.4, 0, 0, 0, 0.5, 0, 0.612016, -0.00750052)

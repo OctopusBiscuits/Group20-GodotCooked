@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://js1cppvxws3u"]
+[gd_scene load_steps=3 format=3 uid="uid://js1cppvxws3u"]
 
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="1_n0ytx"]
+[ext_resource type="PackedScene" uid="uid://dd5w8n2rnlb54" path="res://UTF-8assets/assets/materials/Conveyor_belt.tscn" id="2_bd3gx"]
 
 [node name="Conveyer" instance=ExtResource("1_n0ytx")]
 transform = Transform3D(1, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
@@ -8,6 +9,11 @@ transform = Transform3D(1, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 [node name="Counter 1" parent="Area3D" index="0"]
 transform = Transform3D(0.487, 0, 0, 0, 0.245, 0, 0, 0, 0.245, 0, 0.47893, 0)
 visible = false
+
+[node name="CollisionShape3D" parent="Area3D" index="2"]
+transform = Transform3D(3.075, 0, 0, 0, 3.075, 0, 0, 0, 3.075, 0, 0.5131, -2.71085)
+
+[node name="Node3D" parent="Area3D" index="3" instance=ExtResource("2_bd3gx")]
 
 [node name="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000457764, 1.40814, 0.0189967)

@@ -27,7 +27,7 @@ func _on_area_3d_body_entered(body):
 	if body.is_in_group("Players") and not players_in_range.has(body):
 		players_in_range.append(body)
 		print("in range")
-		#print(itemName)
+		print(itemName)
 func _on_area_3d_body_exited(body):
 	if body.is_in_group("Players"):
 		players_in_range.erase(body)
@@ -42,7 +42,7 @@ func _physics_process(_delta):
 		item.global_position = global_position + Vector3(0,0.1,0)
 	for player in players_in_range:
 		
-		#print("in for loop")
+		print("in for loop")
 		in_range = true
 		if picked_up:
 			_handle_while_held(player)
@@ -67,6 +67,7 @@ func _can_pick_up_from_floor(player) -> bool:
 	return in_range and not picked_up and not onCounterTop and not player.objectPickedUp
 
 func _can_pick_up_from_countertop(player) -> bool:
+	print(player.currentCounterTop == countertop, onCounterTop, not picked_up)
 	return player.currentCounterTop == countertop and onCounterTop and not picked_up
 
 func _can_interact_with_held_object(player) -> bool:
@@ -78,7 +79,7 @@ func _handle_while_held(player):
 	if not Input.is_action_just_pressed("Toggle Pickup"):
 		return
 
-	if player.currentCounterTop:
+	if player.currentCounterTop and player.currentCounterTop.itemName != "Conveyer Belt":
 		_put_item_on_countertop(player)
 	else:
 		_put_item_on_floor(player)
@@ -88,7 +89,9 @@ func _try_pick_up_off_floor(player):
 		_pick_up(player)
 
 func _try_pick_up_off_countertop(player):
+	print("in trypickup")
 	if Input.is_action_just_pressed("Toggle Pickup"):
+		print("trying to get off countertop :3")
 		player.currentCounterTop._remove_item()
 		player.objectPickedUp = true
 		player.objectInHand = self

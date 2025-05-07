@@ -61,8 +61,7 @@ func _physics_process(delta):
 	if (currentCounterTop):
 		
 		counterTopPosition = currentCounterTop.position 
-		#print(currentCounterTop)
-		#print(currentCounterTop.itemHeldOnCountertop)
+		
 		
 	direction = (transform.basis * Vector3(directional_input.x, 0, directional_input.y)).normalized()
 	velocity.y = 0

@@ -34,6 +34,8 @@ func _ready():
 		#print(allPlayers)
 	if (itemName == "Conveyer Belt"):
 		print("Conveyer named")
+	if (itemName == "Produce Crate"):
+		startingItem = itemStored
 	foodSentList = get_tree().get_nodes_in_group("FoodSentPrefab")[0]
 	platesCurrentlyOut = 1
 	if startingItem: #Spawn an item in automatically
@@ -82,8 +84,8 @@ func can_accept_item(item) -> bool:
 			return false
 	elif itemName == "Stove":
 		return item.itemName == "Plate" or item.itemName == "Pot"  
-	elif itemName == "Conveyer Belt":
-		return item.itemName == "Plate"
+	elif itemName == "Conveyer Belt" and item.itemName == "Plate":
+		return item.heldObjects.size() > 0
 	else:
 		return true  
 

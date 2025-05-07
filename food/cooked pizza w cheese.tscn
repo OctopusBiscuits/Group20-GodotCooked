@@ -11,9 +11,13 @@ script = ExtResource("2_sv0h7")
 itemName = "CookedPizzaBaseNowWithCheese"
 heldObjects = []
 timeToClean = 0.0
+timeToCook = 5
 
 [node name="PickUpArea3D" parent="test" index="0"]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="test/PickUpArea3D" index="0"]
+transform = Transform3D(2.625, 0, 0, 0, 2.625, 0, 0, 0, 2.625, 0, 0, 0)
 
 [node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
 visible = false

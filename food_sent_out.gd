@@ -3,6 +3,7 @@ extends Node3D
 @export var levelTimer : float = 300
 @export var platesOut : int = 0
 @export var plateWarmer : Node
+
 func _process(delta: float) -> void:
 	levelTimer -= delta
 	#print(plateWarmer.platesCurrentlyOut)

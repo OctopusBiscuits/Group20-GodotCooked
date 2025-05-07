@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dd5w8n2rnlb54"]
+[gd_scene load_steps=9 format=3 uid="uid://dd5w8n2rnlb54"]
 
 [ext_resource type="Script" uid="uid://c26gdgmxubcus" path="res://UTF-8assets/assets/materials/conveyor_belt.gd" id="1_47dwv"]
 [ext_resource type="ArrayMesh" uid="uid://by161a172fgwi" path="res://UTF-8assets/assets/models/conveyor belt.obj" id="1_xeses"]
 [ext_resource type="Material" uid="uid://csknefhpusta" path="res://UTF-8assets/assets/materials/gear.tres" id="2_nlvyl"]
 [ext_resource type="Material" uid="uid://bw1k54n2kr4rg" path="res://UTF-8assets/assets/materials/black.tres" id="3_smcu7"]
 [ext_resource type="Material" uid="uid://2y4ha2ggljj7" path="res://UTF-8assets/assets/materials/conveyor.tres" id="4_77sql"]
-[ext_resource type="Script" uid="uid://xoylhuxjgvkv" path="res://countertop.gd" id="7_vrvi5"]
 [ext_resource type="Script" uid="uid://cxv7lb6lp4u6p" path="res://player_colission_test.gd" id="9_hmbw0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h02c7"]
@@ -15,13 +14,9 @@ size = Vector3(0.916283, 0.554626, 0.747009)
 size = Vector3(4.41284, 1.26904, 6.02881)
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("7_vrvi5")
-itemName = "Conveyer Belt"
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.531344)
-script = ExtResource("7_vrvi5")
-itemName = "Converybelt"
 
 [node name="ConveyorBelt" type="MeshInstance3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455289, 0, -0.497876)

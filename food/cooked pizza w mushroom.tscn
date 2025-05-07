@@ -11,6 +11,10 @@ script = ExtResource("2_a03xm")
 itemName = "CookedPizzaBaseNowWithCheeseMushroom"
 heldObjects = []
 timeToClean = 0.0
+timeToCook = 5
+
+[node name="CollisionShape3D" parent="test/PickUpArea3D" index="0"]
+transform = Transform3D(2.625, 0, 0, 0, 2.625, 0, 0, 0, 2.625, 0, 0, 0)
 
 [node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
 visible = false

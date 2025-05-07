@@ -82,7 +82,7 @@ func _handle_while_held(player):
 	if not Input.is_action_just_pressed("Toggle Pickup"):
 		return
 
-	if player.currentCounterTop:
+	if player.currentCounterTop and player.currentCounterTop.can_accept_item(self):
 		_put_item_on_countertop(player)
 	else:
 		_put_item_on_floor(player)
