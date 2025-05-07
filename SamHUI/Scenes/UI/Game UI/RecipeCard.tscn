@@ -1,34 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmqhk8384qt2g"]
+[gd_scene load_steps=7 format=3 uid="uid://bmqhk8384qt2g"]
 
 [ext_resource type="Script" uid="uid://bg176v2vnwcm1" path="res://SamHUI/Scripts/UI/GameUI/recipeCard.gd" id="1_2w7eq"]
 [ext_resource type="Texture2D" uid="uid://c5nrnsukx3th0" path="res://SamHUI/Assets/Textures/salad.png" id="2_bo4na"]
 [ext_resource type="StyleBox" path="res://SamHUI/Assets/Themes/RecipeCardTheme.tres" id="2_sl2mp"]
+[ext_resource type="Script" uid="uid://ikqh6c1yvlpj" path="res://SamHUI/Scripts/UI/GameUI/timer.gd" id="4_ky4ob"]
+[ext_resource type="StyleBox" uid="uid://dx62xenshlxu" path="res://SamHUI/Assets/Themes/ProgressBar.tres" id="4_trqgx"]
+[ext_resource type="StyleBox" uid="uid://cw0ysh4u8hhxo" path="res://SamHUI/Assets/Themes/ProgressBarFill.tres" id="5_mcgka"]
 
 [node name="Recipe Card" type="VBoxContainer" node_paths=PackedStringArray("timer", "progressBar")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -89.5
-offset_top = -62.0
-offset_right = 89.5
-offset_bottom = 62.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 165.0
+offset_bottom = 247.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource("1_2w7eq")
 timer = NodePath("Timer")
 progressBar = NodePath("ProgressBar")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 37.5)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="Recipe Card" type="PanelContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(37.5, 37.5)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -38,7 +38,7 @@ theme_override_styles/panel = ExtResource("2_sl2mp")
 layout_mode = 2
 
 [node name="FoodIcon" type="TextureRect" parent="HBoxContainer/Recipe Card/VBoxContainer"]
-custom_minimum_size = Vector2(130, 130)
+custom_minimum_size = Vector2(97.5, 97.5)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -56,12 +56,16 @@ layout_mode = 2
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2(112.5, 22.5)
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/background = ExtResource("4_trqgx")
+theme_override_styles/fill = ExtResource("5_mcgka")
 max_value = 1.0
 show_percentage = false
 
@@ -69,3 +73,6 @@ show_percentage = false
 wait_time = 10.0
 one_shot = true
 autostart = true
+script = ExtResource("4_ky4ob")
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

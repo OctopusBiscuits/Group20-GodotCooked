@@ -1,5 +1,5 @@
 extends Button
-
+#This script loads the level picked from the export
 @export var GameLevel: PackedScene
 var UI = load("res://SamHUI/Scenes/UI/Game UI/GameUI.tscn")
 

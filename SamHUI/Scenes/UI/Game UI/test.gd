@@ -9,4 +9,3 @@ func _process(delta: float) -> void:
 		get_tree().paused = true
 		var instance = scene.instantiate()
 		get_node("/root/Layout/UI").add_child(instance)
-	pass

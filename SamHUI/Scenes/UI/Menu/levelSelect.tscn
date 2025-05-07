@@ -38,7 +38,7 @@ theme = ExtResource("1_bgwjo")
 text = "Level 1
 "
 script = ExtResource("2_40lro")
-GameLevel = ExtResource("8_lnfem")
+GameLevel = ExtResource("3_xlq6g")
 
 [node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Level 1"]
 script = ExtResource("5_0odcm")
@@ -55,7 +55,7 @@ layout_mode = 2
 text = "Level 2
 "
 script = ExtResource("2_40lro")
-GameLevel = ExtResource("3_xlq6g")
+GameLevel = ExtResource("8_lnfem")
 
 [node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Level 2"]
 script = ExtResource("5_0odcm")

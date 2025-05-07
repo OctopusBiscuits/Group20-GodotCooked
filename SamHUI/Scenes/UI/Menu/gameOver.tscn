@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxsx65sxyahm2"]
+
+[ext_resource type="Theme" uid="uid://dnccuh2r4i2tb" path="res://SamHUI/Assets/Themes/Menu Theme.tres" id="1_f7ykj"]
+[ext_resource type="Script" uid="uid://c0wmskaorvjwq" path="res://SamHUI/Scripts/UI/Menu/back_to_main_menu.gd" id="2_v0fsk"]
+[ext_resource type="Script" uid="uid://b8vwccfo0c0wn" path="res://SamHUI/Scripts/UI/UI Components/animation_component.gd" id="3_r16r2"]
+[ext_resource type="Script" uid="uid://diuovvswa04iq" path="res://SamHUI/Scripts/UI/UI Components/sound_component.gd" id="4_xhhmm"]
+[ext_resource type="AudioStream" uid="uid://crqrimrew402g" path="res://SamHUI/Assets/Sounds/button.mp3" id="5_2amlv"]
+[ext_resource type="AudioStream" uid="uid://cex214s0ek3nh" path="res://SamHUI/Assets/Sounds/hover-button-287656.mp3" id="6_jd66p"]
+
+[node name="Menu" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_f7ykj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_f7ykj")
+text = "gameover"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Change Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToMainMenu" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_f7ykj")
+theme_type_variation = &"QuitButton"
+text = "Return to main menu"
+script = ExtResource("2_v0fsk")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/BackToMainMenu"]
+script = ExtResource("3_r16r2")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 9
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/BackToMainMenu"]
+script = ExtResource("4_xhhmm")
+click_sound = ExtResource("5_2amlv")
+hover_sound = ExtResource("6_jd66p")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMainMenu" to="PanelContainer/VBoxContainer/BackToMainMenu" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMainMenu" to="PanelContainer/VBoxContainer/BackToMainMenu" method="on_pressed"]

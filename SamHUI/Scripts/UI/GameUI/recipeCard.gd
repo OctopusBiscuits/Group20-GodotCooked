@@ -27,6 +27,9 @@ func setFood(filePath) -> void:
 	get_node("HBoxContainer/Recipe Card/VBoxContainer/FoodIcon").texture = texture
 	pass
 
+func setTimer(seconds) -> void:
+	timer.wait_time = seconds
+
 # Adds specified ingredients to recipe card Unused
 """func addIngredient(ingredientPath, processPath) -> void:
 	var scene = load("res://scenes/ui/Ingredient.tscn")

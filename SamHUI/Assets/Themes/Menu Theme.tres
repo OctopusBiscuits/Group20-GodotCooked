@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dcjqc82mtkr7s" path="res://SamHUI/Assets/Fonts/Bolyfat.ttf" id="1_o7uii"]
 [ext_resource type="FontFile" uid="uid://c601dyip6gfsv" path="res://SamHUI/Assets/Fonts/Banana Stick.otf" id="2_70mnl"]
-[ext_resource type="StyleBox" uid="uid://b7djgxxqsys0w" path="res://SamHUI/Assets/Themes/RecipeCardTheme.tres" id="4_twi3t"]
+[ext_resource type="StyleBox" path="res://SamHUI/Assets/Themes/RecipeCardTheme.tres" id="4_twi3t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_quxjb"]
 content_margin_top = 10.0

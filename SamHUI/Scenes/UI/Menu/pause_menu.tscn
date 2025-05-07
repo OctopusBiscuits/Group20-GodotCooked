@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7ie7tt6pewqi"]
+[gd_scene load_steps=12 format=3 uid="uid://b7ie7tt6pewqi"]
 
 [ext_resource type="Theme" uid="uid://dnccuh2r4i2tb" path="res://SamHUI/Assets/Themes/Menu Theme.tres" id="1_d0ef5"]
 [ext_resource type="Script" uid="uid://cbryj2ag3iamx" path="res://SamHUI/Scripts/UI/Menu/quitSettings.gd" id="2_lcncj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://htetud1s665p" path="res://SamHUI/Scripts/UI/Menu/loadLevelSelect.gd" id="7_ppq2u"]
 [ext_resource type="Script" uid="uid://cnrva7rk4mgo7" path="res://SamHUI/Scripts/UI/Menu/loadSettings.gd" id="8_r2m5b"]
 [ext_resource type="PackedScene" uid="uid://7r0kcsc720xm" path="res://SamHUI/Scenes/UI/Settings/settings.tscn" id="9_ljjdr"]
+[ext_resource type="Script" uid="uid://c0wmskaorvjwq" path="res://SamHUI/Scripts/UI/Menu/back_to_main_menu.gd" id="10_ab2og"]
 [ext_resource type="Script" uid="uid://dc0psp58ws3ux" path="res://SamHUI/Scripts/UI/Menu/quit.gd" id="10_kxpuv"]
 
 [node name="Pause Menu" type="CenterContainer"]
@@ -84,6 +85,23 @@ script = ExtResource("5_tiuqo")
 click_sound = ExtResource("6_ui7hm")
 hover_sound = ExtResource("7_kn250")
 
+[node name="BackToMainMenu" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_d0ef5")
+theme_type_variation = &"QuitButton"
+text = "Return to main menu"
+script = ExtResource("10_ab2og")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/BackToMainMenu"]
+script = ExtResource("4_ewbn6")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 9
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/BackToMainMenu"]
+script = ExtResource("5_tiuqo")
+click_sound = ExtResource("6_ui7hm")
+hover_sound = ExtResource("7_kn250")
+
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_d0ef5")
@@ -104,4 +122,6 @@ hover_sound = ExtResource("7_kn250")
 [connection signal="pressed" from="PanelContainer/VBoxContainer/resume" to="PanelContainer/VBoxContainer/resume" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/New Game" to="PanelContainer/VBoxContainer/New Game" method="on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Settings" to="PanelContainer/VBoxContainer/Settings" method="on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMainMenu" to="PanelContainer/VBoxContainer/BackToMainMenu" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMainMenu" to="PanelContainer/VBoxContainer/BackToMainMenu" method="on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="PanelContainer/VBoxContainer/Quit" method="on_pressed"]
