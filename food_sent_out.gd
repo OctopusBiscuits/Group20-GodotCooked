@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 	
 func _addMeal(plateSent : Node) -> void:
 	print(plateSent.heldObjects[0])
+	
 	print(plateSent.heldObjects[0].name)
 	if (plateSent.heldObjects[0].name != "Onion Soup"):
 		

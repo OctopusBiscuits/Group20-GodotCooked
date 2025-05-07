@@ -143,7 +143,7 @@ transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -1.74002
 transform = Transform3D(-4.37111e-08, 0, -1, 0, 1, 0, 1, 0, -4.37111e-08, 2.9446, 2.08616e-07, 1.586)
 
 [node name="BaseCounter4" parent="." instance=ExtResource("5_sldos")]
-transform = Transform3D(-4.37111e-08, 0, -1, 0, 1, 0, 1, 0, -4.37111e-08, 2.9446, 2.08616e-07, 0.41166)
+transform = Transform3D(-4.37111e-08, 0, -1, 0, 1, 0, 1, 0, -4.37111e-08, 2.88694, 2.08616e-07, -0.751736)
 
 [node name="Plate" parent="." instance=ExtResource("5_q53qx")]
 transform = Transform3D(1, 0, 3.12639e-13, 0, 1, 0, -3.12639e-13, 0, 1, -14.9264, 0.00887166, 1.09502)
@@ -178,7 +178,7 @@ light_volumetric_fog_energy = 1.162
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, -0.828766, 5.96312, 3.59202)
+transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, -0.828766, 5.96312, 3.66669)
 fov = 73.0584
 
 [node name="Node3D" parent="Environment" instance=ExtResource("8_miqie")]
@@ -217,5 +217,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.025, 0, -11.6682)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00965691, 0, -11.6777)
 
 [node name="Hob" parent="." instance=ExtResource("21_ui55b")]
-transform = Transform3D(-1.99992, 0, -0.0174533, 0, 2, 0, 0.0174533, 0, -1.99992, 2.89658, -0.0227886, -0.803521)
+transform = Transform3D(-1.99992, 0, -0.0174533, 0, 2, 0, 0.0174533, 0, -1.99992, 2.89658, -0.0227886, 0.396425)
 itemName = "Stove"
