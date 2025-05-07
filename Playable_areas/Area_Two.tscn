@@ -1,5 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://dkcyow3n7vf4b"]
+[gd_scene load_steps=29 format=3 uid="uid://dkcyow3n7vf4b"]
 
+[ext_resource type="Script" uid="uid://4ubx7qxfhd8s" path="res://SamHUI/Scripts/Level.gd" id="1_j2325"]
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="1_jicv8"]
 [ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="2_f3n6k"]
 [ext_resource type="PackedScene" uid="uid://bxgje2e4eqcdk" path="res://KitchenObjects_Scenes/brick_wall.tscn" id="3_mwa5j"]
@@ -48,6 +49,8 @@ sky = SubResource("Sky_w4yug")
 tonemap_mode = 2
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_j2325")
+level = 1
 
 [node name="Kitchen_Objects" type="Node3D" parent="."]
 transform = Transform3D(-1.62921e-07, 0, 1, 0, 0.8, 0, -1, 0, -1.62921e-07, -1.62629, 0.328981, -3.13037)
@@ -168,7 +171,7 @@ itemName = "Produce Crate"
 itemStored = ExtResource("19_8uncp")
 
 [node name="Produce Crate4" parent="." instance=ExtResource("18_j2325")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 3.53348, 0.423848, -4.16968)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 3.53348, 0.423848, 2.92331)
 itemName = "Produce Crate"
 itemStored = ExtResource("20_52r6b")
 

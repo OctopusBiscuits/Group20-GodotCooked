@@ -13,21 +13,24 @@ func _process(delta: float) -> void:
 	levelTimer -= delta
 	#print(plateWarmer.platesCurrentlyOut)
 	#print(score, mealsNeeded)
-	
+	#print(mealsSent)
 func _addMeal(plateSent : Node) -> void:
+	print("Trying to add")
 	print(plateSent.heldObjects[0])
 	
 	print(plateSent.heldObjects[0].name)
-	if (plateSent.heldObjects[0].name != "Onion Soup"):
+	if (not plateSent.heldObjects[0].name.begins_with("Onio")):
 		
 		mealsSent.append(plateSent.heldObjects[0].itemName)
 	else:
-		print("ONION SOUP YUM YUM")
+		
 		mealsSent.append("Onion Soup")
 	platesOut += 1
 	#print(mealsSent)
 	if (_checkMeal()):
 		score += 1
+		if (levelNode.level == 0):
+			levelNode.recipeCardList[0].queue_free()
 	
 func _checkMeal() -> bool:
 	var index = 0
@@ -37,6 +40,7 @@ func _checkMeal() -> bool:
 		if meal == mealsSent[-1]:
 			
 			mealsNeeded.pop_at(index)
+			print(levelNode.recipesList)
 			return true
 		index += 1
 	return false

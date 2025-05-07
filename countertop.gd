@@ -98,8 +98,8 @@ func can_accept_item(item) -> bool:
 func _physics_process(_delta: float):
 	
 	var nearbyPlayers = _get_nearby_players()
-	if (itemsInStove.size() > 0):
-		print (itemsInStove)
+	
+		#print (itemsInStove)
 		#print(held_item.canGoInOven)
 	for player in nearbyPlayers:
 		#print("nearby player")
@@ -121,7 +121,7 @@ func _physics_process(_delta: float):
 		
 		
 		elif itemName == "Conveyer Belt" and held_item:
-			
+			print(held_item.name)
 			if (held_item.itemName == "Plate" and held_item.heldObjects.size() >= 1):
 				foodSentList._addMeal(held_item)
 				held_item.queue_free()

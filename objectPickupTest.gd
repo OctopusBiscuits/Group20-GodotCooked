@@ -18,6 +18,7 @@ var totalPlayers : Array = []
 @export var objectBeingHeld : PackedScene
 @export var canGoInOven : bool
 @export var timeToCook : float 
+@export var isOnionSoup : bool
 func _ready():
 	#player = get_tree().get_nodes_in_group("Player1")[0]
 	print("Start of ready")

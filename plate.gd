@@ -39,7 +39,8 @@ func _physics_process(_delta):
 		item.global_position = global_position + Vector3(0,0.1,0)
 	if (itemName == "DirtyPlate"):
 		canHoldAnObject = false
-	
+	if (heldObjects.size() > 0):
+		print(heldObjects[0].name)
 	for player in players_in_range:
 		
 		#print("in for loop")
@@ -90,12 +91,14 @@ func _getFoodFromStove(player):
 	var a = 0
 	if (player.currentCounterTop.itemsInStove == player.currentCounterTop.onion_soup):
 		var soup = onionSoup.instantiate()
+		
 		get_parent().add_child(soup)
 		
 		soup.global_position = global_position
 		heldObjects.append(soup)
 		player.currentCounterTop.itemsInStove.clear()
 		player.currentCounterTop.moreInStove = true
+		soup.name = "Onion Soup"
 		print("Trying to get it from stove")
 		#print(heldObjects)
 func _try_pick_up_off_floor(player):
@@ -146,7 +149,7 @@ func _put_item_on_floor(player):
 	player.objectPickedUp = false
 
 func _place_in_container(player):
-	print("placing in container")
+	#print("placing in container")
 	var held_item = player.objectInHand
 	var heldItemName = held_item.itemName
 	#print(held_item)
@@ -161,12 +164,11 @@ func _place_in_container(player):
 	
 	player.objectPickedUp = false
 	player.objectInHand = null
-	print(heldObjects)
-	for child in player.get_children():
-		print(child)
+	#print(heldObjects)
+	
 
 func _take_out_of_container(player):
-	print("taking out")
+	#print("taking out")
 	if heldObjects.is_empty():
 		return
 
