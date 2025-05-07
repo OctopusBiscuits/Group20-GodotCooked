@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://cqmq1wn75vq7s" path="res://uncut_onion.tscn" id="14_ui55b"]
 [ext_resource type="PackedScene" uid="uid://b35qig32bc6j5" path="res://sink.tscn" id="16_q44gh"]
 [ext_resource type="PackedScene" uid="uid://ehag3hi4g5mg" path="res://dough.tscn" id="17_a8k8m"]
+[ext_resource type="PackedScene" uid="uid://tri5xbdxd4dh" path="res://cut_onion.tscn" id="17_ui55b"]
 [ext_resource type="Script" uid="uid://c2pq8afi80dnn" path="res://food_sent_out.gd" id="18_g0yq1"]
 [ext_resource type="PackedScene" uid="uid://b5gcvebiunq53" path="res://produce_crate.tscn" id="18_qcqhk"]
-[ext_resource type="PackedScene" uid="uid://c7fgme8xch6b4" path="res://food/sauce.tscn" id="19_ui55b"]
 [ext_resource type="PackedScene" uid="uid://036jnhf6vyyb" path="res://plateNew.tscn" id="20_qcqhk"]
 [ext_resource type="PackedScene" uid="uid://d0x3pqg67gup0" path="res://food/Mushroom.tscn" id="21_q53qx"]
 [ext_resource type="PackedScene" uid="uid://bt0gg3rj7y1m1" path="res://hob.tscn" id="21_ui55b"]
@@ -182,6 +182,7 @@ clean_plate = ExtResource("20_qcqhk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.976578, 1.08913, 1.57835)
 script = ExtResource("18_g0yq1")
 plateWarmer = NodePath("../Kitchen_Objects/Plate Warmer")
+mealsNeeded = Array[String](["Onion Soup", "Onion Soup", "Onion Soup"])
 
 [node name="Produce Crate" parent="." instance=ExtResource("18_qcqhk")]
 transform = Transform3D(0.399997, 0, 0.00154985, 0, 0.4, 0, -0.00154985, 0, 0.399997, -1.62172, 0.493116, -0.611186)
@@ -201,7 +202,7 @@ itemStored = ExtResource("21_q53qx")
 [node name="Produce Crate4" parent="." instance=ExtResource("18_qcqhk")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.539064, 0.492723, 0.353687)
 itemName = "Produce Crate"
-itemStored = ExtResource("19_ui55b")
+itemStored = ExtResource("17_ui55b")
 
 [node name="Node3D" parent="." instance=ExtResource("22_ykiuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1105, 0.394002, 1.73372)

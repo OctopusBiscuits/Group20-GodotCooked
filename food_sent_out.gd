@@ -8,16 +8,18 @@ extends Node3D
 func _process(delta: float) -> void:
 	levelTimer -= delta
 	#print(plateWarmer.platesCurrentlyOut)
-	
+	#print(score, mealsNeeded)
 func _addMeal(plateSent : Node) -> void:
-	print(plateSent.itemName)
-	if (plateSent.itemName != "Onion Soup"):
+	print(plateSent.heldObjects[0])
+	print(plateSent.heldObjects[0].name)
+	if (plateSent.heldObjects[0].name != "Onion Soup"):
 		
 		mealsSent.append(plateSent.heldObjects[0].itemName)
 	else:
+		print("ONION SOUP YUM YUM")
 		mealsSent.append("Onion Soup")
 	platesOut += 1
-	print(mealsSent)
+	#print(mealsSent)
 	if (_checkMeal()):
 		score += 1
 	
