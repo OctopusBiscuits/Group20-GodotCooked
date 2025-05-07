@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cex214s0ek3nh" path="res://SamHUI/Assets/Sounds/hover-button-287656.mp3" id="8_dlfim"]
 [ext_resource type="PackedScene" uid="uid://dkcyow3n7vf4b" path="res://Playable_areas/Area_Two.tscn" id="8_lnfem"]
 [ext_resource type="Script" uid="uid://kscoab1flb7n" path="res://SamHUI/Scripts/UI/Settings/quitSettings.gd" id="9_6ndrr"]
-[ext_resource type="PackedScene" uid="uid://c6kckxqwawp4a" path="res://Playable_areas/Area_Three.tscn" id="9_bgwjo"]
+[ext_resource type="PackedScene" uid="uid://fjqijfhjto05" path="res://Playable_areas/Area_Four.tscn" id="9_lnfem"]
 
 [node name="Menu" type="CenterContainer"]
 anchors_preset = 15
@@ -72,7 +72,7 @@ layout_mode = 2
 text = "Level 3
 "
 script = ExtResource("2_40lro")
-GameLevel = ExtResource("9_bgwjo")
+GameLevel = ExtResource("9_lnfem")
 
 [node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Level 3"]
 script = ExtResource("5_0odcm")

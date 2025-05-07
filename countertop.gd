@@ -26,9 +26,14 @@ var can_place_in_object := false
 @export var startingItem : PackedScene
 @export var dirty_plate : PackedScene
 var platesCurrentlyOut = 0
+@onready var light: MeshInstance3D
+@export var hob : PackedScene
 
 
 func _ready():
+	if has_node("Area3D/hob/Cube_004"):
+		light = get_node("Area3D/hob/Cube_004")
+		light.visible = false
 	for player in get_tree().get_nodes_in_group("Players"):
 		allPlayers.append(player)
 		#print(allPlayers)
@@ -38,6 +43,7 @@ func _ready():
 		startingItem = itemStored
 	foodSentList = get_tree().get_nodes_in_group("FoodSentPrefab")[0]
 	platesCurrentlyOut = 1
+	print("spawned")
 	if startingItem: #Spawn an item in automatically
 		
 		var item = startingItem.instantiate()
@@ -203,8 +209,11 @@ func _handle_stove(_delta: float):
 
 func _check_for_finished_recipe():
 	if (itemsInStove == onion_soup):
+		light.visible = true
 		print("ONION SOUP")
 		moreInStove = false
+	else:
+		light.visible = false
 		
 func _remove_item():
 	held_item = null

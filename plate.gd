@@ -19,7 +19,7 @@ var takingFromStove : bool = false
 @export var timeToClean : float
 @export var canGoInOven : bool = false
 @export var onionSoup : PackedScene
-
+@export var newHob : PackedScene
 
 func _on_area_3d_body_entered(body):
 	
@@ -95,6 +95,16 @@ func _getFoodFromStove(player):
 		soup.global_position = global_position
 		heldObjects.append(soup)
 		#player.currentCounterTop.itemsInStove = []
+		var pos = player.currentCounterTop.global_position
+		var rot = player.currentCounterTop.global_transform.basis.get_euler()
+		var scale = player.currentCounterTop.scale
+		player.currentCounterTop.queue_free()
+		var newHobLoc = newHob.instantiate()
+		get_tree().current_scene.add_child(newHobLoc)
+		newHobLoc.global_position = Vector3(2.89, -0.023, -0.804)
+		newHobLoc.rotation = rot
+		newHobLoc.scale = scale
+		print(newHobLoc.global_position)
 		print("Trying to get it from stove")
 		#print(heldObjects)
 func _try_pick_up_off_floor(player):

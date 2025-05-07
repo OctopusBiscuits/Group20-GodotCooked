@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://036jnhf6vyyb"]
+[gd_scene load_steps=6 format=3 uid="uid://036jnhf6vyyb"]
 
 [ext_resource type="PackedScene" uid="uid://bltrgefklygjn" path="res://pan.tscn" id="1_4pf1m"]
 [ext_resource type="Script" uid="uid://dv5o5ad5ok4s2" path="res://plate.gd" id="2_ovrww"]
 [ext_resource type="PackedScene" uid="uid://c1gwabnjtikb0" path="res://onion_soup.tscn" id="3_ovrww"]
 [ext_resource type="PackedScene" uid="uid://56uvj8nolb0l" path="res://Godot game/pots and pans/china plate.blend" id="3_u3vr5"]
+[ext_resource type="PackedScene" uid="uid://bt0gg3rj7y1m1" path="res://hob.tscn" id="4_u3vr5"]
 
 [node name="Plate" instance=ExtResource("1_4pf1m")]
 
@@ -15,6 +16,7 @@ holdingAnObject = true
 heldObjects = []
 timeToClean = 0.0
 onionSoup = ExtResource("3_ovrww")
+newHob = ExtResource("4_u3vr5")
 
 [node name="CollisionShape3D" parent="test/PickUpArea3D" index="0"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -0.0283691, 0.0362321)
