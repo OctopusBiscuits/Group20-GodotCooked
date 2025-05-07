@@ -7,7 +7,7 @@
 
 [node name="test" parent="." index="0"]
 canUseStove = true
-itemName = "Cut_Onion"
+itemName = "Cut Onion"
 
 [node name="CollisionShape3D" parent="test/PickUpArea3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

@@ -10,7 +10,12 @@ func _process(delta: float) -> void:
 	#print(plateWarmer.platesCurrentlyOut)
 	
 func _addMeal(plateSent : Node) -> void:
-	mealsSent.append(plateSent.heldObjects[0].itemName)
+	print(plateSent.itemName)
+	if (plateSent.itemName != "Onion Soup"):
+		
+		mealsSent.append(plateSent.heldObjects[0].itemName)
+	else:
+		mealsSent.append("Onion Soup")
 	platesOut += 1
 	print(mealsSent)
 	if (_checkMeal()):

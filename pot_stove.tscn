@@ -5,9 +5,16 @@
 
 [node name="Pot Stove" instance=ExtResource("1_poux1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = null
+
+[node name="Area3D" parent="." index="0"]
+script = null
 
 [node name="Counter 1" parent="Area3D" index="0"]
 visible = false
+
+[node name="CollisionShape3D" parent="Area3D" index="2"]
+script = null
 
 [node name="sauce pan" parent="Area3D" index="3" instance=ExtResource("2_1dg5q")]
 transform = Transform3D(0.35, 0, 0, 0, 0.25, 0, 0, 0, 0.35, -0.0260482, 0.471801, 0.0284469)

@@ -98,7 +98,7 @@ func _handle_put_down(player):
 		print("Cannot put down here")
 		return
 	if player.currentCounterTop and not player.currentCounterTop._getItemOnCounterTop() and player.currentCounterTop.itemName != "Hob" and player.currentCounterTop.itemName != "Produce Crate":
-		print("Going on countertop")
+		print("Going on countertop", player.currentCounterTop.itemName)
 		_put_on_countertop(player)
 	
 	else:
@@ -121,6 +121,7 @@ func _put_on_floor(player):
 func _put_on_countertop(player) -> void:
 	var counter = player.currentCounterTop as Countertop
 	if (not counter.can_accept_item(self)):
+		print("canot go on stove")
 		return
 	reparent(counter)
 	global_position = counter.global_position + Vector3(0, 0.5, 0)

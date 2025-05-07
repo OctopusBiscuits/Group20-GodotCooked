@@ -19,7 +19,7 @@ class_name Countertop
 @export var allPlayers : Array = []
 @export var cut_mushroom : PackedScene
 var moreInStove = true
-var onion_soup : Array[String ]= ["Cut_Onion", "Cut_Onion", "Cut_Onion"]
+var onion_soup : Array[String ]= ["Cut Onion", "Cut Onion", "Cut Onion"]
 @export var itemOnCountertop := false
 @export var held_item: Node = null
 var can_place_in_object := false
@@ -52,7 +52,7 @@ func _ready():
 	
 	#print(foodSentList)
 func _on_area_3d_body_entered(body: Node3D) -> void: 
-	if itemName == "Conveyer Belt":
+	if itemName == "Stove":
 		print("Area entered")
 	if body.name == "Little Fella":
 		if not self in body.nearbyCounterTops:
@@ -83,7 +83,7 @@ func can_accept_item(item) -> bool:
 		else:
 			return false
 	elif itemName == "Stove":
-		return item.itemName == "Plate" or item.itemName == "Pot"  
+		return item.itemName == "Cut Onion"
 	elif itemName == "Conveyer Belt" and item.itemName == "Plate":
 		return item.heldObjects.size() > 0
 	else:
@@ -111,10 +111,7 @@ func _physics_process(_delta: float):
 			can_place_in_object = held_item.canHoldAnObject and not held_item.holdingAnObject
 		#print("GOt here for hob")
 			_handle_hob(_delta)
-		elif itemName == "Sink" and held_item:
-			print("Got here")
-			if held_item.itemName == "DirtyPlate":
-				_handle_washing(_delta, player)
+		
 		
 		elif itemName == "Conveyer Belt" and held_item:
 			
@@ -134,10 +131,15 @@ func _physics_process(_delta: float):
 				
 				_handle_oven(_delta)
 	elif itemName == "Stove" and held_item:
-			_handle_stove(_delta)
-			_check_for_finished_recipe()
+		print("Stovey mc stoveface")
+		_handle_stove(_delta)
+		_check_for_finished_recipe()
 	elif itemName == "Plate Warmer":
 		_handle_plate_warmer()
+	elif itemName == "Sink" and held_item:
+			print("Got here")
+			if held_item.itemName == "DirtyPlate":
+				_handle_washing(_delta, null)
 func _changeItemOnCounterTop() -> void:
 	if itemOnCountertop == true:
 		itemOnCountertop = false

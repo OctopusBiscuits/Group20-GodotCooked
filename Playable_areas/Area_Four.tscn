@@ -177,12 +177,7 @@ clean_plate = ExtResource("7_kkoh6")
 [node name="Timer + Food Sent" type="Node3D" parent="." node_paths=PackedStringArray("plateWarmer") groups=["FoodSentPrefab"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.976578, 1.08913, 1.57835)
 script = ExtResource("12_oaqg0")
-mealsSent = null
-levelTimer = null
-platesOut = null
 plateWarmer = NodePath("../Kitchen_Objects/Basic_Cabinet_PlateWarmer/Plate Warmer")
-score = null
-mealsNeeded = null
 
 [node name="Produce Crate" parent="." instance=ExtResource("13_2uxg1")]
 transform = Transform3D(0.399997, 0, 0.00154985, 0, 0.4, 0, -0.00154985, 0, 0.399997, 5.2347, 0.493116, 2.83832)
