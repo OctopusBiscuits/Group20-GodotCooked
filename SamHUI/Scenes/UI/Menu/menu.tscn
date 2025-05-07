@@ -49,23 +49,6 @@ script = ExtResource("3_074mh")
 click_sound = ExtResource("4_slmnr")
 hover_sound = ExtResource("5_ginor")
 
-[node name="Settings" type="Button" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "Settings
-"
-script = ExtResource("6_uh8h7")
-scene = ExtResource("7_1ecj2")
-
-[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Settings"]
-script = ExtResource("2_t57so")
-hover_scale = Vector2(1.25, 1.25)
-transition_type = 9
-
-[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/Settings"]
-script = ExtResource("3_074mh")
-click_sound = ExtResource("4_slmnr")
-hover_sound = ExtResource("5_ginor")
-
 [node name="HowToPlay" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "How To Play
@@ -79,6 +62,23 @@ hover_scale = Vector2(1.25, 1.25)
 transition_type = 9
 
 [node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/HowToPlay"]
+script = ExtResource("3_074mh")
+click_sound = ExtResource("4_slmnr")
+hover_sound = ExtResource("5_ginor")
+
+[node name="Settings" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings
+"
+script = ExtResource("6_uh8h7")
+scene = ExtResource("7_1ecj2")
+
+[node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/Settings"]
+script = ExtResource("2_t57so")
+hover_scale = Vector2(1.25, 1.25)
+transition_type = 9
+
+[node name="SoundComponent" type="Node" parent="PanelContainer/VBoxContainer/Settings"]
 script = ExtResource("3_074mh")
 click_sound = ExtResource("4_slmnr")
 hover_sound = ExtResource("5_ginor")
@@ -101,6 +101,6 @@ click_sound = ExtResource("4_slmnr")
 hover_sound = ExtResource("5_ginor")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/New Game" to="PanelContainer/VBoxContainer/New Game" method="on_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Settings" to="PanelContainer/VBoxContainer/Settings" method="on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HowToPlay" to="PanelContainer/VBoxContainer/HowToPlay" method="on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Settings" to="PanelContainer/VBoxContainer/Settings" method="on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="PanelContainer/VBoxContainer/Quit" method="on_pressed"]
