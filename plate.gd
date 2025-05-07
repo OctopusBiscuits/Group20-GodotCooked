@@ -8,7 +8,7 @@ var countertop : Node = null
 var player : Node = null
 var players_in_range : Array = []
 var canUseStove = false
-
+var takingFromStove : bool = false
 # === Item Properties ===
 @export var cutsNeeded = 0
 @export var itemName : String
@@ -91,9 +91,10 @@ func _getFoodFromStove(player):
 	if (player.currentCounterTop.itemsInStove == player.currentCounterTop.onion_soup):
 		var soup = onionSoup.instantiate()
 		get_parent().add_child(soup)
-
+		
 		soup.global_position = global_position
 		heldObjects.append(soup)
+		player.currentCounterTop.itemsInStove = []
 		print("Trying to get it from stove")
 		#print(heldObjects)
 func _try_pick_up_off_floor(player):
