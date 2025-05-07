@@ -153,6 +153,7 @@ func _place_in_container(player):
 		print("DEBUG: Trying to switch")
 		countertop._getNewItemOnCounterTop(player)
 	if (held_item.itemName == "Sauce" and itemName == "Pizza Base"):
+		print("here")
 		itemName = "PizzaBaseNowWithSauce"
 		countertop._getNewItemOnCounterTop(player)
 	if (held_item.itemName == "Cut Mushroom" and itemName == "PizzaBaseNowWithCheese"):

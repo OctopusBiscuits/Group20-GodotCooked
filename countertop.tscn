@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dmmkrwpqjjoba" path="res://food/cooked pizza w cheese.tscn" id="9_6sa43"]
 [ext_resource type="PackedScene" uid="uid://c51hmcmfxtjxv" path="res://food/cooked pizza w mushroom.tscn" id="10_yddqi"]
 [ext_resource type="PackedScene" uid="uid://d0x3pqg67gup0" path="res://food/Mushroom.tscn" id="11_431f6"]
-[ext_resource type="PackedScene" uid="uid://uchvd3ony1l5" path="res://sauceNew.tscn" id="12_0ubbe"]
+[ext_resource type="PackedScene" uid="uid://c7fgme8xch6b4" path="res://food/sauce.tscn" id="12_kneka"]
 [ext_resource type="PackedScene" uid="uid://bii8jpy2w6r50" path="res://MushroomHalf.tscn" id="13_s34im"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ce8re"]
@@ -39,7 +39,7 @@ pizza_base_mushroom = ExtResource("8_lpc7f")
 cooked_pizza_base_cheese = ExtResource("9_6sa43")
 cooked_pizza_base_mushroom = ExtResource("10_yddqi")
 mushroom = ExtResource("11_431f6")
-Sauce = ExtResource("12_0ubbe")
+Sauce = ExtResource("12_kneka")
 cut_mushroom = ExtResource("13_s34im")
 
 [node name="Area3D" type="Area3D" parent="."]

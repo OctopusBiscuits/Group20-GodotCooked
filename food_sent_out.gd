@@ -33,7 +33,7 @@ func _addMeal(plateSent : Node) -> void:
 	if (_checkMeal()):
 		score += 1
 		
-		if (levelNode.level == 0 or levelNode.level == 1):
+		if (levelNode.level == 0 or levelNode.level == 1 or levelNode.level == 2):
 			if levelNode.recipeCardList != null:
 				
 				levelNode.recipeCardList[0].queue_free()

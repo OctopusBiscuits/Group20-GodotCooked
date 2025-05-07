@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="2_nas62"]
 [ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="3_q54t8"]
 [ext_resource type="PackedScene" uid="uid://bxgje2e4eqcdk" path="res://KitchenObjects_Scenes/brick_wall.tscn" id="4_nas62"]
-[ext_resource type="PackedScene" uid="uid://c7fgme8xch6b4" path="res://food/sauce.tscn" id="4_qcqhk"]
 [ext_resource type="PackedScene" uid="uid://cm0mq13r8qmk6" path="res://dirtyPlate.tscn" id="5_q53qx"]
 [ext_resource type="PackedScene" uid="uid://bupvmbk3r352o" path="res://countertop.tscn" id="5_sldos"]
 [ext_resource type="PackedScene" uid="uid://b0ekbq6mpm8ya" path="res://KitchenObjects_Scenes/basic_cabinet_plate_warmer.tscn" id="6_ui55b"]
 [ext_resource type="PackedScene" uid="uid://bhtrdjvyptjv5" path="res://KitchenObjects_Scenes/poster.tscn" id="8_miqie"]
 [ext_resource type="PackedScene" uid="uid://brl0b1sljwoyn" path="res://KitchenObjects_Scenes/cutting_board.tscn" id="8_q53qx"]
+[ext_resource type="PackedScene" uid="uid://b7iuf1dnxsro4" path="res://decor/knife rackblend.blend" id="13_ui55b"]
 [ext_resource type="PackedScene" uid="uid://cqmq1wn75vq7s" path="res://uncut_onion.tscn" id="14_ui55b"]
 [ext_resource type="PackedScene" uid="uid://b35qig32bc6j5" path="res://sink.tscn" id="16_q44gh"]
 [ext_resource type="Script" uid="uid://c2pq8afi80dnn" path="res://food_sent_out.gd" id="18_g0yq1"]
@@ -58,7 +58,6 @@ transform = Transform3D(-1.62921e-07, 0, 1, 0, 0.8, 0, -1, 0, -1.62921e-07, -1.6
 
 [node name="TrashCan" parent="Kitchen_Objects" instance=ExtResource("3_q54t8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.93375, 0, -2.60872)
-Sauce = ExtResource("4_qcqhk")
 
 [node name="brick wall2" parent="Kitchen_Objects" instance=ExtResource("4_nas62")]
 transform = Transform3D(-0.8, 0, 1.65306e-07, 0, 1, 0, -1.65306e-07, 0, -0.8, 0.607155, -0.487231, -3.14494)
@@ -184,10 +183,12 @@ fov = 73.0584
 [node name="Node3D" parent="Environment" instance=ExtResource("8_miqie")]
 transform = Transform3D(-1.33183e-07, 3, 7.27607e-08, 0, 5.96046e-08, -3.05181, -3.04688, -1.31134e-07, -3.18047e-15, -4.58578, 1.43768, 1.8693)
 
+[node name="knife rackblend" parent="Environment" instance=ExtResource("13_ui55b")]
+transform = Transform3D(-2.3167e-08, 0, -0.53, 0, 0.53, 0, 0.53, 0, -2.3167e-08, -0.932137, 1.57139, -3.65583)
+
 [node name="Sink" parent="." instance=ExtResource("16_q44gh")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.596902, 0.00090472, 2.75763)
 clean_plate = ExtResource("20_qcqhk")
-Sauce = ExtResource("4_qcqhk")
 
 [node name="Timer + Food Sent" type="Node3D" parent="." node_paths=PackedStringArray("plateWarmer", "levelNode") groups=["FoodSentPrefab"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.976578, 1.08913, 1.57835)
@@ -200,7 +201,6 @@ levelNode = NodePath("..")
 transform = Transform3D(0.399997, 0, 0.00154985, 0, 0.4, 0, -0.00154985, 0, 0.399997, 0.525105, 0.493116, -2.97547)
 itemName = "Produce Crate"
 itemStored = ExtResource("14_ui55b")
-Sauce = ExtResource("4_qcqhk")
 
 [node name="Node3D" parent="." instance=ExtResource("22_ykiuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1105, 0.394002, 1.73372)
@@ -208,7 +208,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1105, 0.394002, 1.73372)
 [node name="Conveyer" parent="." instance=ExtResource("23_q53qx")]
 transform = Transform3D(-2.22062e-08, 0, -0.566, 0, 0.566, 0, 0.50802, 0, -2.47406e-08, -6.92273, -0.0559986, 0.0745777)
 itemName = "Conveyer Belt"
-Sauce = ExtResource("4_qcqhk")
 
 [node name="IllusionCounter" parent="." instance=ExtResource("21_ykiuy")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.93301, 0.475067, 2.74653)
@@ -219,4 +218,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00965691, 0, -11.6777)
 [node name="Hob" parent="." instance=ExtResource("21_ui55b")]
 transform = Transform3D(-1.99992, 0, -0.0174533, 0, 2, 0, 0.0174533, 0, -1.99992, 2.89658, -0.0227886, 0.396425)
 itemName = "Stove"
-Sauce = ExtResource("4_qcqhk")

@@ -15,8 +15,8 @@ var recipesList = [
 	[["Onion Soup", onionSoup, 300], ["Onion Soup", onionSoup, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300]]
 	]
 var levelOneRecipe = [["Onion Soup", onionSoup, 90], ["Onion Soup", onionSoup, 110], ["Onion Soup", onionSoup, 130], ["Onion Soup", onionSoup, 150], ["Onion Soup", onionSoup, 150]]
-var levelTwoRecipe = [["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizza", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizza", pizzaCheese, 300]]
-var levelThreeRecipe = [["Onion Soup", onionSoup, 300], ["Onion Soup", onionSoup, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300]]
+var levelTwoRecipe = [["pizzaCheese", pizzaCheese, 300], ["pizza", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300], ["pizza", pizzaCheese, 300]]
+var levelThreeRecipe = [["Onion Soup", onionSoup, 300], ["Onion Soup", onionSoup, 300], ["pizzaCheese", pizzaCheese, 300], ["pizzaCheese", pizzaCheese, 300]]
 func _ready() -> void:
 	var theList = []
 	if level == 0:
