@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bg176v2vnwcm1" path="res://SamHUI/Scripts/UI/GameUI/recipeCard.gd" id="1_2w7eq"]
 [ext_resource type="Texture2D" uid="uid://c5nrnsukx3th0" path="res://SamHUI/Assets/Textures/salad.png" id="2_bo4na"]
-[ext_resource type="StyleBox" path="res://SamHUI/Assets/Themes/RecipeCardTheme.tres" id="2_sl2mp"]
+[ext_resource type="StyleBox" uid="uid://b7djgxxqsys0w" path="res://SamHUI/Assets/Themes/RecipeCardTheme.tres" id="2_sl2mp"]
 [ext_resource type="Script" uid="uid://ikqh6c1yvlpj" path="res://SamHUI/Scripts/UI/GameUI/timer.gd" id="4_ky4ob"]
 [ext_resource type="StyleBox" uid="uid://dx62xenshlxu" path="res://SamHUI/Assets/Themes/ProgressBar.tres" id="4_trqgx"]
 [ext_resource type="StyleBox" uid="uid://cw0ysh4u8hhxo" path="res://SamHUI/Assets/Themes/ProgressBarFill.tres" id="5_mcgka"]
