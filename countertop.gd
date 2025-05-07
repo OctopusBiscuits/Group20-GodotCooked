@@ -98,7 +98,8 @@ func can_accept_item(item) -> bool:
 func _physics_process(_delta: float):
 	
 	var nearbyPlayers = _get_nearby_players()
-	
+	if (itemsInStove.size() > 0):
+		print (itemsInStove)
 		#print(held_item.canGoInOven)
 	for player in nearbyPlayers:
 		#print("nearby player")
