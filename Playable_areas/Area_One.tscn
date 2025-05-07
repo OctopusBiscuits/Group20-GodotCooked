@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://wakc5js5sl28"]
+[gd_scene load_steps=29 format=3 uid="uid://wakc5js5sl28"]
 
 [ext_resource type="Texture2D" uid="uid://djuknffyax3oa" path="res://Undercooked/Flooring Checker.png" id="1_3axvw"]
+[ext_resource type="Script" uid="uid://4ubx7qxfhd8s" path="res://SamHUI/Scripts/Level.gd" id="1_ykiuy"]
 [ext_resource type="PackedScene" uid="uid://dgj2bbfi5p3wr" path="res://chefin.tscn" id="2_nas62"]
 [ext_resource type="PackedScene" uid="uid://c8jp50tkorllm" path="res://trash_can.tscn" id="3_q54t8"]
 [ext_resource type="PackedScene" uid="uid://bxgje2e4eqcdk" path="res://KitchenObjects_Scenes/brick_wall.tscn" id="4_nas62"]
@@ -48,6 +49,7 @@ sky = SubResource("Sky_w4yug")
 tonemap_mode = 2
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_ykiuy")
 
 [node name="chef" parent="." instance=ExtResource("2_nas62")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -2.61589, 0.066937, -1.73532)
@@ -168,7 +170,7 @@ light_volumetric_fog_energy = 1.162
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, -0.828766, 6.96312, 2.59202)
+transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, -0.828766, 5.96312, 3.59202)
 fov = 73.0584
 
 [node name="Node3D" parent="Environment" instance=ExtResource("8_miqie")]
