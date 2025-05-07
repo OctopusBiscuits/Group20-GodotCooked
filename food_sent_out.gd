@@ -6,6 +6,7 @@ extends Node3D
 func _process(delta: float) -> void:
 	levelTimer -= delta
 	print(plateWarmer.platesCurrentlyOut)
+	
 func _addMeal(plateSent : Node) -> void:
 	mealsSent.append(plateSent.heldObjects[0].itemName)
 	platesOut += 1

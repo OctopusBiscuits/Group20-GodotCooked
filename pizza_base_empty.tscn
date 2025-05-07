@@ -9,6 +9,7 @@
 [node name="test" parent="." index="0"]
 script = ExtResource("2_bfvj5")
 itemName = "Pizza Base"
+timeToCook = 5
 
 [node name="pizza base" parent="test/PickUpArea3D" index="3" instance=ExtResource("3_bxoqc")]
 

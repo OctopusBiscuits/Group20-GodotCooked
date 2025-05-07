@@ -95,7 +95,7 @@ func _getFoodFromStove(player):
 		soup.global_position = global_position
 		heldObjects.append(soup)
 		print("Trying to get it from stove")
-		print(heldObjects)
+		#print(heldObjects)
 func _try_pick_up_off_floor(player):
 	if Input.is_action_just_pressed("Toggle Pickup"):
 		_pick_up(player)
@@ -147,7 +147,7 @@ func _place_in_container(player):
 	print("placing in container")
 	var held_item = player.objectInHand
 	var heldItemName = held_item.itemName
-	print(held_item)
+	#print(held_item)
 	if not held_item:
 		return
 	

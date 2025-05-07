@@ -115,7 +115,7 @@ func _physics_process(_delta: float):
 				_handle_washing(_delta, player)
 		
 		elif itemName == "Conveyer Belt" and held_item:
-			print("In here")
+			
 			if (held_item.itemName == "Plate" and held_item.heldObjects.size() >= 1):
 				foodSentList._addMeal(held_item)
 				held_item.queue_free()
@@ -176,13 +176,13 @@ func _handle_oven(_delta: float):
 	if (held_item.timeToCook <= 0):
 		print("COOKED")
 		if (held_item.itemName == "PizzaBaseNowWithCheeseMushroom"):
-			print("In the if")
+			
 			held_item.itemName = "CookedPizzaBaseNowWithCheeseMushroom"
 			print(held_item.itemName)
 			_getNewItemOnCounterTop(null)
 func _handle_plate_warmer():
-	if (platesCurrentlyOut > 0 and held_item == null):
-		platesCurrentlyOut -= 1
+	if (foodSentList.platesOut > 0 and held_item == null):
+		foodSentList.platesOut -= 1
 		_getNewItemOnCounterTop(null)
 func _place_item(item: Node):
 	held_item = item

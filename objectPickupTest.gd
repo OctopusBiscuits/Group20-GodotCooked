@@ -84,7 +84,7 @@ func _physics_process(_delta) -> void:
 	
 func pickup_from_countertop(player):
 	print("Picking up from countertop")
-	print(player.currentCounterTop)
+	#print(player.currentCounterTop)
 	#print(itemName)
 	player.currentCounterTop._remove_item()
 	player.objectPickedUp = true
