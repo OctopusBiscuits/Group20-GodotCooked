@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://biqico2pl15i0"]
+[gd_scene load_steps=12 format=3 uid="uid://biqico2pl15i0"]
 
 [ext_resource type="Theme" uid="uid://dnccuh2r4i2tb" path="res://SamHUI/Assets/Themes/Menu Theme.tres" id="1_hhs78"]
-[ext_resource type="Texture2D" uid="uid://cbqkk8mx0cyfh" path="res://SamHUI/Assets/Textures/Keyboard/WASD.png" id="2_7826n"]
+[ext_resource type="Texture2D" uid="uid://sowb81g6k5xq" path="res://SamHUI/Assets/Textures/soup icon.png" id="3_fr20d"]
+[ext_resource type="Texture2D" uid="uid://bac3le2upd8jv" path="res://SamHUI/Assets/Textures/pizza.png" id="4_jqxb2"]
+[ext_resource type="Texture2D" uid="uid://b6f86wmg1tnva" path="res://SamHUI/Assets/Textures/pizza with sauce.png" id="5_hhs78"]
 [ext_resource type="FontFile" uid="uid://c601dyip6gfsv" path="res://SamHUI/Assets/Fonts/Banana Stick.otf" id="6_4ps2g"]
 [ext_resource type="Script" uid="uid://kscoab1flb7n" path="res://SamHUI/Scripts/UI/Settings/quitSettings.gd" id="7_j0lsq"]
 [ext_resource type="Script" uid="uid://b8vwccfo0c0wn" path="res://SamHUI/Scripts/UI/UI Components/animation_component.gd" id="8_c5ibq"]
@@ -39,56 +41,44 @@ vertical_alignment = 1
 [node name="Info2" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="onion soup text" type="Label" parent="PanelContainer/VBoxContainer/Info2"]
-layout_mode = 2
-theme = SubResource("Theme_jbo0i")
-text = "Onion soup"
-
 [node name="onion soup" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Info2"]
 layout_mode = 2
 
 [node name="Onion Soup" type="TextureRect" parent="PanelContainer/VBoxContainer/Info2/onion soup"]
 layout_mode = 2
-texture = ExtResource("2_7826n")
+texture = ExtResource("3_fr20d")
 
 [node name="onion soup text" type="Label" parent="PanelContainer/VBoxContainer/Info2/onion soup"]
 layout_mode = 2
 theme = SubResource("Theme_jbo0i")
-text = "Onion soup"
-
-[node name="pizza text" type="Label" parent="PanelContainer/VBoxContainer/Info2"]
-layout_mode = 2
-theme = SubResource("Theme_jbo0i")
-text = "Pizza"
+text = "Onion soup
+-3 cut Onions in a pot"
 
 [node name="pizza" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Info2"]
 layout_mode = 2
 
 [node name="Pizza" type="TextureRect" parent="PanelContainer/VBoxContainer/Info2/pizza"]
 layout_mode = 2
-texture = ExtResource("2_7826n")
+texture = ExtResource("4_jqxb2")
 
 [node name="pizza text" type="Label" parent="PanelContainer/VBoxContainer/Info2/pizza"]
 layout_mode = 2
 theme = SubResource("Theme_jbo0i")
-text = "Onion soup"
+text = "Cheese Pizza
+-Pizza Base + sauce + cheese in an oven"
 
-[node name="pizza cheese text" type="Label" parent="PanelContainer/VBoxContainer/Info2"]
+[node name="mushroom pizza2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Info2"]
+layout_mode = 2
+
+[node name="mushroom pizza" type="TextureRect" parent="PanelContainer/VBoxContainer/Info2/mushroom pizza2"]
+layout_mode = 2
+texture = ExtResource("5_hhs78")
+
+[node name="mushroom pizza2" type="Label" parent="PanelContainer/VBoxContainer/Info2/mushroom pizza2"]
 layout_mode = 2
 theme = SubResource("Theme_jbo0i")
-text = "Cheese Pizza"
-
-[node name="Pizza cheese" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Info2"]
-layout_mode = 2
-
-[node name="Pizza Cheese" type="TextureRect" parent="PanelContainer/VBoxContainer/Info2/Pizza cheese"]
-layout_mode = 2
-texture = ExtResource("2_7826n")
-
-[node name="onion soup text" type="Label" parent="PanelContainer/VBoxContainer/Info2/Pizza cheese"]
-layout_mode = 2
-theme = SubResource("Theme_jbo0i")
-text = "Onion soup"
+text = "Mushroom Pizza
+-pizza base + sauce + cheese + mushroom in an oven"
 
 [node name="Bottom Buttons" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
