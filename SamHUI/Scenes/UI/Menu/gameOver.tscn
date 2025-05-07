@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dxsx65sxyahm2"]
 
 [ext_resource type="Theme" uid="uid://dnccuh2r4i2tb" path="res://SamHUI/Assets/Themes/Menu Theme.tres" id="1_f7ykj"]
-[ext_resource type="Script" uid="uid://c0wmskaorvjwq" path="res://SamHUI/Scripts/UI/Menu/back_to_main_menu.gd" id="2_v0fsk"]
+[ext_resource type="Script" path="res://SamHUI/Scripts/UI/Menu/back_to_main_menu.gd" id="2_v0fsk"]
 [ext_resource type="Script" uid="uid://b8vwccfo0c0wn" path="res://SamHUI/Scripts/UI/UI Components/animation_component.gd" id="3_r16r2"]
 [ext_resource type="Script" uid="uid://diuovvswa04iq" path="res://SamHUI/Scripts/UI/UI Components/sound_component.gd" id="4_xhhmm"]
 [ext_resource type="AudioStream" uid="uid://crqrimrew402g" path="res://SamHUI/Assets/Sounds/button.mp3" id="5_2amlv"]
@@ -51,5 +51,5 @@ script = ExtResource("4_xhhmm")
 click_sound = ExtResource("5_2amlv")
 hover_sound = ExtResource("6_jd66p")
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMainMenu" to="PanelContainer/VBoxContainer/BackToMainMenu" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMainMenu" to="PanelContainer/VBoxContainer/BackToMainMenu" method="on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMainMenu" to="PanelContainer/VBoxContainer/BackToMainMenu" method="_on_pressed"]

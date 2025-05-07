@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr123rhf805em"]
-
-[ext_resource type="PackedScene" uid="uid://t1icf46unrgc" path="res://NEW ASSETS/pots and pans/plate.fbx" id="1_7nv0j"]
+[gd_scene load_steps=2 format=3 uid="uid://cr123rhf805em"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0oleh"]
 height = 0.70901
@@ -9,8 +7,18 @@ height = 0.70901
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
-[node name="plate" parent="RigidBody3D" instance=ExtResource("1_7nv0j")]
+[node name="plate" parent="RigidBody3D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(0.634189, 0, 0, 0, 0.118298, 0, 0, 0, 0.632378, -0.00114714, -0.00921034, 0)

@@ -6,6 +6,9 @@ extends Node3D
 @export var score : int = 0
 @export var mealsNeeded : Array[String] = []
 @export var levelNode : Node
+@export var counter : int = 0
+@export var l3Counter1 : int = 0
+@export var l3Counter2 : int = 5
 func _ready() -> void:
 	
 	print(mealsNeeded)
@@ -31,13 +34,23 @@ func _addMeal(plateSent : Node) -> void:
 		score += 1
 		
 		if (levelNode.level == 0 or levelNode.level == 1):
-			levelNode.recipeCardList[0].queue_free()
+			if levelNode.recipeCardList != null:
+				
+				levelNode.recipeCardList[0].queue_free()
+				levelNode.recipeCardList.remove_at(0)
+				print("this is recipelist",levelNode.recipeCardList)
+				counter += 1
 		else:
 			if mealsSent[-1] == "Onion Soup":
 				levelNode.recipeCardList[0].queue_free()
+				l3Counter1 += 1
+				levelNode.recipeCardList.remove_at(0)
 			else:
+				print("one las tpizza")
+				levelNode.recipeCardList[0].queue_free()
+				l3Counter2 -= 1
+				levelNode.recipeCardList.remove_at(levelNode.recipeCardList.size() -1)
 				
-				levelNode.recipeCardList[-1].queue_free()
 	
 func _checkMeal() -> bool:
 	var index = 0

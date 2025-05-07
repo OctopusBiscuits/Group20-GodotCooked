@@ -9,6 +9,9 @@
 itemName = "Uncut Cheese"
 canGoInOven = false
 
+[node name="PickUpArea3D" parent="test" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
 [node name="Onion" parent="test/PickUpArea3D" index="2"]
 visible = false
 

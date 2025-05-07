@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfldv76vgwgwj"]
+
+[ext_resource type="PackedScene" uid="uid://dxsx65sxyahm2" path="res://SamHUI/Scenes/UI/Menu/gameOver.tscn" id="1_ycfos"]
+
+[node name="Menu" instance=ExtResource("1_ycfos")]
+
+[node name="Title" parent="PanelContainer/VBoxContainer" index="0"]
+text = "you winner!"

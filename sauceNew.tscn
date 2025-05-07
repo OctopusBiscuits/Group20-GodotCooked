@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://uchvd3ony1l5"]
+
+[ext_resource type="PackedScene" uid="uid://5a22lmu4nkul" path="res://pickupObject.tscn" id="1_uvibd"]
+[ext_resource type="PackedScene" uid="uid://ccvju1l2r6nsl" path="res://food/jar V2.res" id="2_pxp48"]
+
+[node name="Node3D" instance=ExtResource("1_uvibd")]
+
+[node name="test" parent="." index="0"]
+itemName = "Sauce"
+
+[node name="MeshInstance3D" parent="test/PickUpArea3D" index="1"]
+visible = false
+
+[node name="jar V2" parent="test/PickUpArea3D" index="2" instance=ExtResource("2_pxp48")]
+transform = Transform3D(0.355, 0, 0, 0, 0.355, 0, 0, 0, 0.355, 0, 0, 0)
